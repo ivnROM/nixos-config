@@ -25,7 +25,7 @@
         "col.inactive_border" = lib.mkDefault "rgba(595959aa)";
         border_size = 0;
 
-        resize_on_border = false;
+        resize_on_border = true;
         allow_tearing = false;
         layout = "dwindle";
       };
@@ -119,7 +119,26 @@
         "$mainMod SHIFT, 0, movetoworkspace, 10"
   
         "$mainMod, S, togglespecialworkspace, magic"
-        "$mainMod SHIFT, S, movetoworkspace, special:magic"
+	"$mainMod SHIFT, S, movetoworkspace, special:magic"
+	#"$mainMod, R, submap, resize"
+	#", escape, submap, reset"
+      ];
+
+      #binde = [
+        #", l, resizeactive, 50 0"
+        #", h, resizeactive, -50 0"
+        #", k, resizeactive, 0 -40"
+        #", j, resizeactive, 0 40"
+      #];
+
+      bindm = [
+        "$mainMod, mouse:272, movewindow"
+        "$mainMod, mouse:272, resizewindow"
+      ];
+
+      submap = [
+        "resize"
+        "reset"
       ];
   
       "exec-once" = [ 

@@ -1,12 +1,12 @@
 # NIX-OS
-Configuración personal de NixOS considerando dos hosts:
-** Maelstrom
+Configuración personal de NixOS considerando dos hosts: notebook y pc.
+### Maelstrom
 Correspondiente a la notebook, gestionado por Home-Manager como módulo y Stylix para la apariencia uniforme.
-- *Gestor de ventana:* Hyprland
-- *Terminal:* Kitty
-- *Editor:* Neovim
-- *Navegador:* Firefox
+- **Gestor de ventana:** Hyprland
+- **Terminal:** Kitty
+- **Editor:** Neovim
+- **Navegador:** Firefox
 ![Captura Maelstrom](./assets/display-example.png)
 
-** Vortex
+### Vortex
 Correspondiente a la PC. Proximamente =S
