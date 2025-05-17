@@ -10,3 +10,10 @@ Correspondiente a la notebook, gestionado por Home-Manager como módulo y Stylix
 
 ### Vortex
 Correspondiente a la PC. Proximamente =S
+
+
+# TODO:
+- Ver swww para la gestión de fondos
+- Ver hyprpanel para reemplazar o complementar con waybar
+- Cambiar a Emacs como editor
+- Configurar la PC con los drivers correspondientes
