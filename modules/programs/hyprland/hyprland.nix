@@ -87,9 +87,11 @@
         "$mainMod SHIFT, E, exit"
         "$mainMod SHIFT, SPACE, togglefloating"
         "$mainMod, D, exec, $menu"
-        "$mainMod, F, fullscreen"
-  
-        "$mainMod, h, movefocus, l"
+	"$mainMod, F, fullscreen"
+	", PRINT, exec, hyprshot -m region --clipboard-only"
+	"$mainMod, PRINT, exec, hyprshot -m window"
+
+	"$mainMod, h, movefocus, l"
         "$mainMod, l, movefocus, r"
         "$mainMod, k, movefocus, u"
         "$mainMod, j, movefocus, d"

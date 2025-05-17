@@ -67,6 +67,7 @@
     isNormalUser = true;
     description = "ivan";
     extraGroups = [ "networkmanager" "wheel" ];
+    home = "/home/ivan";
     packages = with pkgs; [];
   };
 
@@ -85,6 +86,7 @@
     autojump
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     git  
+    wl-clipboard
     wget
   ];
 

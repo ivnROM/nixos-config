@@ -22,8 +22,9 @@
 
   home.packages = with pkgs; [
     fastfetch
-    feh
     hyprpaper
+    hyprshot
+    gthumb
     nemo
     pavucontrol
     stremio
@@ -44,6 +45,7 @@
     NIXOS_OZONE_WL = "1";
     HYPRCURSOR_SIZE = "24";
     HYPRCURSOR_THEME = "Nordzy-hyprcursors-catppuccin-macchiato-dark";
+    HYPRSHOT_DIR = "${config.home.homeDirectory}/Pictures/Screenshots/";
     XCURSOR_SIZE = "24";
     XCURSOR_THEME = "Nordzy-catppuccin-macchiato-dark";
   };
