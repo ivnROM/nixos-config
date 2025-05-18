@@ -48,6 +48,7 @@
         clock = {
           format = "{:%H:%M - %a, %d %b %Y}";
           tooltip = false;
+          timezone = "America/Argentina/Buenos_Aires";
         };
 
         cpu = {
