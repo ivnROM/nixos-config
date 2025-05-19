@@ -24,13 +24,15 @@
 
   home.packages = with pkgs; [
     dunst
-    swww
     fastfetch
+    ffmpeg
     hyprshot
     gthumb
+    mpv
     nemo
     pavucontrol
     stremio
+    swww
     tree
     wofi
 
@@ -68,6 +70,7 @@
   };
 
   programs.ssh.enable = true; 
+  programs.mpv.enable = true; 
 
   services.ssh-agent.enable = true;
   services.dunst.enable = true;
