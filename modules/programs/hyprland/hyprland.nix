@@ -77,8 +77,8 @@
       };
   
       misc = {
-        #force_default_wallpaper = 1;
-        #disable_hyprland_logo = "true";
+        force_default_wallpaper = 1;
+        disable_hyprland_logo = "true";
       };
   
       bind = [
@@ -143,6 +143,8 @@
   
       "exec-once" = [ 
         "waybar"
+        "swww-daemon"
+        "swww img ${config.home.homeDirectory}/Pictures/Wallpapers/wallpaper.png --transition-type grow --transition-pos 0.5,0.5 --transition-fps 60"
   #      "hyprpaper"
       ];
   

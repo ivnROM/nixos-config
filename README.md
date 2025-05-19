@@ -13,7 +13,7 @@ Correspondiente a la PC. Proximamente =S
 
 
 # TO-DO:
-- Ver swww para la gestión de fondos
+- Hacer que swww se ejecute como servicio de systemd
 - Ver hyprpanel para reemplazar o complementar con waybar
 - Cambiar a Emacs como editor
 - Configurar la PC con los drivers correspondientes

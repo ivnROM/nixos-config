@@ -9,6 +9,8 @@
   home.username = "ivan";
   home.homeDirectory = "/home/ivan";
 
+  #stylix.targets.waybar.enable = false;
+  #stylix.targets.waybar.addCss = false;
   stylix.targets.firefox.profileNames = ["hzqkgy7y.default"];
 
   # This value determines the Home Manager release that your configuration is
@@ -21,8 +23,9 @@
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
   home.packages = with pkgs; [
+    dunst
+    swww
     fastfetch
-    hyprpaper
     hyprshot
     gthumb
     nemo
@@ -67,6 +70,8 @@
   programs.ssh.enable = true; 
 
   services.ssh-agent.enable = true;
+  services.dunst.enable = true;
+  services.swww.enable = true;
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
