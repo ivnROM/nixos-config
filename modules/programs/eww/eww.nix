@@ -4,6 +4,6 @@
   programs.eww = {
     enable = true;
     enableBashIntegration = true;
-    #configDir = ./eww-config;
+    configDir = ./config;
   };
 }
