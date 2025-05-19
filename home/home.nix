@@ -26,8 +26,8 @@
     dunst
     fastfetch
     ffmpeg
-    hyprshot
     gthumb
+    hyprshot
     mpv
     nemo
     pavucontrol
