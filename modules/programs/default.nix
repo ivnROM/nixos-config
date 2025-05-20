@@ -5,5 +5,6 @@
     ./kitty.nix
     ./yt-dlp.nix
     ./eww/eww.nix
+    ./hyprpanel.nix
   ];
 }
