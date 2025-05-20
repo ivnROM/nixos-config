@@ -43,6 +43,7 @@
 
         clock = {
           format-alt = "{:%Y-%m-%d}";
+          timezone = "America/Argentina/Buenos_Aires";
         };
 
         cpu = {
