@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./specialisations.nix
+      ./../../modules/programs/nvf.nix
     ];
 
   # Bootloader.

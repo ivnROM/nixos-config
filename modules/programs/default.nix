@@ -2,8 +2,8 @@
 {
   imports = [
     ./hyprland/default.nix
+    ./eww/eww.nix
     ./kitty.nix
     ./yt-dlp.nix
-    ./eww/eww.nix
   ];
 }

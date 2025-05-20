@@ -15,6 +15,4 @@ Correspondiente a la PC. Proximamente =S
 # TO-DO:
 - Hacer que swww se ejecute como servicio de systemd
 - Arreglar el servicio de swww para que no ejecute el daemon constantemente )?????? ni idea por que pasa
-- Ver hyprpanel para reemplazar o complementar con waybar
-- Cambiar a Emacs como editor
 - Configurar la PC con los drivers correspondientes

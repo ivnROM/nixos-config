@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    hyprland.url = "github:hyprwm/Hyprland";
 
     stylix = {
       url = "github:danth/stylix";
@@ -14,27 +15,24 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland";
     hypr-dynamic-cursors = {
       url = "github:VirtCode/hypr-dynamic-cursors";
       inputs.hyprland.follows = "hyprland";
     };
     
-    hyprpanel = {
-      url = "github:jas-singhfsu/hyprpanel";
-    # If you're worried about mismatched versions
-    # when using, e.g., `swww` from your own script,
-    # you can also do the following.
-      inputs.nixpkgs.follows = "nixpkgs";
+    nvf = {
+      url = "github:notashelf/nvf";
+      #inputs.nipkgs.follows = "nixpkgs"; 
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, hyprland, hypr-dynamic-cursors, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, hyprland, hypr-dynamic-cursors, nvf, ... }: {
     nixosConfigurations.maelstrom = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
 	./hosts/maelstrom/configuration.nix
 	inputs.stylix.nixosModules.stylix
+        nvf.nixosModules.default
 	home-manager.nixosModules.home-manager
 	{
 	  home-manager.useGlobalPkgs = true;

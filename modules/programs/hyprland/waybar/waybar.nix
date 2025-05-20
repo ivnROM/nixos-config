@@ -18,15 +18,15 @@
 
         "hyprland/workspaces" = {
           disable-scroll = true;
-          all-outputs = false;
+          all-outputs = true;
           format = "{icon}";
           format-icons = {
-            "1:web" = "";
-            "2:code" = "";
-            "3:term" = "";
-            "4:work" = "";
-            "5:music" = "";
-            "6:docs" = "";
+            "1" = "";
+            "2" = "";
+            "3" = "";
+            "4" = "";
+            "5" = "";
+            "6" = "";
             urgent = "";
             focused = "";
             default = "";
@@ -67,6 +67,7 @@
           format-wifi = "{essid} ({signalStrength}%) ";
           format-ethernet = "{ifname}: {ipaddr}/{cidr} ";
           format-disconnected = "Disconnected ⚠";
+          on-click = "kitty nmtui";
         };
 
         pulseaudio = {
