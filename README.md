@@ -6,7 +6,7 @@ Correspondiente a la notebook, gestionado por Home-Manager como módulo y Stylix
 - **Terminal:** Kitty
 - **Editor:** Neovim
 - **Navegador:** Firefox
-![Captura Maelstrom](./assets/display-example.png)
+![Captura Maelstrom](./assets/display_example.png)
 
 ### Vortex
 Correspondiente a la PC. Proximamente =S
