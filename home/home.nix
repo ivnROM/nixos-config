@@ -28,6 +28,7 @@
     ffmpeg
     gthumb
     hyprshot
+    libreoffice-qt6-fresh
     mpv
     nemo
     pavucontrol
@@ -71,6 +72,8 @@
 
   programs.ssh.enable = true; 
   programs.mpv.enable = true; 
+  programs.zed-editor.enable = true;
+  programs.chromium.enable = true;
 
   services.ssh-agent.enable = true;
   services.dunst.enable = true;

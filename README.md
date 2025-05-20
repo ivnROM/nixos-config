@@ -18,4 +18,3 @@ Correspondiente a la PC. Proximamente =S
 - Ver hyprpanel para reemplazar o complementar con waybar
 - Cambiar a Emacs como editor
 - Configurar la PC con los drivers correspondientes
-- Instalar nh como utilidad

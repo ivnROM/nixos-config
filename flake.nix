@@ -19,6 +19,14 @@
       url = "github:VirtCode/hypr-dynamic-cursors";
       inputs.hyprland.follows = "hyprland";
     };
+    
+    hyprpanel = {
+      url = "github:jas-singhfsu/hyprpanel";
+    # If you're worried about mismatched versions
+    # when using, e.g., `swww` from your own script,
+    # you can also do the following.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, hyprland, hypr-dynamic-cursors, ... }: {
