@@ -142,9 +142,11 @@
       ];
   
       "exec-once" = [ 
-        "waybar"
+        #"waybar"
         "swww-daemon"
+        "eww daemon"
         "swww img ${config.home.homeDirectory}/Pictures/Wallpapers/wallpaper.png --transition-type grow --transition-pos 0.5,0.5 --transition-fps 60"
+        "eww open bar"
       ];
   
       "plugins:dynamic-cursors" = {
