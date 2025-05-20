@@ -94,10 +94,13 @@
   fonts.packages = with pkgs; [
     fira-code
     fira-code-symbols
+    font-awesome
     noto-fonts
     noto-fonts-emoji
     nerd-fonts.fira-code
     nerd-fonts.iosevka
+    nerd-fonts.ubuntu
+    nerd-fonts.ubuntu-sans
   ];
 
   stylix = { 

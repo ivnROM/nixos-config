@@ -1,102 +1,99 @@
 { pkgs, config, lib, ... }:
 
-let
-  colorNames = [
-    "base00" "base01" "base02" "base03"
-    "base04" "base05" "base06" "base07"
-    "base08" "base09" "base0A" "base0B"
-    "base0C" "base0D" "base0E" "base0F"
-  ];
-
-  colors = config.lib.stylix.colors.withHashtag;
-
-  defineColor = name: value: "@define-color ${name} ${value};";
-
-  cssColors = lib.strings.concatStringsSep "\n" (
-    builtins.map (name: defineColor name colors.${name}) colorNames
-  );
-
-  styleCssPath = ./style.css;
-
-in {
+{
   stylix.targets.waybar.enable = false;
 
   programs.waybar = {
-    enable = false;
-
-    style = cssColors + "\n" + (builtins.readFile styleCssPath);
-
-    settings = {
-      mainBar = {
+    enable = true;
+    style = ./style.css;
+    settings = [
+      {
         layer = "top";
-        spacing = 0;
-        height = 0;
-        margin-top = 8;
-        margin-right = 8;
-        margin-bottom = 0;
-        margin-left = 8;
+        position = "top";
+        height = 36;
 
-        modules-left = [ "sway/workspaces" ];
-        modules-center = [ "clock" ];
-        modules-right = [ "tray" "cpu_text" "cpu" "memory" "battery" "network" "pulseaudio" ];
+        modules-left = [ "hyprland/workspaces" "sway/mode" "custom/spotify" ];
+        modules-center = [ "hyprland/window" ];
+        modules-right = [ "pulseaudio" "network" "cpu" "memory" "battery" "tray" "clock" ];
 
-        "sway/workspaces" = {
+        "hyprland/workspaces" = {
           disable-scroll = true;
-          all-outputs = true;
-          tooltip = false;
+          all-outputs = false;
+          format = "{icon}";
+          format-icons = {
+            "1:web" = "";
+            "2:code" = "";
+            "3:term" = "";
+            "4:work" = "";
+            "5:music" = "";
+            "6:docs" = "";
+            urgent = "";
+            focused = "";
+            default = "";
+          };
+        };
+
+        "sway/mode" = {
+          format = "<span style=\"italic\">{}</span>";
         };
 
         tray = {
           spacing = 10;
-          tooltip = false;
         };
 
         clock = {
-          format = "{:%H:%M - %a, %d %b %Y}";
-          tooltip = false;
-          timezone = "America/Argentina/Buenos_Aires";
+          format-alt = "{:%Y-%m-%d}";
         };
 
         cpu = {
-          format = "cpu {usage}%";
-          interval = 2;
-          states = { critical = 90; };
+          format = "{usage}% ";
         };
 
         memory = {
-          format = "mem {percentage}%";
-          interval = 2;
-          states = { critical = 80; };
+          format = "{}% ";
         };
 
         battery = {
-          format = "bat {capacity}%";
-          interval = 5;
-          tooltip = false;
+          bat = "BAT0";
           states = {
-            warning = 20;
-            critical = 10;
+            warning = 30;
+            critical = 15;
           };
+          format = "{capacity}% {icon}";
+          format-icons = [ "" "" "" "" "" ];
         };
 
         network = {
-          format-wifi = "wifi {bandwidthDownBits}";
-          format-ethernet = "enth {bandwidthDownBits}";
-          format-disconnected = "no network";
-          interval = 5;
-          tooltip = false;
+          format-wifi = "{essid} ({signalStrength}%) ";
+          format-ethernet = "{ifname}: {ipaddr}/{cidr} ";
+          format-disconnected = "Disconnected ⚠";
         };
 
         pulseaudio = {
-          scroll-step = 5;
-          max-volume = 150;
-          format = "vol {volume}%";
-          format-bluetooth = "vol {volume}%";
-          nospacing = 1;
+          format = "{volume}% {icon}";
+          format-bluetooth = "{volume}% {icon}";
+          format-muted = "";
+          format-icons = {
+            headphones = "";
+            handsfree = "";
+            headset = "";
+            phone = "";
+            portable = "";
+            car = "";
+            default = [ "" "" ];
+          };
           on-click = "pavucontrol";
-          tooltip = false;
         };
-      };
-    };
+
+        "custom/spotify" = {
+          format = " {}";
+          max-length = 40;
+          interval = 30;
+          exec = "$HOME/.config/waybar/mediaplayer.sh 2> /dev/null";
+          exec-if = "pgrep spotify";
+        };
+      }
+    ];
   };
 }
+

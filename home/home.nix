@@ -32,6 +32,7 @@
     mpv
     nemo
     pavucontrol
+    ripgrep
     stremio
     swww
     tree
@@ -42,6 +43,7 @@
 
     # temas
     nordzy-cursor-theme
+    
   ];
 
   home.file = {};

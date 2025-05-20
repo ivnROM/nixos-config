@@ -66,6 +66,8 @@
 (defwindow bar
   :monitor 0
   :windowtype "dock"
+  :layer "top"
+  :exclusive true
   :geometry (geometry :x "0%"
                       :y "0%"
                       :width "100%"
