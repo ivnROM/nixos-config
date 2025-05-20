@@ -23,6 +23,7 @@
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
   home.packages = with pkgs; [
+    brightnessctl
     dunst
     fastfetch
     ffmpeg
@@ -75,7 +76,6 @@
   programs.ssh.enable = true; 
   programs.mpv.enable = true; 
   programs.zed-editor.enable = true;
-  programs.chromium.enable = true;
 
   services.ssh-agent.enable = true;
   services.dunst.enable = true;
