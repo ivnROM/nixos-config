@@ -13,8 +13,14 @@
         whichKey.enable = true;
       };
 
-      vim.git = {
-        enable = true;
+      vim.mini = {
+        files.enable = true;
+        git.enable = true;
+        indentscope.enable = true;
+        move.enable = true;
+        pairs.enable = true;
+        pick.enable = true;
+        surround.enable = true;
       };
 
       vim.lsp = {
@@ -45,8 +51,41 @@
         style = "dark";
       };
 
-      vim.telescope.enable = true;
+      #vim.telescope.enable = true;
       vim.autocomplete.nvim-cmp.enable = true;
+
+      vim.keymaps = [
+        {
+          # buscar archivo
+          mode = "n";
+          key = "<leader>ff";
+          action = "lua MiniPick.builtin.files()";
+        }
+        {
+          # live grep
+          mode = "n";
+          key = "<leader>fg";
+          action = "lua MiniPick.builtin.grep_live()";
+        }
+        {
+          # cambiar buffer
+          mode = "n";
+          key = "<leader>fb";
+          action = "lua MiniPick.builtin.buffers()";
+        }
+        {
+          # buscar en ayuda
+          mode = "n";
+          key = "<leader>fh";
+          action = "lua MiniPick.builtin.help()";
+        }
+        {
+          # archivos recientes
+          mode = "n";
+          key = "<leader>fr";
+          action = "lua MiniPick.builtin.oldfiles()";
+        }
+      ];
     };
   };
 }

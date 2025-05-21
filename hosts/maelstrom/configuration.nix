@@ -85,7 +85,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    autojump
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     git  
     wl-clipboard
@@ -139,7 +138,7 @@
     xwayland.enable = true;
   };
  
-  programs.autojump.enable = true;
+  programs.zoxide.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -151,7 +150,7 @@
   #programs.hyprland.enable = true;
 
   # List services that you want to enable:
-
+  services.tlp.enable = true;
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
