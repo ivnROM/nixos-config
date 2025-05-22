@@ -10,6 +10,22 @@
       ./hardware-configuration.nix
     ];
 
+   # nvidia settings
+   hardware.graphics = {
+     enable = true;
+   }; 
+
+   services.xserver.videoDrivers = ["nvidia"];
+
+   hardware.nvidia = {
+     modesetting.enable = true;
+     open = true;
+     powerManagement.enable = true;
+
+     nvidiaSettings = true;
+     package = config.boot.kernelPackages.nvidiaPackages.stable;
+   };
+
 
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
@@ -80,6 +96,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+     lshw
      git  
      wl-clipboard
 #  wget
@@ -141,6 +158,7 @@
   # };
 
   # List services that you want to enable:
+  programs.zoxide.enable = true;
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;

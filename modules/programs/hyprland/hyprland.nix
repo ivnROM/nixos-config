@@ -78,6 +78,10 @@ in
             natural_scroll = "true";
         };
       };
+      
+      cursor = {
+        no_hardware_cursors = 1;
+      };
   
       device = {
         name = "epic-mouse-v1";
