@@ -43,5 +43,22 @@
       ];
       specialArgs = { inherit inputs; };
     };
+
+    nixosConfigurations.vortex = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./hosts/vortex/configuration.nix
+        inputs.stylix.nixosModules.stylix
+        nvf.nixosModules.default
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.ivan = ./home/ivan-pc/home.nix;
+          home-manager.extraSpecialArgs = { inherit inputs; };
+        }
+      ];
+      specialArgs = { inherit inputs; };
+    };
   };
 }

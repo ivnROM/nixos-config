@@ -1,5 +1,4 @@
 { config, pkgs, inputs, lib, ... }:
-
 {
 
   imports = [
@@ -52,6 +51,7 @@
   home.sessionVariables = {
     EDITOR = "neovim";
     NIXOS_OZONE_WL = "1";
+    HOSTNAME = "vortex";
     HYPRCURSOR_SIZE = "24";
     HYPRCURSOR_THEME = "Nordzy-hyprcursors-catppuccin-macchiato-dark";
     HYPRSHOT_DIR = "${config.home.homeDirectory}/Pictures/Screenshots/";

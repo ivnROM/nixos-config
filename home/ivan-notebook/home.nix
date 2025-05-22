@@ -3,7 +3,7 @@
 {
 
   imports = [
-    ../modules/default.nix
+    ../../modules/default.nix
   ];
 
   home.username = "ivan";
@@ -52,6 +52,7 @@
   home.sessionVariables = {
     EDITOR = "neovim";
     NIXOS_OZONE_WL = "1";
+    HOSTNAME = "maelstrom";
     HYPRCURSOR_SIZE = "24";
     HYPRCURSOR_THEME = "Nordzy-hyprcursors-catppuccin-macchiato-dark";
     HYPRSHOT_DIR = "${config.home.homeDirectory}/Pictures/Screenshots/";
