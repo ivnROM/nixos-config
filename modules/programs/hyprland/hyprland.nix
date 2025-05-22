@@ -28,7 +28,7 @@ in
       "$mainMod" = "SUPER";
       "$terminal" = "kitty";
       "$fileManager" = "dolphin";
-      "$menu" = "wofi --show drun";
+      "$menu" = "wofi";
   
       general = {
         gaps_in = 5;
@@ -102,7 +102,7 @@ in
         "$mainMod SHIFT, Q, killactive"
         "$mainMod SHIFT, E, exit"
         "$mainMod SHIFT, SPACE, togglefloating"
-        "$mainMod, D, exec, $menu"
+        "$mainMod, D, exec, pkill $menu || $menu --show drun"
 	"$mainMod, F, fullscreen"
 	", PRINT, exec, hyprshot -m region --clipboard-only"
 	"$mainMod, PRINT, exec, hyprshot -m window"
@@ -135,7 +135,8 @@ in
         "$mainMod SHIFT, 0, movetoworkspace, 10"
   
         "$mainMod, S, togglespecialworkspace, magic"
-	"$mainMod SHIFT, S, movetoworkspace, special:magic"
+	      "$mainMod SHIFT, S, movetoworkspace, special:magic"
+        "$mainMod, SPACE, exec, pkill waybar || waybar"
 	#"$mainMod, R, submap, resize"
 	#", escape, submap, reset"
       ];

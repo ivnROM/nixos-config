@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./../../modules/programs/nvf.nix
     ];
 
    # nvidia settings
@@ -158,8 +159,6 @@
   # };
 
   # List services that you want to enable:
-  programs.zoxide.enable = true;
-
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 

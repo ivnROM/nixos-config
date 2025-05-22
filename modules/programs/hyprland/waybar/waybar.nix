@@ -12,7 +12,7 @@
         position = "top";
         height = 36;
 
-        modules-left = [ "hyprland/workspaces" "sway/mode" "custom/spotify" ];
+        modules-left = [ "hyprland/workspaces" "custom/spotify" ];
         modules-center = [ "hyprland/window" ];
         modules-right = [ "pulseaudio" "network" "cpu" "memory" "battery" "tray" "clock" ];
 
@@ -31,10 +31,6 @@
             focused = "";
             default = "";
           };
-        };
-
-        "sway/mode" = {
-          format = "<span style=\"italic\">{}</span>";
         };
 
         tray = {

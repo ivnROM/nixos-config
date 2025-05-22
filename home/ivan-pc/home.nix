@@ -59,6 +59,7 @@
     XCURSOR_THEME = "Nordzy-catppuccin-macchiato-dark";
   };
 
+  programs.zoxide.enable = true;
   programs.bash.enable = true;
   programs.neovim.enable = true;
   programs.firefox.enable = true;
