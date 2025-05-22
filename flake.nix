@@ -30,14 +30,14 @@
     nixosConfigurations.maelstrom = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-	./hosts/maelstrom/configuration.nix
-	inputs.stylix.nixosModules.stylix
+        ./hosts/maelstrom/configuration.nix
+        inputs.stylix.nixosModules.stylix
         nvf.nixosModules.default
-	home-manager.nixosModules.home-manager
-	{
-	  home-manager.useGlobalPkgs = true;
-	  home-manager.useUserPackages = true;
-	  home-manager.users.ivan = ./home/home.nix;
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.ivan = ./home/ivan-notebook/home.nix;
           home-manager.extraSpecialArgs = { inherit inputs; };
         }
       ];
