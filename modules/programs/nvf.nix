@@ -10,16 +10,14 @@
       vim.vimAlias = true;
 
       vim.binds = {
-        whichKey.enable = true;
+        #whichKey.enable = true;
       };
 
       vim.mini = {
-        files.enable = true;
         git.enable = true;
         indentscope.enable = true;
         move.enable = true;
         pairs.enable = true;
-        pick.enable = true;
         surround.enable = true;
       };
 
@@ -51,39 +49,28 @@
         style = "dark";
       };
 
-      #vim.telescope.enable = true;
-      vim.autocomplete.nvim-cmp.enable = true;
+      vim.terminal.toggleterm = {
+        enable = true;
+        lazygit.enable = true;
+      };
+
+      vim.telescope.enable = true;
+      vim.autocomplete.blink-cmp.enable = true;
 
       vim.keymaps = [
         {
-          # buscar archivo
+          # guardar archivo
           mode = "n";
-          key = "<leader>ff";
-          action = "lua MiniPick.builtin.files()";
+          key = "<leader>fs";
+          action = ":w<CR>";
+          desc = "Save file";
         }
         {
-          # live grep
+          # salir y guardar
           mode = "n";
-          key = "<leader>fg";
-          action = "lua MiniPick.builtin.grep_live()";
-        }
-        {
-          # cambiar buffer
-          mode = "n";
-          key = "<leader>fb";
-          action = "lua MiniPick.builtin.buffers()";
-        }
-        {
-          # buscar en ayuda
-          mode = "n";
-          key = "<leader>fh";
-          action = "lua MiniPick.builtin.help()";
-        }
-        {
-          # archivos recientes
-          mode = "n";
-          key = "<leader>fr";
-          action = "lua MiniPick.builtin.oldfiles()";
+          key = "<leader>fq";
+          action = ":wq<CR>";
+          desc = "Save and quit";
         }
       ];
     };
