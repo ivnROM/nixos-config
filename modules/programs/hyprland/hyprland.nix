@@ -21,7 +21,6 @@ in
     portalPackage = null;
     plugins = [ 
       inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
-      inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
       inputs.hyprland-plugins.packages.${pkgs.system}.hyprscrolling
     ];
 
@@ -53,7 +52,7 @@ in
         inactive_opacity = 1.0;
 
         shadow = {
-          enabled = "true";
+          enabled = "false";
           range = 4;
           render_power = 3;
           color = lib.mkDefault "rgba(1a1a1aee)";
@@ -61,9 +60,12 @@ in
 
         blur = {
           enabled = "true";
-          size = 3;
-          passes = 1;
+          size = 8;
+          passes = 2;
           vibrancy = 0.1696;
+          ignore_opacity = true;
+          xray = true;
+          special = true;
         };
       };
 
@@ -171,6 +173,11 @@ in
         "reset"
       ];
 
+      windowrulev2 = [
+        "opacity 0.9 0.7, class:^(zen)$"
+        "opacity 0.9 0.7, class:^(nemo)$"
+      ];
+
       "exec-once" = [ 
         "waybar"
         "swww-daemon"
@@ -257,16 +264,8 @@ in
         };
       };
 
-      "plugins:hyprexpo" = {
-        columns = 3;
-        gap_size = 1;
-        bg_col = "rgb(111111)";
-        workspace_method = "center 1"; # [center/first] [workspace] e.g. first 1 or center m+1
+      "plugins:hyprspace" = {
 
-        enable_gesture = "true"; # laptop touchpad
-        gesture_fingers = 3;  # 3 or 4
-        gesture_distance = 100; # how far is the "max"
-        gesture_positive = "true"; # positive = swipe down. Negative = swipe up.
       };
     };
   };

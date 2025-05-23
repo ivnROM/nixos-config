@@ -8,10 +8,6 @@
   home.username = "ivan";
   home.homeDirectory = "/home/ivan";
 
-  #stylix.targets.waybar.enable = false;
-  #stylix.targets.waybar.addCss = false;
-  stylix.targets.firefox.profileNames = ["hzqkgy7y.default"];
-
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -43,7 +39,10 @@
 
     # temas
     nordzy-cursor-theme
+    bibata-cursors
     
+    # flake builds 
+    inputs.zen-browser.packages.${pkgs.system}.default
   ];
 
   home.file = {};
@@ -62,7 +61,6 @@
   programs.zoxide.enable = true;
   programs.bash.enable = true;
   programs.neovim.enable = true;
-  programs.firefox.enable = true;
 
   programs.git = {
     enable = true;
