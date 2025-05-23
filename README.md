@@ -6,7 +6,7 @@ Configuración personal de NixOS considerando dos hosts: notebook y pc.
 - **Navegador:** Zen
 - **Administrador de archivos:** Nemo\
 
-Gestionado de la configuración personal por medio de Home-Manager como módulo y Stylix para la apariencia uniforme.
+Gestión de la configuración personal por medio de Home-Manager como módulo y Stylix para la apariencia uniforme.
 
 ### Maelstrom
 ![Captura Maelstrom](./assets/noteb-asset.png)
