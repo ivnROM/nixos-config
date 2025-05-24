@@ -40,6 +40,7 @@
 
     # temas
     nordzy-cursor-theme
+    bibata-cursors
     
     # flake builds 
     inputs.zen-browser.packages.${pkgs.system}.default
@@ -51,11 +52,11 @@
     EDITOR = "neovim";
     NIXOS_OZONE_WL = "1";
     HOSTNAME = "maelstrom";
-    HYPRCURSOR_SIZE = "24";
-    HYPRCURSOR_THEME = "Nordzy-hyprcursors-catppuccin-macchiato-dark";
+    HYPRCURSOR_SIZE = "28";
+    HYPRCURSOR_THEME = "Bibata-Original-Classic";
     HYPRSHOT_DIR = "${config.home.homeDirectory}/Pictures/Screenshots/";
-    XCURSOR_SIZE = "24";
-    XCURSOR_THEME = "Nordzy-catppuccin-macchiato-dark";
+    XCURSOR_SIZE = "28";
+    XCURSOR_THEME = "Bibata-Original-Classic";
   };
 
   programs.zoxide.enable = true;

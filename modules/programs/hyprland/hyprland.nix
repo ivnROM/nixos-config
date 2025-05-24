@@ -177,6 +177,7 @@ in
       windowrulev2 = [
         "opacity 0.9 0.7, class:^(zen)$"
         "opacity 0.9 0.7, class:^(nemo)$"
+        "opacity 0.9 0.7, class:^(libreoffice-writer)$"
       ];
 
       "exec-once" = [ 
@@ -197,7 +198,7 @@ in
 
           # controls how much the cursor is stretched
           # this value controls at which speed (px/s) the full stretch is reached
-          limit = 6000;
+          limit = 12000;
 
           # relationship between speed and stretch amount, supports these values:
           # linear             - a linear function is used
@@ -209,7 +210,7 @@ in
 
         shake = {
           # enables shake to find
-          enabled = "true";
+          enabled = "false";
 
           # use nearest-neighbour (pixelated) scaling when shaking
           # may look weird when effects are enabled
@@ -248,7 +249,7 @@ in
           # 0 / false - never use pixelated scaling
           # 1 / true  - use pixelated when no highres image
           # 2         - always use pixleated scaling
-          nearest = "false";
+          nearest = "0";
 
           # enable dedicated hyprcursor support
           enabled = "true";

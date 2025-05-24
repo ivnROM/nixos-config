@@ -12,9 +12,9 @@
         position = "top";
         height = 36;
 
-        modules-left = [ "hyprland/workspaces" "custom/spotify" ];
+        modules-left = [ "custom/logo" "custom/spotify" "tray"];
         modules-center = [ "hyprland/window" ];
-        modules-right = [ "pulseaudio" "network" "cpu" "memory" "battery" "tray" "clock" ];
+        modules-right = [ "pulseaudio" "custom/separator" "battery" "custom/separator"  "network" "custom/separator"  "clock" ];
 
         "hyprland/workspaces" = {
           disable-scroll = true;
@@ -56,19 +56,19 @@
             warning = 30;
             critical = 15;
           };
-          format = "{capacity}% {icon}";
+          format = "{icon}";
           format-icons = [ "" "" "" "" "" ];
         };
 
         network = {
-          format-wifi = "{essid} ({signalStrength}%) ";
-          format-ethernet = "{ifname}: {ipaddr}/{cidr} ";
-          format-disconnected = "Disconnected ⚠";
+          format-wifi = "";
+          format-ethernet = "󰈀";
+          format-disconnected = "⚠";
           on-click = "kitty nmtui";
         };
 
         pulseaudio = {
-          format = "{volume}% {icon}";
+          format = "{icon}";
           format-bluetooth = "{volume}% {icon}";
           format-muted = "";
           format-icons = {
@@ -90,6 +90,15 @@
           exec = "$HOME/.config/waybar/mediaplayer.sh 2> /dev/null";
           exec-if = "pgrep spotify";
         };
+
+        "custom/separator" = {
+          format = "  ";
+        };
+
+        "custom/logo" = {
+          format = "  ";
+        };
+
       }
     ];
   };
