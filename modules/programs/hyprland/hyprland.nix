@@ -22,6 +22,7 @@ in
     plugins = [ 
       inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
       inputs.hyprland-plugins.packages.${pkgs.system}.hyprscrolling
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
     ];
 
     settings = {

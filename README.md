@@ -20,4 +20,3 @@ Gestión de la configuración personal por medio de Home-Manager como módulo y 
 - Arreglar el servicio de swww para que no ejecute el daemon constantemente )?????? ni idea por que pasa
 - Blur uniforme en todas las ventanas)?
 - Fix iconos (o buscar otro tema directamente)
-- Cambiar apariencia starship
