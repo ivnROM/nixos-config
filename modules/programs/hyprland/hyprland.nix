@@ -66,7 +66,7 @@ in
           vibrancy = 0.1696;
           ignore_opacity = true;
           xray = true;
-          special = true;
+          special = false;
         };
       };
 
@@ -178,6 +178,7 @@ in
         "opacity 0.9 0.7, class:^(zen)$"
         "opacity 0.9 0.7, class:^(nemo)$"
         "opacity 0.9 0.7, class:^(libreoffice-writer)$"
+        "opacity 0.9 0.7, title:^Hyprland System Info$"
       ];
 
       "exec-once" = [ 

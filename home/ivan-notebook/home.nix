@@ -25,6 +25,7 @@
     ffmpeg
     gthumb
     hyprshot
+    hyprsysteminfo
     libreoffice-qt6-fresh
     mpv
     nemo
