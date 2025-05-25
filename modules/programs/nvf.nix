@@ -1,6 +1,10 @@
 { pkgs, config, lib, inputs, ... }:
 
 {
+  stylix.targets.nvf = {
+    enable = true;
+    transparentBackground = true;
+  };
 
   programs.nvf = {
     enable = true;

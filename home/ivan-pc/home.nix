@@ -26,7 +26,6 @@
     hyprshot
     hyprsysteminfo
     libreoffice-qt6-fresh
-    mpv
     nemo
     pavucontrol
     ripgrep
@@ -59,6 +58,11 @@
     XCURSOR_THEME = "Nordzy-catppuccin-macchiato-dark";
   };
 
+  stylix.targets = {
+    gtk.enable = true;
+    qt.enable = true;
+  };
+
   programs.zoxide.enable = true;
   programs.bash.enable = true;
   programs.neovim.enable = true;
@@ -75,7 +79,7 @@
 
   programs.ssh.enable = true; 
   programs.mpv.enable = true; 
-  programs.zed-editor.enable = true;
+  programs.cavalier.enable = true;
 
   services.ssh-agent.enable = true;
   services.dunst.enable = true;

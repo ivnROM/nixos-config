@@ -97,7 +97,7 @@
 
         "custom/logo" = {
           format = "  ";
-          on-click = "hyprsysteminfo";
+          on-click = "pkill hyprsysteminfo || hyprsysteminfo";
         };
 
       }
