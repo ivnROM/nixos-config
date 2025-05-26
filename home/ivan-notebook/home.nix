@@ -76,7 +76,6 @@
 
   programs.ssh.enable = true; 
   programs.mpv.enable = true; 
-  programs.zed-editor.enable = true;
 
   services.ssh-agent.enable = true;
   services.dunst.enable = true;
