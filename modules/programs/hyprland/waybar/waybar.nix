@@ -12,9 +12,9 @@
         position = "top";
         height = 36;
 
-        modules-left = [ "custom/logo" "custom/spotify" "tray"];
+        modules-left = [ "custom/separator" "custom/logo" "custom/spotify" "tray"];
         modules-center = [ "hyprland/window" ];
-        modules-right = [ "pulseaudio" "custom/separator" "battery" "custom/separator"  "network" "custom/separator"  "clock" ];
+        modules-right = [ "pulseaudio" "custom/separator" "battery" "custom/separator"  "network" "custom/separator"  "clock" "custom/separator"];
 
         "hyprland/workspaces" = {
           disable-scroll = true;

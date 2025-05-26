@@ -18,6 +18,7 @@
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
   home.packages = with pkgs; [
+    arduino-ide
     brightnessctl
     dunst
     fastfetch
@@ -79,11 +80,19 @@
 
   programs.ssh.enable = true; 
   programs.mpv.enable = true; 
-  programs.cavalier.enable = true;
 
   services.ssh-agent.enable = true;
   services.dunst.enable = true;
   services.swww.enable = true;
+
+  services.udiskie = {
+    enable = true;
+    settings = {
+        program_options = {
+            file_manager = "${pkgs.nemo}/bin/nemo";
+        };
+    };
+};
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
