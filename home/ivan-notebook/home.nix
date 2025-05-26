@@ -54,10 +54,10 @@
     NIXOS_OZONE_WL = "1";
     HOSTNAME = "maelstrom";
     HYPRCURSOR_SIZE = "28";
-    HYPRCURSOR_THEME = "Bibata-Original-Classic";
+    HYPRCURSOR_THEME = "Nordzy-hyprcursors";
     HYPRSHOT_DIR = "${config.home.homeDirectory}/Pictures/Screenshots/";
     XCURSOR_SIZE = "28";
-    XCURSOR_THEME = "Bibata-Original-Classic";
+    XCURSOR_THEME = "Nordzy-hyprcursors";
   };
 
   programs.zoxide.enable = true;
