@@ -81,7 +81,6 @@
   programs.ssh.enable = true; 
   programs.mpv.enable = true; 
 
-  services.kdeconnect.enable = true;
   services.ssh-agent.enable = true;
   services.dunst.enable = true;
   services.swww.enable = true;
