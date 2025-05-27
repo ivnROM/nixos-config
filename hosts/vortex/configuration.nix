@@ -119,7 +119,7 @@
     enable = true;
     autoEnable = true;
     # tokyo night
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-city-terminal-dark.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/sandcastle.yaml";
     # gruvbox
     #base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-soft.yaml";
 
