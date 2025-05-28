@@ -23,6 +23,7 @@
     dunst
     fastfetch
     ffmpeg
+    gimp3
     gthumb
     hyprshot
     hyprsysteminfo
@@ -78,6 +79,7 @@
     };
   };
 
+  programs.vesktop.enable = true;
   programs.ssh.enable = true; 
   programs.mpv.enable = true; 
 
