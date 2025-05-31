@@ -18,7 +18,7 @@
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
   home.packages = with pkgs; [
-    arduino-ide
+    anytype
     brightnessctl
     dunst
     fastfetch
@@ -90,11 +90,13 @@
   services.udiskie = {
     enable = true;
     settings = {
-        program_options = {
-            file_manager = "${pkgs.nemo}/bin/nemo";
-        };
+      program_options = {
+        file_manager = "${pkgs.nemo}/bin/nemo";
+      };
     };
-};
+  };
+
+  stylix.targets.vesktop.enable = false;
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
