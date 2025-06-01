@@ -30,6 +30,7 @@
     mpv
     nemo
     pavucontrol
+    qalculate-gtk
     ripgrep
     stremio
     swww

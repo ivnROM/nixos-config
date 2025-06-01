@@ -109,6 +109,7 @@ in
         "$mainMod SHIFT, Q, killactive"
         "$mainMod SHIFT, E, exit"
         "$mainMod SHIFT, SPACE, togglefloating"
+        "$mainMod, C, exec, qalculate-gtk"
         "$mainMod, D, exec, pkill $menu || $menu --show drun"
         "$mainMod, F, fullscreen"
         ", PRINT, exec, hyprshot -m region --clipboard-only"
@@ -180,6 +181,7 @@ in
         "opacity 0.9 0.7, class:^(libreoffice-writer)$"
         "opacity 0.9 0.7, class:^(vesktop)$"
         "opacity 0.9 0.7, title:^Hyprland System Info$"
+        "float, class:^(qalculate-gtk)"
       ];
 
       "exec-once" = [ 
