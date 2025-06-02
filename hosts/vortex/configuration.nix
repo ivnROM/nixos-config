@@ -47,7 +47,13 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    dns = "none";
+  };
+
+  networking.nameservers = [ "1.1.1.1" "8.8.8.8"];
+  networking.resolvconf.enable = false;
 
   # Set your time zone.
   time.timeZone = "America/Argentina/Buenos_Aires";

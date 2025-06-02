@@ -110,6 +110,7 @@ in
         "$mainMod SHIFT, E, exit"
         "$mainMod SHIFT, SPACE, togglefloating"
         "$mainMod, C, exec, qalculate-gtk"
+        "$mainMod, B, exec, zen"
         "$mainMod, D, exec, pkill $menu || $menu --show drun"
         "$mainMod, F, fullscreen"
         ", PRINT, exec, hyprshot -m region --clipboard-only"
