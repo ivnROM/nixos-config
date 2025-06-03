@@ -21,8 +21,6 @@ in
     portalPackage = null;
     plugins = [ 
       inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
-      inputs.hyprland-plugins.packages.${pkgs.system}.hyprscrolling
-      inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
     ];
 
     settings = {
@@ -71,14 +69,14 @@ in
       };
 
       animations = {
-        enabled = "no";
-        #bezier = [
-        #"easeOutQuint,0.23,1,0.32,1"
-        #"easeInOutCubic,0.65,0.05,0.36,1"
-        #"linear,0,0,1,1"
-        #"almostLinear,0.5,0.5,0.75,1.0"
-        #"quick,0.15,0,0.1,1"
-        #];
+        enabled = "yes";
+        bezier = [
+          "easeOutQuint,0.23,1,0.32,1"
+          "easeInOutCubic,0.65,0.05,0.36,1"
+          "linear,0,0,1,1"
+          "almostLinear,0.5,0.5,0.75,1.0"
+          "quick,0.15,0,0.1,1"
+        ];
       };
 
       input = {
@@ -157,7 +155,6 @@ in
         "$mainMod, S, togglespecialworkspace, magic"
         "$mainMod SHIFT, S, movetoworkspace, special:magic"
         "$mainMod, SPACE, exec, pkill waybar || waybar"
-        "$mainMod, TAB, hyprexpo:expo, toggle"
         #"$mainMod, R, submap, resize"
         #", escape, submap, reset"
       ];
@@ -282,9 +279,6 @@ in
         };
       };
 
-      "plugins:hyprspace" = {
-
-      };
     };
   };
 }

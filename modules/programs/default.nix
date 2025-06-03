@@ -2,8 +2,9 @@
 {
   imports = [
     ./hyprland/default.nix
-    ./eww/eww.nix
     ./starship/starship.nix
+    ./wofi/wofi.nix
+    ./eww/eww.nix
     ./kitty.nix
     ./yt-dlp.nix
   ];

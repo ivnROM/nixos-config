@@ -2,7 +2,7 @@
 
 {
   services.glance = {
-    enable = true;
+    enable = false;
     settings = {
         pages = [
           {

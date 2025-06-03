@@ -28,7 +28,6 @@
     stremio
     swww
     tree
-    wofi
 
     # lsp
     nixfmt-classic
