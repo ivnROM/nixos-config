@@ -127,8 +127,9 @@ in {
         ", PRINT, exec, hyprshot -m region --clipboard-only"
         "$mainMod, PRINT, exec, hyprshot -m window"
         "$mainMod SHIFT, PRINT, exec, hyprshot -m output"
+         "$mainMod, Tab, exec, pypr expose"
 
-        "$mainMod, F1, exec, pypr zoom +1"
+        "$mainMod, F1, exec, pypr zoom +4"
         "$mainMod SHIFT, F1, exec, pypr zoom"
 
         "$mainMod, h, movefocus, l"
@@ -196,6 +197,10 @@ in {
         "opacity 0.9 0.7, class:^(vesktop)$"
         "opacity 0.9 0.7, title:^Hyprland System Info$"
         "float, class:^(qalculate-gtk)"
+      ];
+
+      workspace = [
+        "special:exposed,gapsout:60,gapsin:30,bordersize:5,border:true,shadow:false"
       ];
 
       "exec-once" = [ 

@@ -59,6 +59,7 @@
 
   services.logind = {
     powerKey = "ignore";
+    rebootKey = "ignore";
   };
 
   # Configure console keymap

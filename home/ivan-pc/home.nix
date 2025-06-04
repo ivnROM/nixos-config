@@ -29,6 +29,7 @@
     stremio
     swww
     tree
+    yazi
 
     # lsp
     nixfmt-classic
@@ -44,7 +45,7 @@
   home.file = {};
 
   home.sessionVariables = {
-    EDITOR = "neovim";
+    EDITOR = "nvim";
     NIXOS_OZONE_WL = "1";
     HOSTNAME = "vortex";
     HYPRCURSOR_SIZE = "24";
