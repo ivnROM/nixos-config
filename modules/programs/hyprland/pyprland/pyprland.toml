@@ -1,0 +1,10 @@
+[pyprland]
+plugins = [
+  "scratchpads",
+  "magnify"
+]
+
+[scratchpads.name]
+command = "yazi"
+class = "yazi-scratchpad"
+size = "[1152] [648]"

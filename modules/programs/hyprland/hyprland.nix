@@ -13,8 +13,10 @@ let
     ];
   };
   selectedMonitor = monitorConfig.${host} or monitorConfig."default";
-in
-  {  
+  pyprlandToml = ./pyprland/pyprland.toml;
+in {  
+
+  xdg.configFile."hypr/pyprland.toml".source = pyprlandToml;
   wayland.windowManager.hyprland = {
     enable = true;
     package = null;
@@ -126,6 +128,9 @@ in
         "$mainMod, PRINT, exec, hyprshot -m window"
         "$mainMod SHIFT, PRINT, exec, hyprshot -m output"
 
+        "$mainMod, F1, exec, pypr zoom +1"
+        "$mainMod, SHIFT, F1, exec, pypr zoom"
+
         "$mainMod, h, movefocus, l"
         "$mainMod, l, movefocus, r"
         "$mainMod, k, movefocus, u"
@@ -170,8 +175,8 @@ in
         ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
         ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-        ",XF86MonBrightnessUp, exec, brightnessctl s 10%+"
-        ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
+        ",XF86MonBrightnessUp, exec, brightnessctl s 5%+"
+        ",XF86MonBrightnessDown, exec, brightnessctl s 5%-"
       ];
 
       bindm = [
@@ -194,6 +199,7 @@ in
       ];
 
       "exec-once" = [ 
+        "pypr"
         "waybar"
         "swww-daemon"
         #"eww daemon"

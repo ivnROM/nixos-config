@@ -23,6 +23,7 @@
     libreoffice-qt6-fresh
     nemo
     pavucontrol
+    pyprland
     qalculate-gtk
     ripgrep
     stremio

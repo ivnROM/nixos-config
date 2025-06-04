@@ -30,6 +30,7 @@
     mpv
     nemo
     pavucontrol
+    pyprland
     qalculate-gtk
     ripgrep
     stremio
