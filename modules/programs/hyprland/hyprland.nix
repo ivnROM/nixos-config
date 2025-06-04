@@ -129,7 +129,7 @@ in {
         "$mainMod SHIFT, PRINT, exec, hyprshot -m output"
 
         "$mainMod, F1, exec, pypr zoom +1"
-        "$mainMod, SHIFT, F1, exec, pypr zoom"
+        "$mainMod SHIFT, F1, exec, pypr zoom"
 
         "$mainMod, h, movefocus, l"
         "$mainMod, l, movefocus, r"
