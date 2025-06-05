@@ -124,8 +124,10 @@
   stylix = { 
     enable = true;
     autoEnable = true;
-    # tokyo night
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/sandcastle.yaml";
+    # tokyo city terminal dark
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-city-terminal-dark.yaml";
+    # sandcastle
+    #base16Scheme = "${pkgs.base16-schemes}/share/themes/sandcastle.yaml";
     # gruvbox
     #base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-soft.yaml";
 

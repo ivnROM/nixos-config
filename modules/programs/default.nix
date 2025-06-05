@@ -7,6 +7,7 @@
     ./wofi/wofi.nix
     ./eww/eww.nix
     ./kitty.nix
+    ./tmux.nix
     ./yt-dlp.nix
   ];
 }
