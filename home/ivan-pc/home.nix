@@ -74,6 +74,7 @@
     };
   };
 
+  programs.bemenu.enable = true;
   programs.vesktop.enable = true;
   programs.ssh.enable = true; 
   programs.mpv.enable = true; 

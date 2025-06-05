@@ -71,7 +71,7 @@ in {
       };
 
       animations = {
-        enabled = "yes";
+        enabled = "no";
         bezier = [
           "easeOutQuint,0.23,1,0.32,1"
           "easeInOutCubic,0.65,0.05,0.36,1"
@@ -208,7 +208,7 @@ in {
         "waybar"
         "swww-daemon"
         #"eww daemon"
-        "swww img ${config.home.homeDirectory}/Pictures/Wallpapers/wallpaper-neon.png --transition-type grow --transition-pos 0.5,0.5 --transition-fps 60"
+        "swww img ${config.home.homeDirectory}/Pictures/Wallpapers/wallpaper.png --transition-type grow --transition-pos 0.5,0.5 --transition-fps 60"
         #"eww open bar"
       ];
 
