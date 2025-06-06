@@ -32,7 +32,7 @@ in {
       "$mainMod" = "SUPER";
       "$terminal" = "kitty";
       "$fileManager" = "dolphin";
-      "$menu" = "wofi";
+      "$menu" = "bemenu-run -b";
 
       general = {
         gaps_in = 5;
@@ -122,12 +122,13 @@ in {
         "$mainMod SHIFT, SPACE, togglefloating"
         "$mainMod, C, exec, qalculate-gtk"
         "$mainMod, B, exec, zen"
-        "$mainMod, D, exec, pkill $menu || $menu --show drun"
+        "$mainMod, D, exec, pkill $menu || $menu "
         "$mainMod, F, fullscreen"
         ", PRINT, exec, hyprshot -m region --clipboard-only"
         "$mainMod, PRINT, exec, hyprshot -m window"
         "$mainMod SHIFT, PRINT, exec, hyprshot -m output"
-         "$mainMod, Tab, exec, pypr expose"
+        "$mainMod, Tab, exec, pypr expose"
+        "$mainMod, PERIOD, exec, pkill bemenu-openconfig || bemenu-openconfig"
 
         "$mainMod, F1, exec, pypr zoom +4"
         "$mainMod SHIFT, F1, exec, pypr zoom"
