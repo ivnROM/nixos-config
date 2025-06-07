@@ -158,15 +158,6 @@
     xwayland.enable = true;
   };
 
-  virtualisation.virtualbox.host = {
-    enable = true;
-    enableExtensionPack = true;
-  };
-  virtualisation.virtualbox.guest = {
-    enable = true;
-    dragAndDrop = true;
-  };
-  users.extraGroups.vboxusers.members = [ "ivan" ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
