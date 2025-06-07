@@ -40,6 +40,12 @@
         ];
       };
     };
+    integrador = {
+      configuration = { config, pkgs, ... }: {
+        environment.systemPackages = with pkgs; [
+        ];
+      };
+    };
   };
 }
 

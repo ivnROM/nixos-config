@@ -69,7 +69,7 @@
   users.users.ivan = {
     isNormalUser = true;
     description = "ivan";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker"];
     home = "/home/ivan";
     packages = with pkgs; [];
   };
@@ -88,6 +88,7 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     git  
+    inetutils
     wl-clipboard
     wget
   ];
@@ -147,6 +148,7 @@
   #   enableSSHSupport = true;
   # };
   #programs.hyprland.enable = true;
+  virtualisation.docker.enable = true;
 
   # List services that you want to enable:
   services.tlp.enable = true;
