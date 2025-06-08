@@ -203,6 +203,7 @@ in {
         "opacity 0.9 0.7, class:^(vesktop)$"
         "opacity 0.9 0.7, title:^Hyprland System Info$"
         "float, class:^(qalculate-gtk)"
+        "float, class:^(nemo)"
       ];
 
       workspace = [
