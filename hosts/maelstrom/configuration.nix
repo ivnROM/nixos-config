@@ -88,6 +88,12 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     git  
+
+    #gns3 
+    gns3-server
+    gns3-gui
+    ubridge
+    qemu
     inetutils
     wl-clipboard
     wget
@@ -154,6 +160,16 @@
   services.tlp.enable = true;
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
+
+  security.wrappers.ubridge = {
+    source = "/run/current-system/sw/bin/ubridge";
+    capabilities = "cap_net_admin,cap_net_raw=ep";
+    owner = "root";
+    group = "ubridge";
+    permissions = "u+rx,g+rx,o+rx";
+  };
+  users.groups.ubridge = {};
+  users.groups.gns3 = {};
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
