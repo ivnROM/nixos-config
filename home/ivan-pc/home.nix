@@ -29,6 +29,7 @@
     stremio
     swww
     tree
+    qemu
     yazi
 
     # lsp

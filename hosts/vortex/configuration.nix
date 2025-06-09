@@ -11,21 +11,21 @@
       ./../../modules/programs/nvf.nix
     ];
 
-   # nvidia settings
-   hardware.graphics = {
-     enable = true;
-   }; 
+  # nvidia settings
+  hardware.graphics = {
+    enable = true;
+  }; 
 
-   services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = ["nvidia"];
 
-   hardware.nvidia = {
-     modesetting.enable = true;
-     open = true;
-     powerManagement.enable = true;
+  hardware.nvidia = {
+    modesetting.enable = true;
+    open = true;
+    powerManagement.enable = true;
 
-     nvidiaSettings = true;
-     package = config.boot.kernelPackages.nvidiaPackages.stable;
-   };
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
 
 
   nix.settings = {
@@ -86,7 +86,7 @@
   users.users.ivan = {
     isNormalUser = true;
     description = "ivan";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "ubridge" "gns3"];
     packages = with pkgs; [];
   };
   services.displayManager = {
@@ -102,11 +102,17 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-     lshw
-     git  
-     wl-clipboard
-#  wget
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    gns3-server
+    gns3-gui
+    ubridge
+    qemu
+    inetutils
+
+    lshw
+    git  
+    wl-clipboard
+    #  wget
   ];
 
   fonts.packages = with pkgs; [
@@ -168,13 +174,30 @@
 
   # List services that you want to enable:
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
+  #services.gns3-server.ubridge.enable = true;
+  #services.gns3-server.settings = {
+  #Server.ubridge_path = pkgs.lib.mkForce "/run/wrappers/bin/ubridge";
+  #};
+  #users.groups.gns3 = { };
+  #users.users.gns3 = {
+  #group = "gns3";
+  #isSystemUser = true;
+  #};
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+  security.wrappers.ubridge = {
+    source = "/run/current-system/sw/bin/ubridge";
+    capabilities = "cap_net_admin,cap_net_raw=ep";
+    owner = "root";
+    group = "ubridge";
+    permissions = "u+rx,g+rx,o+rx";
+  };
+  users.groups.ubridge = {};
+  users.groups.gns3 = {};
+
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
