@@ -40,6 +40,10 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "vortex"; # Define your hostname.
+  networking.firewall = {
+    enable = true;
+    allowPing = true;
+  };
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
