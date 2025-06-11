@@ -19,6 +19,7 @@
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
   home.packages = with pkgs; [
+    bluez
     brightnessctl
     dunst
     fastfetch
@@ -82,6 +83,7 @@
   services.dunst.enable = true;
   services.ssh-agent.enable = true;
   services.swww.enable = true;
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
