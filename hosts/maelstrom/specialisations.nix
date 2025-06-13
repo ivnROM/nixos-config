@@ -40,8 +40,10 @@
         ];
       };
     };
-    integrador = {
+    budgie = {
       configuration = { config, pkgs, ... }: {
+        services.xserver.desktopManager.budgie.enable = true;
+        services.xserver.enable = true;
         environment.systemPackages = with pkgs; [
         ];
       };
