@@ -57,6 +57,7 @@
   };
 
   networking.nameservers = [ "1.1.1.1" "8.8.8.8"];
+  networking.defaultGateway = "192.168.0.1";
   networking.resolvconf.enable = false;
 
   # Set your time zone.
@@ -202,6 +203,15 @@
   users.groups.ubridge = {};
   users.groups.gns3 = {};
 
+  # gns3 bridge
+  networking.bridges.br0.interfaces = [ "enp34s0" ];
+
+  networking.interfaces.br0 = {
+    ipv4.addresses = [{
+      address = "192.168.0.100";
+      prefixLength = 24;
+    }];
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
