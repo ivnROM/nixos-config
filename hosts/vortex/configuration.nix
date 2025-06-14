@@ -204,9 +204,9 @@
   users.groups.gns3 = {};
 
   # gns3 bridge
-  networking.bridges.br0.interfaces = [ "enp34s0" ];
+  networking.bridges.gns3bridge.interfaces = [ "enp34s0" ];
 
-  networking.interfaces.br0 = {
+  networking.interfaces.gns3bridge = {
     ipv4.addresses = [{
       address = "192.168.0.100";
       prefixLength = 24;
