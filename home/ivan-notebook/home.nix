@@ -21,12 +21,12 @@
   home.packages = with pkgs; [
     bluez
     brightnessctl
-    dunst
     fastfetch
     ffmpeg
     gthumb
     hyprshot
     hyprsysteminfo
+    libnotify
     libreoffice-qt6-fresh
     mpv
     nemo
@@ -80,7 +80,6 @@
   programs.ssh.enable = true; 
   programs.mpv.enable = true; 
 
-  services.dunst.enable = true;
   services.ssh-agent.enable = true;
   services.swww.enable = true;
 

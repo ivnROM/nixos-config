@@ -13,13 +13,13 @@
   home.packages = with pkgs; [
     anytype
     brightnessctl
-    dunst
     fastfetch
     ffmpeg
     gimp3
     gthumb
     hyprshot
     hyprsysteminfo
+    libnotify
     libreoffice-qt6-fresh
     nemo
     pavucontrol
@@ -80,7 +80,6 @@
   programs.mpv.enable = true; 
 
   services.ssh-agent.enable = true;
-  services.dunst.enable = true;
   services.swww.enable = true;
 
   services.udiskie = {

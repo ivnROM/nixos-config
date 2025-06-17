@@ -117,6 +117,7 @@
     lshw
     git  
     wl-clipboard
+    xclip
     #  wget
   ];
 

@@ -96,6 +96,7 @@
     qemu
     inetutils
     wl-clipboard
+    xclip
     wget
   ];
 
