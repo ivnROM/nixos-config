@@ -167,6 +167,7 @@ in {
         "$mainMod, S, togglespecialworkspace, magic"
         "$mainMod SHIFT, S, movetoworkspace, special:magic"
         "$mainMod, SPACE, exec, pkill waybar || waybar"
+        "$mainMod SHIFT, A, exec, nix develop ~/scripts/asistente/ --command python3 ~/scripts/asistente/asistente.py"
         #"$mainMod, R, submap, resize"
         #", escape, submap, reset"
       ];
