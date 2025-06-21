@@ -17,6 +17,9 @@ let
 in {  
 
   xdg.configFile."hypr/pyprland.toml".source = pyprlandToml;
+  services.hyprpolkitagent.enable = true;
+
+
   wayland.windowManager.hyprland = {
     enable = true;
     package = null;
@@ -170,6 +173,8 @@ in {
         "$mainMod SHIFT, A, exec, nix develop ~/scripts/asistente/ --command python3 ~/scripts/asistente/asistente.py"
         #"$mainMod, R, submap, resize"
         #", escape, submap, reset"
+        "$mainMod, mouse_down, workspace, e-1"
+        "$mainMod, mouse_up, workspace, e+1"
       ];
 
       #binde = [

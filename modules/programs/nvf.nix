@@ -32,6 +32,7 @@
       vim.languages = {
         enableTreesitter = true;
         nix.enable = true;
+        bash.enable = true;
         markdown = {
           enable = true;
           extensions.render-markdown-nvim.enable = true;

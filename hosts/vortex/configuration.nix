@@ -108,10 +108,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    gns3-server
-    gns3-gui
-    ubridge
-    qemu
     inetutils
 
     lshw
@@ -119,6 +115,11 @@
     wl-clipboard
     xclip
     #  wget
+
+    # gns3-server
+    # gns3-gui
+    # ubridge
+    # qemu
   ];
 
   fonts.packages = with pkgs; [
@@ -180,39 +181,30 @@
 
   # List services that you want to enable:
   # Enable the OpenSSH daemon.
-  #services.gns3-server.ubridge.enable = true;
-  #services.gns3-server.settings = {
-  #Server.ubridge_path = pkgs.lib.mkForce "/run/wrappers/bin/ubridge";
-  #};
-  #users.groups.gns3 = { };
-  #users.users.gns3 = {
-  #group = "gns3";
-  #isSystemUser = true;
-  #};
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-  security.wrappers.ubridge = {
-    source = "/run/current-system/sw/bin/ubridge";
-    capabilities = "cap_net_admin,cap_net_raw=ep";
-    owner = "root";
-    group = "ubridge";
-    permissions = "u+rx,g+rx,o+rx";
-  };
-  users.groups.ubridge = {};
-  users.groups.gns3 = {};
 
-  # gns3 bridge
-  networking.bridges.gns3bridge.interfaces = [ "enp34s0" ];
+  # gns3 config
 
-  networking.interfaces.gns3bridge = {
-    ipv4.addresses = [{
-      address = "192.168.0.100";
-      prefixLength = 24;
-    }];
-  };
+  # security.wrappers.ubridge = {
+  #   source = "/run/current-system/sw/bin/ubridge";
+  #   capabilities = "cap_net_admin,cap_net_raw=ep";
+  #   owner = "root";
+  #   group = "ubridge";
+  #   permissions = "u+rx,g+rx,o+rx";
+  # };
+  # networking.bridges.gns3bridge.interfaces = [ "enp34s0" ];
+  #
+  # networking.interfaces.gns3bridge = {
+  #   ipv4.addresses = [{
+  #     address = "192.168.0.100";
+  #     prefixLength = 24;
+  #   }];
+  # };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
