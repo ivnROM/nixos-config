@@ -11,7 +11,6 @@
   home.stateVersion = "24.11"; 
 
   home.packages = with pkgs; [
-    anytype
     brightnessctl
     fastfetch
     ffmpeg
@@ -20,13 +19,11 @@
     hyprshot
     hyprsysteminfo
     libnotify
-    libreoffice-qt6-fresh
     nemo
     pavucontrol
     pyprland
     qalculate-gtk
     ripgrep
-    stremio
     swww
     tree
     qemu
@@ -74,6 +71,8 @@
       safe.directory = "/etc/nixos";
     };
   };
+
+  programs.lutris.enable = true;
 
   programs.vesktop.enable = true;
   programs.ssh.enable = true; 

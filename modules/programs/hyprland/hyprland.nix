@@ -206,7 +206,7 @@ in {
         #"opacity 0.9 0.7, class:^(zen)$"
         "opacity 0.9 0.7, class:^(nemo)$"
         "opacity 0.9 0.7, class:^(libreoffice-writer)$"
-        "opacity 0.9 0.7, class:^(vesktop)$"
+        #"opacity 0.9 0.7, class:^(vesktop)$"
         "opacity 0.9 0.7, title:^Hyprland System Info$"
         "float, class:^(qalculate-gtk)"
         "float, class:^(Tk)"
