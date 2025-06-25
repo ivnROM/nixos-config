@@ -8,7 +8,8 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./specialisations.nix
+      #../specialisations/specialisations.nix
+      ../specialisations/cybersecurity.nix
       ./../../modules/programs/nvf.nix
     ];
 

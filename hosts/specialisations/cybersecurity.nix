@@ -32,22 +32,6 @@
         ];
       };
     };
-    fulbito = {
-      configuration = { config, pkgs, ... }: {
-        environment.systemPackages = with pkgs; [
-          chromium
-          discord
-        ];
-      };
-    };
-    budgie = {
-      configuration = { config, pkgs, ... }: {
-        services.xserver.desktopManager.budgie.enable = true;
-        services.xserver.enable = true;
-        environment.systemPackages = with pkgs; [
-        ];
-      };
-    };
   };
 }
 
