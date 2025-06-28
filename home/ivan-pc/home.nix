@@ -23,6 +23,7 @@
     pavucontrol
     pyprland
     qalculate-gtk
+    quickshell
     ripgrep
     swww
     tree

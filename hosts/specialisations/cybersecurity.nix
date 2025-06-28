@@ -29,6 +29,10 @@
           netcat
           socat
           hping
+
+          # OSINT 
+          sherlock
+          tor
         ];
       };
     };
