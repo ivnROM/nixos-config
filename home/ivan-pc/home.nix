@@ -27,7 +27,6 @@
     ripgrep
     swww
     tree
-    qemu
     yazi
 
     # lsp
