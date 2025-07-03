@@ -2,7 +2,7 @@
 
 {
   programs.eww = {
-    enable = false;
+    enable = true;
     enableBashIntegration = true;
     configDir = ./config;
   };

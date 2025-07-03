@@ -2,7 +2,7 @@
 
 let
   topbarPath = ./topbar/shell.qml;
-  widgetsPath = ./cwc/shell.qml;
+  widgetsPath = ./cwc;
   colors = config.lib.stylix.colors;
   qmlPalette = ''
     QtObject {
@@ -28,6 +28,6 @@ in
 {
   ## AGREGAR ACA LA LINEA DE INSTALACION DE QUICKSHELL
   # xdg.configFile."quickshell/topbar/shell.qml".source = topbarPath;
-  xdg.configFile."quickshell/cwc/shell.qml".source = widgetsPath;
+  xdg.configFile."quickshell/cwc".source = widgetsPath;
   xdg.configFile."quickshell/colors.qml".text = qmlPalette;
 }

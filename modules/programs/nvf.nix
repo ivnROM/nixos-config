@@ -67,7 +67,16 @@
         lazygit.enable = true;
       };
 
-      vim.telescope.enable = true;
+      vim.telescope = {
+        enable = true;
+        mappings = {
+          findFiles = "<leader>ff";
+          liveGrep = "<leader>fg";       
+          findProjects = "<leader>fp";       
+
+        };
+      };
+      vim.treesitter.enable = true;
       vim.autocomplete.blink-cmp.enable = true;
 
       vim.keymaps = [
