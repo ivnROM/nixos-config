@@ -5,15 +5,20 @@
     cybersec = {
       configuration = { config, pkgs, ... }: {
         environment.systemPackages = with pkgs; [
+          burpsuite
+          exploitdb
+
           # Scanners
           nmap
           masscan
 
           # Fuerza bruta / cracking
+          wordlists
           hydra
           john
 
           # Web
+          whatweb
           gobuster
           wfuzz
           sqlmap
@@ -31,8 +36,13 @@
           hping
 
           # OSINT 
+          theharvester
           sherlock
           tor
+          socialscan
+
+          # analisis de metadata
+          exiftool
         ];
       };
     };
