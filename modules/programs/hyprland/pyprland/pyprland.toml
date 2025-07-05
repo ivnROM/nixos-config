@@ -2,7 +2,7 @@
 plugins = [
   "scratchpads",
   "magnify",
-  "expose"
+  # "expose"
 ]
 
 [scratchpads.terminals]

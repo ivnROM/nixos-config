@@ -19,13 +19,14 @@ in {
   xdg.configFile."hypr/pyprland.toml".source = pyprlandToml;
   services.hyprpolkitagent.enable = true;
 
-
   wayland.windowManager.hyprland = {
     enable = true;
     package = null;
     portalPackage = null;
+
     plugins = [ 
       inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
+      inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
     ];
 
     settings = {
@@ -130,7 +131,7 @@ in {
         ", PRINT, exec, hyprshot -m region --clipboard-only"
         "$mainMod, PRINT, exec, hyprshot -m window"
         "$mainMod SHIFT, PRINT, exec, hyprshot -m output"
-        "$mainMod, Tab, exec, pypr expose"
+        "$mainMod, Tab, exec, overview:toggle"
         "$mainMod, PERIOD, exec, pkill bemenu-openconfig || bemenu-openconfig"
 
         "$mainMod, F1, exec, pypr zoom +4"
@@ -218,13 +219,17 @@ in {
       ];
 
       "exec-once" = [ 
+        #"eww daemon"
         "pypr"
         "waybar"
         "swww-daemon"
-        #"eww daemon"
         "swww img ${config.home.homeDirectory}/Pictures/Wallpapers/wallpaper.png --transition-type grow --transition-pos 0.5,0.5 --transition-fps 60"
         #"eww open bar"
       ];
+
+      "plugins:Hyprspace" = {
+        enabled = "true";
+      };
 
       "plugins:dynamic-cursors" = {
         enabled = "true";

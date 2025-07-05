@@ -7,6 +7,7 @@
         environment.systemPackages = with pkgs; [
           burpsuite
           exploitdb
+          tor-browser-bundle-bin
 
           # Scanners
           nmap
@@ -38,11 +39,12 @@
           # OSINT 
           theharvester
           sherlock
-          tor
           socialscan
 
           # analisis de metadata
           exiftool
+          #vpn
+          openvpn
         ];
       };
     };
