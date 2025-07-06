@@ -45,6 +45,12 @@
     enable = true;
     allowPing = true;
   };
+
+  # networking.hosts = {
+  #   "10.129.54.100" = [ "unika.htb" ];
+  # };
+
+
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -110,6 +116,8 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     inetutils
+    gcc
+    gnumake
 
     lshw
     git  
@@ -117,6 +125,11 @@
     xclip
     #  wget
 
+
+    #manual
+    linux-manual
+    man-pages
+    man-pages-posix
     # gns3-server
     # gns3-gui
     # ubridge

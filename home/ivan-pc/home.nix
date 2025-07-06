@@ -14,6 +14,7 @@
     brightnessctl
     fastfetch
     ffmpeg
+    fzf
     gimp3
     gthumb
     hyprshot

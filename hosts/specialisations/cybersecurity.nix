@@ -4,6 +4,13 @@
   specialisation = {
     cybersec = {
       configuration = { config, pkgs, ... }: {
+        networking = {
+          hosts = {
+            "10.129.54.100" = ["unika.htb"];
+          };
+          firewall.allowedTCPPorts = [ 5986 443 ];
+        };
+
         environment.systemPackages = with pkgs; [
           burpsuite
           exploitdb
@@ -26,6 +33,7 @@
           zap
 
           # Exploiting / post-exploit
+          responder
           metasploit
 
           # Redes y utilidades
@@ -43,6 +51,7 @@
 
           # analisis de metadata
           exiftool
+
           #vpn
           openvpn
         ];
