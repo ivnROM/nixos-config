@@ -2,8 +2,7 @@
 let 
   host = config.home.sessionVariables.HOSTNAME or "default";
   monitorConfig = {
-    "maelstrom" = [
-      "eDP-1, 1920x1080@60.01, 0x0, 1" ",preferred, auto, 1, mirror, eDP-1"
+    "maelstrom" = [ "eDP-1, 1920x1080@60.01, 0x0, 1" ",preferred, auto, 1, mirror, eDP-1"
     ];
     "vortex" = [
       "HDMI-A-1, 1920x1080@75.01, 0x0, 1" ",preferred, auto, 1, mirror, HDMI-A-1"
@@ -75,8 +74,9 @@ in {
       };
 
       animations = {
-        enabled = "no";
+        enabled = "yes";
         bezier = [
+          "easeInOutSine,0.445, 0.05, 0.55, 0.95"
           "easeOutQuint,0.23,1,0.32,1"
           "easeInOutCubic,0.65,0.05,0.36,1"
           "linear,0,0,1,1"
@@ -170,8 +170,8 @@ in {
 
         "$mainMod, S, togglespecialworkspace, magic"
         "$mainMod SHIFT, S, movetoworkspace, special:magic"
-        "$mainMod, SPACE, exec, pkill waybar || waybar"
-        "$mainMod SHIFT, A, exec, nix develop ~/scripts/asistente/ --command python3 ~/scripts/asistente/asistente.py"
+        "$mainMod, SPACE, exec, hypr-togglefocus"
+
         #"$mainMod, R, submap, resize"
         #", escape, submap, reset"
         "$mainMod, mouse_down, workspace, e-1"
@@ -206,12 +206,16 @@ in {
       windowrulev2 = [
         #"opacity 0.9 0.7, class:^(zen)$"
         "opacity 0.9 0.7, class:^(nemo)$"
+        "opacity 0.9 0.7, class:^(org.kde.ark)$"
+        "opacity 0.9 0.7, class:^(org.kde.dolphin)$"
         "opacity 0.9 0.7, class:^(libreoffice-writer)$"
         #"opacity 0.9 0.7, class:^(vesktop)$"
         "opacity 0.9 0.7, title:^Hyprland System Info$"
         "float, class:^(qalculate-gtk)"
         "float, class:^(Tk)"
         "float, class:^(nemo)"
+        "float, class:^(org.kde.ark)"
+        "float, class:^(org.kde.dolphin)"
       ];
 
       workspace = [
@@ -220,13 +224,13 @@ in {
 
       "exec-once" = [ 
         #"eww daemon"
+        "swww-daemon"
         "pypr"
         "waybar"
-        "swww-daemon"
         "swww img ${config.home.homeDirectory}/Pictures/Wallpapers/wallpaper.png --transition-type grow --transition-pos 0.5,0.5 --transition-fps 60"
-        #"eww open bar"
         "[workspace 1 silent] zen"
         "[workspace 2 silent] kitty"
+        #"eww open bar"
       ];
 
       "plugins:Hyprspace" = {
@@ -235,57 +239,8 @@ in {
 
       "plugins:dynamic-cursors" = {
         enabled = "true";
-        mode = "stretch";
+        # mode = "stretch";
         threshold = 2;
-
-        # for mode = stretch
-        stretch = {
-
-          # controls how much the cursor is stretched
-          # this value controls at which speed (px/s) the full stretch is reached
-          limit = 12000;
-
-          # relationship between speed and stretch amount, supports these values:
-          # linear             - a linear function is used
-          # quadratic          - a quadratic function is used
-          # negative_quadratic - negative version of the quadratic one, feels more aggressive
-          function = "negative_quadratic";
-        };
-
-
-        shake = {
-          # enables shake to find
-          enabled = "false";
-
-          # use nearest-neighbour (pixelated) scaling when shaking
-          # may look weird when effects are enabled
-          nearest = "true";
-
-          # controls how soon a shake is detected
-          # lower values mean sooner
-          threshold = 6.0;
-
-          # magnification level immediately after shake start
-          base = 4.0;
-          # magnification increase per second when continuing to shake
-          speed = 4.0;
-          # how much the speed is influenced by the current shake intensitiy
-          influence = 0.0;
-
-          # maximal magnification the cursor can reach
-          # values below 1 disable the limit (e.g. 0)
-          limit = 0.0;
-
-          # time in millseconds the cursor will stay magnified after a shake has ended
-          timeout = 2000;
-
-          # show cursor behaviour `tilt`, `rotate`, etc. while shaking
-          effects = "true";
-
-          # enable ipc events for shake
-          # see the `ipc` section below
-          ipc = "false";
-        };
 
         hyprcursor = {
 
@@ -313,4 +268,40 @@ in {
 
     };
   };
+
+  home.packages = with pkgs; [
+    jq
+    (pkgs.writeShellScriptBin "hypr-togglefocus" ''
+      on=$(hyprctl -j getoption animations:enabled | jq --raw-output '.int')
+      gaps_in=$(hyprctl -j getoption general:gaps_in | jq -r '.int')
+      gaps_out=$(hyprctl -j getoption general:gaps_out | jq -r '.int')
+      border_size=$(hyprctl -j getoption general:border_size | jq -r '.int')
+      rounding=$(hyprctl -j getoption decoration:rounding | jq -r '.int')
+
+
+      if [[ $on -eq 1 ]]; then
+      hyprctl keyword animations:enabled 0
+      hyprctl notify -1 1000 "rgb(98c379)" "Focus on"
+      hyprctl --batch '
+      keyword general:gaps_in 0
+      keyword general:gaps_out 0
+      keyword general:border_size 0
+      keyword decoration:rounding 0
+      '   
+      pkill waybar
+      # notify-send -u low -t 1 "Focus off"
+      else
+      hyprctl keyword animations:enabled 1
+      hyprctl notify -1 1000 "rgb(e06c75)" "Focus off"
+      hyprctl --batch '
+      keyword general:gaps_in "$gaps_in"
+      keyword general:gaps_out "$gaps_out"
+      keyword general:border_size "$border_size"
+      keyword decoration:rounding "$rounding"
+      '   
+      waybar
+      # notify-send -u low -t 100 "Focus on"
+      fi  
+      '')
+  ];
 }

@@ -4,7 +4,7 @@
   services.mako = {
     enable = true;
     settings = {
-      anchor="top-left";
+      anchor="top-right";
       sort="-time";
       layer="overlay";
       #background-color=#2e3440;

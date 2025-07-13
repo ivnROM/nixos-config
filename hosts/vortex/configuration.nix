@@ -134,6 +134,9 @@
     # gns3-gui
     # ubridge
     # qemu
+
+    python3
+    python313Packages.pydbus
   ];
 
   fonts.packages = with pkgs; [

@@ -11,6 +11,9 @@
   home.stateVersion = "24.11"; 
 
   home.packages = with pkgs; [
+    kdePackages.ark
+    kdePackages.dolphin
+
     brightnessctl
     fastfetch
     ffmpeg
@@ -20,7 +23,6 @@
     hyprshot
     hyprsysteminfo
     libnotify
-    nemo
     pavucontrol
     pyprland
     qalculate-gtk
@@ -32,10 +34,6 @@
 
     # lsp
     nixfmt-classic
-
-    # temas
-    nordzy-cursor-theme
-    bibata-cursors
     
     # flake builds 
     inputs.zen-browser.packages.${pkgs.system}.default
@@ -43,15 +41,38 @@
 
   home.file = {};
 
+  home.pointerCursor = 
+    let
+      getFrom = url: hash: name: {
+        gtk.enable = true;
+        x11.enable = true;
+        name = name;
+        size = 48;
+        package = 
+          pkgs.runCommand "moveUp" {} ''
+            mkdir -p $out/share/icons
+            ln -s ${pkgs.fetchzip {
+              url = url;
+              hash = hash;
+            }} $out/share/icons/${name}
+          '';
+      };
+    in 
+      getFrom
+      "https://github.com/ful1e5/Bibata_Cursor/releases/download/v2.0.7/Bibata-Modern-Classic.tar.xz"
+      "sha256-2Fd0OVSCgFZVLRAVo/MxgHp1qK5WUNhKY685XPYrBmk="
+      "Bibata-Modern-Classic";
+
+
   home.sessionVariables = {
     EDITOR = "nvim";
     NIXOS_OZONE_WL = "1";
     HOSTNAME = "vortex";
     HYPRCURSOR_SIZE = "24";
-    HYPRCURSOR_THEME = "Nordzy-hyprcursors-catppuccin-macchiato-dark";
+    HYPRCURSOR_THEME = "Bibata-Modern-Classic";
     HYPRSHOT_DIR = "${config.home.homeDirectory}/Pictures/Screenshots/";
     XCURSOR_SIZE = "24";
-    XCURSOR_THEME = "Nordzy-catppuccin-macchiato-dark";
+    XCURSOR_THEME = "Bibata-Modern-Classic";
   };
 
   stylix.targets = {
@@ -84,7 +105,7 @@
     enable = true;
     settings = {
       program_options = {
-        file_manager = "${pkgs.nemo}/bin/nemo";
+        file_manager = "${pkgs.kdePackages.dolphin}/bin/dolphin";
       };
     };
   };
