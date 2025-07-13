@@ -10,6 +10,7 @@
     ./eww/eww.nix
     ./bemenu.nix
     ./kitty.nix
+    ./tmux.nix
     ./zellij.nix
     ./yt-dlp.nix
   ];

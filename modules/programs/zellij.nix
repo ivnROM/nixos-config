@@ -2,7 +2,7 @@
 
 {
   programs.zellij = {
-    enable = true;
+    enable = false;
     enableBashIntegration = true;
     settings = {
       simplified_ui = true;
