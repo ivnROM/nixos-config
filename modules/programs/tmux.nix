@@ -16,12 +16,6 @@
     bind -n M-k select-pane -U
     bind -n M-l select-pane -R
 
-    # Window navigation 0-9 (crea si no existe)
-    run-shell "for i in {0..9}; do \
-      tmux bind -n M-\\$i if -F '#{window_index}' eq \\$i \\; select-window -t \\$i \\;\
-        new-window -n \\$i -t \\$i; \
-    done"
-
     bind -n M-H previous-window
     bind -n M-L next-window
 
@@ -58,21 +52,11 @@
     # htop floating
     bind -n M-t split-window -v -p 40 -c "#{pane_current_path}" "htop; tmux kill-pane"
 
-    # FZF session picker
-    bind C-j run-shell "tmux switch-client -t \"\$(tmux list-sessions -F '#S' | fzf)\""
-    bind C-k run-shell \"\
-      SESSION_WINDOW=\$(tmux list-windows -a -F '#S:#I:#W' | fzf); \
-      tmux switch-client -t \${SESSION_WINDOW%%:*}; \
-      tmux select-window -t \${SESSION_WINDOW#*:}; \
-    \"
-
     # Layout main-vertical
     bind M-4 select-layout main-vertical
     bind -n M-O select-pane -t :.+
     bind -n M-z resize-pane -Z
     bind -n M-f resize-pane -Z
-
-    # Vim sessions picker (experimental)
-    bind C-v run-shell "tmux new-window -n 'vim-sessions' 'lsof -c nvim | grep cwd | awk \"{print \\\$9}\" | sort -u | fzf | xargs -r tmux new-window -c'"
   '';
-};
+  };
+}
