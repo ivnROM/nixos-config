@@ -45,10 +45,6 @@
     bind -n M-Up resize-pane -U 3
     bind -n M-Down resize-pane -D 3
 
-    # Mark and join
-    bind -n M-m select-pane -m
-    bind -n M-b choose-pane "join-pane -s '%%'"
-
     # htop floating
     bind -n M-t split-window -v -p 40 -c "#{pane_current_path}" "htop; tmux kill-pane"
 

@@ -1,15 +1,11 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, inputs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./../../modules/programs/nvf.nix
-      ./../specialisations/cybersecurity.nix
+      ../specialisations/cybersecurity.nix
+      ../../modules/common/global_common.nix
     ];
 
   # nvidia settings
@@ -89,7 +85,6 @@
   services.xserver.xkb = {
     layout = "latam";
     variant = "";
-    options = "caps:escape";
   };
 
   # Configure console keymap
@@ -100,8 +95,9 @@
     isNormalUser = true;
     description = "ivan";
     extraGroups = [ "networkmanager" "wheel" "ubridge" "gns3"];
-    packages = with pkgs; [];
+    # packages = with pkgs; [];
   };
+
   services.displayManager = {
     ly = {
       enable = true;
@@ -114,43 +110,43 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    inetutils
-    gcc
-    gnumake
-
-    lshw
-    git  
-    wl-clipboard
-    xclip
-    #  wget
-
-
-    #manual
-    linux-manual
-    man-pages
-    man-pages-posix
-    # gns3-server
-    # gns3-gui
-    # ubridge
-    # qemu
-
-    python3
-    python313Packages.pydbus
-  ];
-
-  fonts.packages = with pkgs; [
-    fira-code
-    fira-code-symbols
-    font-awesome
-    noto-fonts
-    noto-fonts-emoji
-    nerd-fonts.fira-code
-    nerd-fonts.iosevka
-    nerd-fonts.ubuntu
-    nerd-fonts.ubuntu-sans
-  ];
+  # environment.systemPackages = with pkgs; [
+  #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+  #   inetutils
+  #   gcc
+  #   gnumake
+  #
+  #   lshw
+  #   git  
+  #   wl-clipboard
+  #   xclip
+  #   #  wget
+  #
+  #
+  #   #manual
+  #   linux-manual
+  #   man-pages
+  #   man-pages-posix
+  #   # gns3-server
+  #   # gns3-gui
+  #   # ubridge
+  #   # qemu
+  #
+  #   python3
+  #   python313Packages.pydbus
+  # ];
+  #
+  # fonts.packages = with pkgs; [
+  #   fira-code
+  #   fira-code-symbols
+  #   font-awesome
+  #   noto-fonts
+  #   noto-fonts-emoji
+  #   nerd-fonts.fira-code
+  #   nerd-fonts.iosevka
+  #   nerd-fonts.ubuntu
+  #   nerd-fonts.ubuntu-sans
+  # ];
 
   stylix = { 
     enable = true;
