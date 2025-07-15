@@ -89,6 +89,7 @@
   services.xserver.xkb = {
     layout = "latam";
     variant = "";
+    options = "caps:escape";
   };
 
   # Configure console keymap
