@@ -29,6 +29,7 @@
     quickshell
     ripgrep
     swww
+    temurin-bin
     tree
     yazi
 

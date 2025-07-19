@@ -33,15 +33,17 @@ in {
 
       "$mainMod" = "SUPER";
       "$terminal" = "kitty";
-      "$fileManager" = "dolphin";
+      # "$fileManager" = "dolphin";
       "$menu" = "bemenu-run -b";
 
       general = {
-        gaps_in = 5;
-        gaps_out = 20;
+        # gaps_in = 5;
+        # gaps_out = 20;
+        gaps_in = 0;
+        gaps_out = 0;
         "col.active_border" = lib.mkDefault "rgba(33ccffee) rgba(00ff99ee) 45deg";
         "col.inactive_border" = lib.mkDefault "rgba(595959aa)";
-        border_size = 5;
+        border_size = 0;
 
         resize_on_border = true;
         allow_tearing = false;
@@ -49,7 +51,7 @@ in {
       };
 
       decoration = {
-        rounding = 10;
+        rounding = 0;
         rounding_power = 2;
         active_opacity = 1.0;
         inactive_opacity = 1.0;
@@ -73,7 +75,7 @@ in {
       };
 
       animations = {
-        enabled = "yes";
+        enabled = "no";
         bezier = [
           "easeInOutSine,0.445, 0.05, 0.55, 0.95"
           "easeOutQuint,0.23,1,0.32,1"
@@ -125,6 +127,7 @@ in {
         "$mainMod SHIFT, SPACE, togglefloating"
         "$mainMod, C, exec, qalculate-gtk"
         "$mainMod, B, exec, zen"
+        # "$mainMod E, exec, dolphin"
         "$mainMod, D, exec, pkill $menu || $menu "
         "$mainMod, F, fullscreen"
         ", PRINT, exec, hyprshot -m region --clipboard-only"
@@ -252,23 +255,19 @@ in {
       if [[ $on -eq 1 ]]; then
       hyprctl keyword animations:enabled 0
       hyprctl notify -1 1000 "rgb(98c379)" "Focus on"
-      hyprctl --batch '
-      keyword general:gaps_in 0
-      keyword general:gaps_out 0
-      keyword general:border_size 0
-      keyword decoration:rounding 0
-      '   
+      # hyprctl --batch keyword general:gaps_in 0
+      # hyprctl --batch keyword general:gaps_out 0
+      # hyprctl --batch keyword general:border_size 0
+      # hyprctl --batch keyword decoration:rounding 0
       pkill waybar
       # notify-send -u low -t 1 "Focus off"
       else
       hyprctl keyword animations:enabled 1
       hyprctl notify -1 1000 "rgb(e06c75)" "Focus off"
-      hyprctl --batch '
-      keyword general:gaps_in "$gaps_in"
-      keyword general:gaps_out "$gaps_out"
-      keyword general:border_size "$border_size"
-      keyword decoration:rounding "$rounding"
-      '   
+      # hyprctl --batch keyword general:gaps_in $gaps_in
+      # hyprctl --batch keyword general:gaps_out $gaps_out
+      # hyprctl --batch keyword general:border_size $border_size
+      # hyprctl --batch keyword decoration:rounding $rounding
       waybar
       # notify-send -u low -t 100 "Focus on"
       fi  

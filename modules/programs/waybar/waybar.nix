@@ -11,7 +11,7 @@
         layer = "top";
         position = "top";
         height = 36;
-        width = 1900;
+        width = 1920;
 
         modules-left = [ "custom/separator" "custom/logo" "custom/spotify" "tray"];
         modules-center = [ "hyprland/window" ];
