@@ -45,11 +45,6 @@
     LC_TIME = "es_AR.UTF-8";
   };
 
-  services.displayManager = {
-    ly = {
-      enable = true;
-    };
-  };
   services.displayManager.defaultSession = "hyprland";
 
   # Configure keymap in X11

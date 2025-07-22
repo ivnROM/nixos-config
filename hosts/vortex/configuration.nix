@@ -98,11 +98,6 @@
     # packages = with pkgs; [];
   };
 
-  services.displayManager = {
-    ly = {
-      enable = true;
-    };
-  };
   services.displayManager.defaultSession = "hyprland";
 
   # Allow unfree packages

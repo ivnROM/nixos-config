@@ -48,4 +48,10 @@
     enable = true;
     # TODO: configure kb for escaping with caps lock!!!
   };
+
+  services.displayManager = {
+    gdm = {
+      enable = true;
+    };
+  };
 }
