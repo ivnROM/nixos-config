@@ -1,19 +1,24 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../specialisations/cybersecurity.nix
-      ../../modules/common/global_common.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../specialisations/cybersecurity.nix
+    ../../modules/common/global_common.nix
+  ];
 
   # nvidia settings
   hardware.graphics = {
     enable = true;
-  }; 
+  };
 
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
     modesetting.enable = true;
@@ -24,12 +29,14 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-
   nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
-    substituters = ["https://hyprland.cachix.org"];
-    trusted-substituters = ["https://hyprland.cachix.org"];
-    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+    substituters = [ "https://hyprland.cachix.org" ];
+    trusted-substituters = [ "https://hyprland.cachix.org" ];
+    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
     download-buffer-size = 524288000;
   };
   # Bootloader.
@@ -46,7 +53,6 @@
   #   "10.129.54.100" = [ "unika.htb" ];
   # };
 
-
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -59,7 +65,10 @@
     dns = "none";
   };
 
-  networking.nameservers = [ "1.1.1.1" "8.8.8.8"];
+  networking.nameservers = [
+    "1.1.1.1"
+    "8.8.8.8"
+  ];
   networking.defaultGateway = "192.168.0.1";
   networking.resolvconf.enable = false;
 
@@ -94,7 +103,10 @@
   users.users.ivan = {
     isNormalUser = true;
     description = "ivan";
-    extraGroups = [ "networkmanager" "wheel" "ubridge" "gns3"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     # packages = with pkgs; [];
   };
 
@@ -112,7 +124,7 @@
   #   gnumake
   #
   #   lshw
-  #   git  
+  #   git
   #   wl-clipboard
   #   xclip
   #   #  wget
@@ -143,7 +155,7 @@
   #   nerd-fonts.ubuntu-sans
   # ];
 
-  stylix = { 
+  stylix = {
     enable = true;
     autoEnable = true;
     # tokyo city terminal dark
@@ -163,7 +175,7 @@
       applications = 0.9;
       desktop = 0.9;
       popups = 0.9;
-      terminal = 0.9; 
+      terminal = 0.9;
     };
   };
 
@@ -220,10 +232,12 @@
     options = [ "defaults" ];
   };
 
-  swapDevices = [{
-    device = "/mnt/hdd/swapfile";
-    size = 16*1024; # 16 GB
-  }];
+  swapDevices = [
+    {
+      device = "/mnt/hdd/swapfile";
+      size = 16 * 1024; # 16 GB
+    }
+  ];
 
   system.stateVersion = "24.11"; # Did you read the comment?
 }

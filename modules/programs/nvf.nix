@@ -1,4 +1,9 @@
-{ pkgs, config, lib, inputs, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 {
   stylix.targets.nvf = {
@@ -26,13 +31,33 @@
       };
 
       vim.lsp = {
-        enable = true;
+        inlayHints.enable = true;
+        lightbulb.enable = true;
+
+        mappings = {
+          codeAction = "<leader>la";
+          format = "<leader>lf";
+          goToDeclaration = "gD";
+          goToDefinition = "gd";
+          renameSymbol = "<leader>r";
+        };
       };
 
       vim.languages = {
         enableTreesitter = true;
-        nix.enable = true;
         bash.enable = true;
+        nix = {
+          enable = true;
+          treesitter.enable = true;
+          lsp = {
+            enable = true;
+            server = "nil";
+          };
+          format = {
+            enable = true;
+            type = "nixfmt";
+          };
+        };
         markdown = {
           enable = true;
           extensions.render-markdown-nvim.enable = true;
@@ -40,11 +65,11 @@
         python = {
           enable = true;
         };
-        clang = {
-          enable = true;
-          lsp.enable = true;
-          treesitter.enable = true;
-        };
+        # clang = {
+          # enable = true;
+        #   lsp.enable = true;
+        #   treesitter.enable = true;
+        # };
       };
 
       vim.statusline.lualine = {
@@ -71,8 +96,8 @@
         enable = true;
         mappings = {
           findFiles = "<leader>ff";
-          liveGrep = "<leader>fg";       
-          findProjects = "<leader>fp";       
+          liveGrep = "<leader>fg";
+          findProjects = "<leader>fp";
 
         };
       };
