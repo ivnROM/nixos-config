@@ -13,6 +13,8 @@ let
   };
   selectedMonitor = monitorConfig.${host} or monitorConfig."default";
   pyprlandToml = ./pyprland/pyprland.toml;
+  bemenuSettings = "${pkgs.bemenu}/bin/bemenu -l 5 down --auto-select -c -W 0.3";
+
 in {  
 
   xdg.configFile."hypr/pyprland.toml".source = pyprlandToml;
@@ -34,7 +36,7 @@ in {
       "$mainMod" = "SUPER";
       "$terminal" = "kitty";
       # "$fileManager" = "dolphin";
-      "$menu" = "bemenu-run -b";
+      "$menu" = "bemenu-run -b -l 5 down -c -W 0.3";
 
       general = {
         # gaps_in = 5;
@@ -135,9 +137,10 @@ in {
         "$mainMod SHIFT, PRINT, exec, hyprshot -m output"
         "$mainMod, Tab, exec, overview:toggle"
         "$mainMod, PERIOD, exec, pkill bemenu-openconfig || bemenu-openconfig"
+        "$mainMod, COMMA, exec, pkill bemenu-opennotes || bemenu-opennotes"
+        "$mainMod, M, exec, cliphist list | ${bemenuSettings} | cliphist decode | wl-copy"
 
-        "$mainMod, F1, exec, pypr zoom +4"
-        "$mainMod SHIFT, F1, exec, pypr zoom"
+        "$mainMod, F1, exec, pypr zoom"
 
         "$mainMod, h, movefocus, l"
         "$mainMod, l, movefocus, r"
@@ -229,16 +232,13 @@ in {
         "swww-daemon"
         "pypr"
         "waybar"
+        "wl-clip-persist --clipboard regular"
+        "wl-paste --type text --watch cliphist store"
         "swww img ${config.home.homeDirectory}/Pictures/Wallpapers/wallpaper.png --transition-type grow --transition-pos 0.5,0.5 --transition-fps 60"
         "[workspace 1 silent] zen"
         "[workspace 2 silent] kitty"
         #"eww open bar"
       ];
-
-      "plugins:Hyprspace" = {
-        enabled = "true";
-      };
-
     };
   };
 

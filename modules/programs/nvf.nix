@@ -21,16 +21,28 @@
       vim.binds = {
         #whichKey.enable = true;
       };
+      
+      vim.clipboard = {
+        enable = true;
+        registers = "unnamedplus";
+        providers.wl-copy.enable = true; 
+      };
+
+      vim.visuals = {
+        cellular-automaton.enable = true;
+        indent-blankline.enable = true;
+        nvim-cursorline.enable = true;
+      };
 
       vim.mini = {
         git.enable = true;
-        indentscope.enable = true;
         move.enable = true;
         pairs.enable = true;
         surround.enable = true;
       };
 
       vim.lsp = {
+        enable = true;
         inlayHints.enable = true;
         lightbulb.enable = true;
 
@@ -65,11 +77,10 @@
         python = {
           enable = true;
         };
-        # clang = {
-          # enable = true;
-        #   lsp.enable = true;
-        #   treesitter.enable = true;
-        # };
+
+        clang = {
+          enable = true;
+        };
       };
 
       vim.statusline.lualine = {

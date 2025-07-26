@@ -15,10 +15,10 @@
     kdePackages.dolphin
 
     brightnessctl
+    cliphist
     fastfetch
     ffmpeg
     fzf
-    gimp3
     gthumb
     hyprshot
     hyprsysteminfo
@@ -29,9 +29,7 @@
     quickshell
     ripgrep
     swww
-    temurin-bin
     tree
-    yazi
 
     # lsp
     nixfmt-classic
