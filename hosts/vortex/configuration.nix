@@ -158,7 +158,7 @@
 
   stylix = {
     enable = true;
-    autoEnable = true;
+    autoEnable = false;
     # tokyo city terminal dark
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-city-terminal-dark.yaml";
     image = ../../assets/wallpaper-pc.png;

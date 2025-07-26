@@ -8,8 +8,9 @@
     #./wofi/wofi.nix
     # ./quickshell/quickshell.nix
     ./eww/eww.nix
-    ./bemenu.nix
+    # ./bemenu.nix
     ./kitty.nix
+    ./tofi.nix
     ./tmux.nix
     ./zellij.nix
     ./yt-dlp.nix

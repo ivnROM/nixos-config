@@ -13,7 +13,8 @@ let
   };
   selectedMonitor = monitorConfig.${host} or monitorConfig."default";
   pyprlandToml = ./pyprland/pyprland.toml;
-  bemenuSettings = "${pkgs.bemenu}/bin/bemenu -l 5 down --auto-select -c -W 0.3";
+  # bemenuSettings = "${pkgs.bemenu}/bin/bemenu -l 5 down --auto-select -c -W 0.3";
+  tofi-launcher = "${pkgs.tofi}/bin/tofi";
 
 in {  
 
@@ -36,7 +37,8 @@ in {
       "$mainMod" = "SUPER";
       "$terminal" = "kitty";
       # "$fileManager" = "dolphin";
-      "$menu" = "bemenu-run -b -l 5 down -c -W 0.3";
+      # "$menu" = "bemenu-run -b -l 5 down -c -W 0.3";
+      "$menu" = "${pkgs.tofi}/bin/tofi-drun";
 
       general = {
         # gaps_in = 5;
@@ -119,7 +121,7 @@ in {
 
       misc = {
         force_default_wallpaper = 1;
-        disable_hyprland_logo = "true";
+        # disable_hyprland_logo = "true";
       };
 
       bind = [
@@ -136,9 +138,14 @@ in {
         "$mainMod, PRINT, exec, hyprshot -m window"
         "$mainMod SHIFT, PRINT, exec, hyprshot -m output"
         "$mainMod, Tab, exec, overview:toggle"
-        "$mainMod, PERIOD, exec, pkill bemenu-openconfig || bemenu-openconfig"
-        "$mainMod, COMMA, exec, pkill bemenu-opennotes || bemenu-opennotes"
-        "$mainMod, M, exec, cliphist list | ${bemenuSettings} | cliphist decode | wl-copy"
+        # BEMENU 
+        # "$mainMod, PERIOD, exec, pkill bemenu-openconfig || bemenu-openconfig"
+        # "$mainMod, COMMA, exec, pkill bemenu-opennotes || bemenu-opennotes"
+        # "$mainMod, M, exec, cliphist list | ${bemenuSettings} | cliphist decode | wl-copy"
+        # TOFI
+        "$mainMod, PERIOD, exec, pkill tofi-openconfig || tofi-openconfig"
+        "$mainMod, COMMA, exec, pkill tofi-opennotes || tofi-opennotes"
+        "$mainMod, M, exec, cliphist list | ${tofi-launcher} | cliphist decode | wl-copy"
 
         "$mainMod, F1, exec, pypr zoom"
 
