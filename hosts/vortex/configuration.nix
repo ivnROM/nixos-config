@@ -39,6 +39,7 @@
     trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
     download-buffer-size = 524288000;
   };
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -159,7 +160,8 @@
     enable = true;
     autoEnable = true;
     # tokyo city terminal dark
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-city-terminal-dark.yaml";
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-city-terminal-dark.yaml";
+    image = ../../assets/wallpaper-pc.png;
     # sandcastle
     #base16Scheme = "${pkgs.base16-schemes}/share/themes/sandcastle.yaml";
     # gruvbox
