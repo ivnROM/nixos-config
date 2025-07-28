@@ -44,34 +44,39 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "vortex"; # Define your hostname.
-  networking.firewall = {
-    enable = true;
-    allowPing = true;
+  networking = {
+    hostName = "vortex"; # Define your hostname.
+
+    firewall = {
+      enable = true;
+      allowPing = true;
+    };
+
+    # networking.hosts = {
+    #   "10.129.54.100" = [ "unika.htb" ];
+    # };
+
+    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+    # Configure network proxy if necessary
+    # networking.proxy.default = "http://user:password@proxy:port/";
+    # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
+    # Enable networking
+    networkmanager = {
+      enable = true;
+      dns = "none";
+    };
+
+    nameservers = [
+      "1.1.1.1"
+      "8.8.8.8"
+    ];
+
+    defaultGateway = "192.168.0.1";
+    resolvconf.enable = false;
   };
 
-  # networking.hosts = {
-  #   "10.129.54.100" = [ "unika.htb" ];
-  # };
-
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager = {
-    enable = true;
-    dns = "none";
-  };
-
-  networking.nameservers = [
-    "1.1.1.1"
-    "8.8.8.8"
-  ];
-  networking.defaultGateway = "192.168.0.1";
-  networking.resolvconf.enable = false;
 
   # Set your time zone.
   time.timeZone = "America/Argentina/Buenos_Aires";
@@ -159,9 +164,11 @@
   stylix = {
     enable = true;
     autoEnable = false;
+    # da-one-ocean
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/da-one-ocean.yaml";
     # tokyo city terminal dark
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-city-terminal-dark.yaml";
-    image = ../../assets/wallpaper-pc.png;
+    # image = ../../assets/wallpaper-pc.png;
     # sandcastle
     #base16Scheme = "${pkgs.base16-schemes}/share/themes/sandcastle.yaml";
     # gruvbox

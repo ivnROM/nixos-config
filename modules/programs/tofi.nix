@@ -48,12 +48,9 @@ in
       ${pkgs.kitty}/bin/kitty bash -c "vim '$file'"
     '')
 
-    # (pkgs.writeShellScriptBin "bemenu-runapps" ''
-    #   file=$(find /etc/profiles/per-user/$USER "*nix" | ${pkgs.bemenu}/bin/bemenu -b)
-    #   [ -z "$file" ] && exit 0
-    #   #pkexec env WAYLAND_DISPLAY=$WAYLAND_DISPLAY XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR ${pkgs.kitty}/bin/kitty vim "$file"
-    #   ${pkgs.kitty}/bin/kitty -e bash -c "sudo vim '$file'"
-    # '')
+    (pkgs.writeShellScriptBin "tofi-openlauncher" ''
+      exec $(${pkgs.tofi}/bin/tofi-drun)
+    '')
   ];
 
 }

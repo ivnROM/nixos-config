@@ -38,7 +38,7 @@ in {
       "$terminal" = "kitty";
       # "$fileManager" = "dolphin";
       # "$menu" = "bemenu-run -b -l 5 down -c -W 0.3";
-      "$menu" = "${pkgs.tofi}/bin/tofi-drun";
+      "$menu" = "tofi-openlauncher";
 
       general = {
         # gaps_in = 5;
@@ -121,7 +121,7 @@ in {
 
       misc = {
         force_default_wallpaper = 1;
-        # disable_hyprland_logo = "true";
+        disable_hyprland_logo = "true";
       };
 
       bind = [
@@ -218,10 +218,7 @@ in {
       windowrulev2 = [
         #"opacity 0.9 0.7, class:^(zen)$"
         "opacity 0.9 0.7, class:^(nemo)$"
-        "opacity 0.9 0.7, class:^(org.kde.ark)$"
-        "opacity 0.9 0.7, class:^(org.kde.dolphin)$"
         "opacity 0.9 0.7, class:^(libreoffice-writer)$"
-        #"opacity 0.9 0.7, class:^(vesktop)$"
         "opacity 0.9 0.7, title:^Hyprland System Info$"
         "float, class:^(qalculate-gtk)"
         "float, class:^(Tk)"
