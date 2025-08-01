@@ -272,7 +272,7 @@ in {
       # hyprctl --batch keyword general:gaps_out $gaps_out
       # hyprctl --batch keyword general:border_size $border_size
       # hyprctl --batch keyword decoration:rounding $rounding
-      waybar
+      pkill waybar || waybar
       # notify-send -u low -t 100 "Focus on"
       fi  
       '')

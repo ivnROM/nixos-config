@@ -44,14 +44,10 @@
     nerd-fonts.ubuntu-sans
   ];
 
-  services.kanata = {
-    enable = true;
-    # TODO: configure kb for escaping with caps lock!!!
+  services.displayManager = {
+    lemurs.enable = true;
   };
 
-  services.displayManager = {
-    gdm = {
-      enable = true;
-    };
-  };
+  # For lemurs
+  users.users.ivan.extraGroups = [ "seat" ];
 }

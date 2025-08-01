@@ -10,9 +10,9 @@
       #background-color=#2e3440;
       width=300;
       height=110;
-      border-size=0;
+      border-size=2;
       #border-color=#88c0d0;
-      border-radius=0;
+      border-radius=2;
       icons=0;
       max-icon-size=64;
       default-timeout=5000;

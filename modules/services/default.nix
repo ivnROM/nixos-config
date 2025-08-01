@@ -2,7 +2,7 @@
 {
   imports = [
     ./swww.nix
-    ./glance.nix
+    # ./glance.nix
     ./mako.nix
   ];
 }
