@@ -5,6 +5,7 @@
     kdePackages.dolphin
 
     brightnessctl
+    btop
     cliphist
     fastfetch
     ffmpeg

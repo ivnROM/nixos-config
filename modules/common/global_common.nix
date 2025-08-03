@@ -45,9 +45,10 @@
   ];
 
   services.displayManager = {
-    lemurs.enable = true;
+    # lemurs.enable = true;
+    ly.enable = true;
   };
 
-  # For lemurs
-  users.users.ivan.extraGroups = [ "seat" ];
+  # # For lemurs
+  # users.users.ivan.extraGroups = [ "seat" ];
 }
