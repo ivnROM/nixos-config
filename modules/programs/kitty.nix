@@ -5,7 +5,7 @@
   programs.kitty = {
     enable = true;
     font = {
-      name = lib.mkForce "FiraCode Nerd Font";
+      # name = lib.mkForce "FiraCode Nerd Font";
       size = lib.mkForce 20;
     };
 

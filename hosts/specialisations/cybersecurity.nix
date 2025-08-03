@@ -4,7 +4,6 @@
   specialisation = {
     cybersec = {
       configuration =
-        { config, pkgs, ... }:
         {
           users.users.ivan.extraGroups = [ "wireshark" ];
           networking = {
