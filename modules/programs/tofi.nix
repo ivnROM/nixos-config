@@ -49,7 +49,9 @@ in
     '')
 
     (pkgs.writeShellScriptBin "tofi-openlauncher" ''
-      exec "$(${pkgs.tofi}/bin/tofi-drun)"
+      app="$(${pkgs.tofi}/bin/tofi-drun)"
+      echo $app
+      exec $app
     '')
   ];
 

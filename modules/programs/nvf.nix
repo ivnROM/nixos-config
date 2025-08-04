@@ -58,6 +58,11 @@
       vim.languages = {
         enableTreesitter = true;
         bash.enable = true;
+        css = {
+          enable = true;
+          lsp.enable = true;
+          treesitter.enable = true;
+        };
         nix = {
           enable = true;
           treesitter.enable = true;

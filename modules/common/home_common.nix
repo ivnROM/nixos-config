@@ -13,6 +13,7 @@
     hyprshot
     hyprsysteminfo
     libnotify
+    nicotine-plus
     pavucontrol
     pyprland
     qalculate-gtk

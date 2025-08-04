@@ -10,6 +10,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../specialisations/cybersecurity.nix
+    ../specialisations/gaming.nix
     ../../modules/common/global_common.nix
   ];
 
@@ -50,6 +51,8 @@
     firewall = {
       enable = true;
       allowPing = true;
+
+      allowedTCPPorts = [2234];
     };
 
     # networking.hosts = {
@@ -185,6 +188,28 @@
       desktop = 0.9;
       popups = 0.9;
       terminal = 0.9;
+    };
+
+    fonts = {
+      serif = {
+        package = pkgs.nerd-fonts.ubuntu;
+        name = "Ubuntu Nerd Font";
+      };
+
+      sansSerif = {
+        package = pkgs.nerd-fonts.ubuntu-sans;
+        name = "UbuntuSans Nerd Font";
+      };
+
+      monospace = {
+        package = pkgs.nerd-fonts.iosevka;
+        name = "Iosevka Nerd Font";
+      };
+
+      emoji = {
+        package = pkgs.noto-fonts-emoji;
+        name = "Noto Color Emoji";
+      };
     };
   };
 
