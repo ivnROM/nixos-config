@@ -134,6 +134,7 @@ in {
         # "$mainMod E, exec, dolphin"
         "$mainMod, D, exec, pkill $menu || $menu "
         "$mainMod, F, fullscreen"
+        "$mainMod, E, exec, kitty -e yazi"
         ", PRINT, exec, hyprshot -m region --clipboard-only"
         "$mainMod, PRINT, exec, hyprshot -m window"
         "$mainMod SHIFT, PRINT, exec, hyprshot -m output"
@@ -197,18 +198,23 @@ in {
       #", j, resizeactive, 0 40"
       #];
       bindel = [
-        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
-        ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+        # ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
+        # ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        # ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        # ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         ",XF86MonBrightnessUp, exec, brightnessctl s 5%+"
         ",XF86MonBrightnessDown, exec, brightnessctl s 5%-"
+        ",XF86AudioRaiseVolume, exec, volumectl -u up"
+        ",XF86AudioLowerVolume, exec, volumectl -u down"
+        ",XF86AudioMute, exec, volumectl toggle-mute"
+        ",XF86AudioMicMute, exec, volumectl -m toggle-mute"
       ];
 
       bindm = [
         "$mainMod, mouse:272, movewindow"
         "$mainMod, mouse:272, resizewindow"
       ];
+
 
       submap = [
         "resize"

@@ -1,9 +1,6 @@
 { config, pkgs, inputs, lib, ... }:
 {
   home.packages = with pkgs; [
-    kdePackages.ark
-    kdePackages.dolphin
-
     brightnessctl
     btop
     cliphist
@@ -51,6 +48,8 @@
       "https://github.com/ful1e5/Bibata_Cursor/releases/download/v2.0.7/Bibata-Modern-Classic.tar.xz"
       "sha256-2Fd0OVSCgFZVLRAVo/MxgHp1qK5WUNhKY685XPYrBmk="
       "Bibata-Modern-Classic";
+
+  home.shell.enableBashIntegration = true;
 
   stylix.targets = {
     gtk.enable = true;

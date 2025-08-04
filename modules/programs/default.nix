@@ -13,6 +13,8 @@
     ./tofi.nix
     ./tmux.nix
     ./zellij.nix
+    ./yazi.nix
     ./yt-dlp.nix
+    ./zen.nix
   ];
 }

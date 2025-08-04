@@ -49,6 +49,11 @@
     ly.enable = true;
   };
 
-  # # For lemurs
-  # users.users.ivan.extraGroups = [ "seat" ];
+  stylix.targets = {
+    font-packages.enable = true;
+    console.enable = true;
+  };
+
+  # deshabilitar en caso de dejar de usar dolphin
+  services.udisks2.enable = true;
 }

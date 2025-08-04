@@ -17,7 +17,7 @@
   home.file = {};
 
   home.sessionVariables = {
-    EDITOR = "nvim";
+    EDITOR = "vim";
     NIXOS_OZONE_WL = "1";
     HOSTNAME = "vortex";
     HYPRCURSOR_SIZE = "24";

@@ -49,12 +49,13 @@ in
 
     #workspaces {
         /* padding: 0 5px; */
-        padding: 4px 6px;
+        padding: 4px 4px;
         background-color: rgba(0, 0, 0, 255);
         border-radius: 10px;
         margin-top: 6px;
         margin-left: 6px;
         margin-right: 6px;
+        margin-bottom: 6px;
         border-width: 0px;
     }
 
