@@ -1,4 +1,7 @@
 { config, pkgs, inputs, lib, ... }:
+let
+  editor = config.home.sessionVariables.EDITOR;
+in
 {
   home.packages = with pkgs; [
     brightnessctl
@@ -23,6 +26,19 @@
     
     # flake builds 
     inputs.zen-browser.packages.${pkgs.system}.default
+
+    # scripts
+    (pkgs.writeShellScriptBin "create-note" ''
+      filename="$(date +%F).md"
+      command="${editor} ${config.home.homeDirectory}/Notes/$filename"
+      mkdir -p "${config.home.homeDirectory}/Notes"
+
+      if [ -n "$TMUX" ]; then
+        tmux send-keys "$command" C-m
+      else
+        eval "$command"
+      fi
+    '')
   ];
 
   home.file = {};

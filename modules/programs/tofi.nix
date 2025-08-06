@@ -19,7 +19,7 @@ in
 
       ascii-input="true";
       fuzzy-match = "true";
-      auto-accept-single = "true";
+      auto-accept-single = "false";
 
       result-spacing = 5;
 
@@ -42,15 +42,15 @@ in
     '')
 
     (pkgs.writeShellScriptBin "tofi-opennotes" ''
-      file=$(find ${config.home.homeDirectory}/Notes -iname "*md" | ${tofiSettings})
+      directory="${config.home.homeDirectory}/Notes"
+      file=$(find $directory -iname "*md" | ${tofiSettings})
       [ -z "$file" ] && exit 0
 
-      ${pkgs.kitty}/bin/kitty bash -c "vim '$file'"
+      ${pkgs.kitty}/bin/kitty bash -c "vim \"$directory/$file\""
     '')
 
     (pkgs.writeShellScriptBin "tofi-openlauncher" ''
       app="$(${pkgs.tofi}/bin/tofi-drun)"
-      echo $app
       exec $app
     '')
   ];
