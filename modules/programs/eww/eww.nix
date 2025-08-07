@@ -2,9 +2,10 @@
 
 {
   programs.eww = {
-    enable = false;
+    enable = true;
     enableBashIntegration = true;
     # configDir = ./config;
   };
-  # home.file.".config/eww".source = config.lib.file.mkOutOfStoreSymlink "/home/ivan/Projects/EWWBar";
+  home.file.".config/eww".source = config.lib.file.mkOutOfStoreSymlink "/home/ivan/eww";
+
 }

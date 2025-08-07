@@ -49,6 +49,7 @@
             netcat
             socat
             hping
+            remmina
 
             # OSINT
             theharvester

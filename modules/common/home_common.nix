@@ -4,9 +4,11 @@ let
 in
 {
   home.packages = with pkgs; [
+    bat
     brightnessctl
     btop
     cliphist
+    eza
     fastfetch
     ffmpeg
     fzf
@@ -19,7 +21,6 @@ in
     qalculate-gtk
     ripgrep
     swww
-    tree
 
     # lsp
     nixfmt-classic
@@ -66,6 +67,14 @@ in
       "Bibata-Modern-Classic";
 
   home.shell.enableBashIntegration = true;
+  home.shellAliases = {
+    "l" = "eza -lah";
+    "ls" = "eza";
+    "tree" = "eza --tree --git-ignore";
+
+    "nr" = "nh os switch";
+    "cg" = "sudo nix-collect-garbage -d";
+  };
 
   stylix.targets = {
     gtk.enable = true;

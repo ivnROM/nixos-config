@@ -1,6 +1,4 @@
 {
-  pkgs,
-  config,
   lib,
   ...
 }:
@@ -26,6 +24,10 @@
         enable = true;
         registers = "unnamedplus";
         providers.wl-copy.enable = true; 
+      };
+
+      vim.diagnostics = {
+        enable = true;
       };
 
       vim.visuals = {
@@ -77,7 +79,11 @@
         };
         markdown = {
           enable = true;
-          extensions.render-markdown-nvim.enable = true;
+          lsp.enable = true;
+          format.enable = true;
+          treesitter.enable = true;
+          extraDiagnostics.enable = true;
+          extensions.markview-nvim.enable = true;
         };
         python = {
           enable = true;

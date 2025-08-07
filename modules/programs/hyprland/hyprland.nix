@@ -15,7 +15,6 @@ let
   pyprlandToml = ./pyprland/pyprland.toml;
   # bemenuSettings = "${pkgs.bemenu}/bin/bemenu -l 5 down --auto-select -c -W 0.3";
   tofi-launcher = "${pkgs.tofi}/bin/tofi";
-
 in {  
 
   xdg.configFile."hypr/pyprland.toml".source = pyprlandToml;
@@ -38,7 +37,7 @@ in {
       "$terminal" = "kitty";
       # "$fileManager" = "dolphin";
       # "$menu" = "bemenu-run -b -l 5 down -c -W 0.3";
-      "$menu" = "tofi-openlauncher";
+      "$menu" = "bash -c 'exec $(tofi-run)'";
 
       general = {
         # gaps_in = 5;
