@@ -1,7 +1,8 @@
-{ pkgs, config, lib, ... }: let 
-  # waybarConfigPath = "${config.home.homeDirectory}/TempDotfiles/waybar/config.jsonc";
-in
-  {
+{ pkgs, config, lib, ... }: 
+# let 
+#   # waybarConfigPath = "${config.home.homeDirectory}/TempDotfiles/waybar/config.jsonc";
+# in
+{
   stylix.targets.waybar = {
     enable = true;
     addCss = false;
