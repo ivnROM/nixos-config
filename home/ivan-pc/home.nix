@@ -11,8 +11,7 @@
 
   home.stateVersion = "24.11"; 
 
-  home.packages = with pkgs; [
-  ];
+  home.packages = with pkgs; [];
 
   home.file = {};
 
@@ -25,20 +24,6 @@
     HYPRSHOT_DIR = "${config.home.homeDirectory}/Pictures/Screenshots/";
     XCURSOR_SIZE = "24";
     XCURSOR_THEME = "Bibata-Modern-Classic";
-  };
-
-  programs.zoxide.enable = true;
-  programs.bash.enable = true;
-  programs.neovim.enable = true;
-
-  programs.git = {
-    enable = true;
-    userName = "ivan meyer";
-    userEmail = "meyerivanoliver@gmail.com";
-    extraConfig = {
-      init.defaultBranch = "main";
-      safe.directory = "/etc/nixos";
-    };
   };
 
   programs.vesktop.enable = true;

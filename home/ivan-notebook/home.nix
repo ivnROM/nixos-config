@@ -4,6 +4,7 @@
 
   imports = [
     ../../modules/default.nix
+    ../../modules/common/home_common.nix
   ];
 
   home.username = "ivan";
@@ -20,68 +21,21 @@
 
   home.packages = with pkgs; [
     bluez
-    brightnessctl
-    fastfetch
-    ffmpeg
-    gthumb
-    hyprshot
-    hyprsysteminfo
-    libnotify
-    libreoffice-qt6-fresh
-    mpv
-    nemo
-    pavucontrol
-    pyprland
-    qalculate-gtk
-    ripgrep
     stremio
-    swww
-    tree
-    yazi
-
-    # lsp
-    nixfmt-classic
-
-    # temas
-    nordzy-cursor-theme
-    bibata-cursors
-    
-    # flake builds 
-    inputs.zen-browser.packages.${pkgs.system}.default
   ];
 
   home.file = {};
 
   home.sessionVariables = {
-    EDITOR = "nvim";
+    EDITOR = "vim";
     NIXOS_OZONE_WL = "1";
     HOSTNAME = "maelstrom";
-    HYPRCURSOR_SIZE = "28";
-    HYPRCURSOR_THEME = "Nordzy-hyprcursors";
+    HYPRCURSOR_SIZE = "24";
+    HYPRCURSOR_THEME = "Bibata-Modern-Classic";
     HYPRSHOT_DIR = "${config.home.homeDirectory}/Pictures/Screenshots/";
-    XCURSOR_SIZE = "28";
-    XCURSOR_THEME = "Nordzy-hyprcursors";
+    XCURSOR_SIZE = "24";
+    XCURSOR_THEME = "Bibata-Modern-Classic";
   };
-
-  programs.zoxide.enable = true;
-  programs.bash.enable = true;
-  programs.neovim.enable = true;
-
-  programs.git = {
-    enable = true;
-    userName = "ivan meyer";
-    userEmail = "meyerivanoliver@gmail.com";
-    extraConfig = {
-      init.defaultBranch = "main";
-      safe.directory = "/etc/nixos";
-    };
-  };
-
-  programs.ssh.enable = true; 
-  programs.mpv.enable = true; 
-
-  services.ssh-agent.enable = true;
-  services.swww.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
