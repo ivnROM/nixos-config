@@ -53,7 +53,7 @@
         };
 
         "group/rightbox" = {
-          modules = [ "group/hardware" "network" "pulseaudio" ];
+          modules = [ "group/hardware" "network" "pulseaudio" "battery"];
           orientation = "inherit";
         };
 
@@ -124,7 +124,7 @@
             warning = 30;
             critical = 15;
           };
-          format = "{icon}";
+          format = "{capacity}% {icon} ";
           format-icons = [ "" "" "" "" "" ];
         };
 

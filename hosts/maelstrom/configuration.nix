@@ -8,9 +8,10 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      #../specialisations/specialisations.nix
       ../specialisations/cybersecurity.nix
-      ./../../modules/programs/nvf.nix
+      ../../modules/programs/nvf.nix
+      ../../modules/common/global_common.nix
+
     ];
 
   # Bootloader.
@@ -51,7 +52,6 @@
   services.xserver.xkb = {
     layout = "latam";
     variant = "";
-    options = "caps:escape";
   };
 
   services.logind = {
@@ -83,9 +83,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    git  
-
     #gns3 
     gns3-server
     gns3-gui
@@ -97,17 +94,6 @@
     wget
   ];
 
-  fonts.packages = with pkgs; [
-    fira-code
-    fira-code-symbols
-    font-awesome
-    noto-fonts
-    noto-fonts-emoji
-    nerd-fonts.fira-code
-    nerd-fonts.iosevka
-    nerd-fonts.ubuntu
-    nerd-fonts.ubuntu-sans
-  ];
 
   stylix = { 
     enable = true;
@@ -116,11 +102,6 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
     # gruvbox
     #base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-soft.yaml";
-
-    # tokyo night
-    #image = ../../assets/wallpaper.png;
-    # gruvbox
-    #image = ../../assets/gruvbox.png;
 
     polarity = "dark";
     opacity = {

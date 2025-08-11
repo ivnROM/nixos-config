@@ -37,12 +37,12 @@
     };
 
     zen-browser = {
-      url = "github:youwen5/zen-browser-flake";
+      url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, hyprland, hypr-dynamic-cursors, nvf, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, hyprland, hypr-dynamic-cursors, nvf, zen-browser, ... }: {
     nixosConfigurations.maelstrom = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [

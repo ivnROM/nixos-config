@@ -13,7 +13,6 @@ let
   };
   selectedMonitor = monitorConfig.${host} or monitorConfig."default";
   pyprlandToml = ./pyprland/pyprland.toml;
-  # bemenuSettings = "${pkgs.bemenu}/bin/bemenu -l 5 down --auto-select -c -W 0.3";
   tofi-launcher = "${pkgs.tofi}/bin/tofi";
 in {  
 

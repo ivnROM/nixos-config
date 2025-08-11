@@ -20,7 +20,6 @@ in
     pyprland
     qalculate-gtk
     ripgrep
-    swww
 
     # lsp
     nixfmt-classic
