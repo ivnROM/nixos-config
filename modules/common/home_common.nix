@@ -23,9 +23,6 @@ in
 
     # lsp
     nixfmt-classic
-    
-    # flake builds 
-    inputs.zen-browser.packages.${pkgs.system}.default
 
     # scripts
     (pkgs.writeShellScriptBin "create-note" ''

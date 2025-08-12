@@ -39,10 +39,10 @@ in {
       "$menu" = "bash -c 'exec $(tofi-run)'";
 
       general = {
-        # gaps_in = 5;
-        # gaps_out = 20;
-        gaps_in = 0;
-        gaps_out = 0;
+        gaps_in = 5;
+        gaps_out = 5;
+        # gaps_in = 0;
+        # gaps_out = 0;
         "col.active_border" = lib.mkDefault "rgba(33ccffee) rgba(00ff99ee) 45deg";
         "col.inactive_border" = lib.mkDefault "rgba(595959aa)";
         border_size = 0;
@@ -53,7 +53,7 @@ in {
       };
 
       decoration = {
-        rounding = 0;
+        rounding = 15;
         rounding_power = 2;
         active_opacity = 1.0;
         inactive_opacity = 1.0;

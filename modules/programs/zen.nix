@@ -1,4 +1,4 @@
-{ inputs, ...}:
+{ config, inputs, ...}:
 let
   profileName = "Iván";
 in
@@ -12,10 +12,36 @@ in
         "zen.welcome-screen.seen" = true;
       };
     };
+    policies = {
+      DisablePocket = true;
+      DisableTelemetry = true;
+      DontCheckDefaultBrowser = true;
+      NoDefaultBookmarks = true;
+      OfferToSaveLogins = false;
+      EnableTrackingProtection = {
+        Value = true;
+        Locked = true;
+        Cryptomining = true;
+        Fingerprinting = true;
+      };
+      SearchEngines = {
+        Add = {
+          Name = "DuckDuckGo";
+          URLTemplate = "https://duckduckgo.com/q={searchTerms}";
+          IconURL = "https://duckduckgo.com/favicon.ico";
+        };
+        # Default = "DuckDuckGo";
+      };
+      Cookies = {
+        Behavior = "reject";
+        BehaviorPrivateBrowsing = "reject";
+      };
+      DefaultDownloadDirectory = "${config.home.homeDirectory}/Downloads";
+    };
   };
 
   stylix.targets.zen-browser = {
     enable = true;
-    profileNames = [ profileName ];
+    profileNames = [ "${profileName}" ];
   };
 }
