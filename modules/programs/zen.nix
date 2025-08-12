@@ -33,8 +33,8 @@ in
         # Default = "DuckDuckGo";
       };
       Cookies = {
-        Behavior = "reject";
-        BehaviorPrivateBrowsing = "reject";
+        Behavior = "allow";
+        BehaviorPrivateBrowsing = "allow";
       };
       DefaultDownloadDirectory = "${config.home.homeDirectory}/Downloads";
     };

@@ -238,11 +238,12 @@ in {
       "exec-once" = [ 
         #"eww daemon"
         "swww-daemon"
+        "swww img ${config.home.homeDirectory}/Pictures/Wallpapers/wallpaper.png --transition-type grow --transition-pos 0.5,0.5 --transition-fps 60"
         "pypr"
         "waybar"
         "wl-clip-persist --clipboard regular"
         "wl-paste --type text --watch cliphist store"
-        "swww img ${config.home.homeDirectory}/Pictures/Wallpapers/wallpaper.png --transition-type grow --transition-pos 0.5,0.5 --transition-fps 60"
+
         "[workspace 1 silent] zen"
         "[workspace 2 silent] kitty"
         #"eww open bar"
