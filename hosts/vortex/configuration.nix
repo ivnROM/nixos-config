@@ -127,22 +127,9 @@
 
   stylix = {
     enable = true;
-    autoEnable = false;
+    autoEnable = true;
     # da-one-ocean
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/da-one-ocean.yaml";
-    # tokyo city terminal dark
-    # base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-city-terminal-dark.yaml";
-    # image = ../../assets/wallpaper-pc.png;
-    # sandcastle
-    #base16Scheme = "${pkgs.base16-schemes}/share/themes/sandcastle.yaml";
-    # gruvbox
-    #base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-soft.yaml";
-
-    # tokyo night
-    #image = ../../assets/wallpaper.png;
-    # gruvbox
-    #image = ../../assets/gruvbox.png;
-
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
     polarity = "dark";
     opacity = {
       applications = 0.9;

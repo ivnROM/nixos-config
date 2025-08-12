@@ -27,7 +27,7 @@
   };
 
   programs.vesktop.enable = true;
-  stylix.targets.vesktop.enable = false;
+  stylix.targets.vesktop.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
