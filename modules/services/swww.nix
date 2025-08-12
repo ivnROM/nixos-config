@@ -3,8 +3,8 @@ let
   host = config.home.sessionVariables.HOSTNAME or "default";
   wallpaper = {
     "maelstrom" = builtins.fetchurl {
-      url = "https://w.wallhaven.cc/full/og/wallhaven-og33jl.png"; 
-      sha256 = "0scxw4skf2vd377xcmcfj55jgrj4a2qly2wqxxxfhdwmv7b4r3q0";
+      url = "https://w.wallhaven.cc/full/p9/wallhaven-p9r71j.png"; 
+      sha256 = "0453n4fdnq4fcr2jsvhmhd470ap0b5cpqgxxi3k38vdi88q7qibi";
     };
     "vortex" = builtins.fetchurl {
       url = "https://w.wallhaven.cc/full/6l/wallhaven-6lkl5q.png";
