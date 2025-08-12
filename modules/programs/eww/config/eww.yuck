@@ -1,13 +1,26 @@
+(defpoll files :interval "5s" "bash ./scripts/eww-find-wallpaper.sh")
+
+(defwidget images-list []
+  (box
+    :orientation "v"
+    (for file in files
+      (label :text file)
+    )
+  )
+)
+
 (defwindow example
            :monitor 0
            :geometry (geometry :x "0%"
-                               :y "20px"
-                               :width "90%"
-                               :height "30px"
-                               :anchor "top center"
+                               :y "0%"
+                               :width "40%"
+                               :height "40%"
+                               :anchor "center"
                      )
            :stacking "fg"
            :reserve (struts :distance "40px" :side "top")
            :windowtype "dock"
            :wm-ignore false
-"example content")
+           (images-list)
+)
+

@@ -39,7 +39,7 @@ in {
       "$menu" = "bash -c 'exec $(tofi-run)'";
 
       general = {
-        gaps_in = 5;
+        gaps_in = 2;
         gaps_out = 5;
         # gaps_in = 0;
         # gaps_out = 0;

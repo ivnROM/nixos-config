@@ -1,11 +1,22 @@
 { pkgs, config, lib, ... }:
-
+let
+  path = config.home.homeDirectory + "/Pictures/Wallpapers";
+  findWallpaperScript = pkgs.writeShellScript "eww-find-wallpaper.sh" ''
+      ls "${path}" | jq -R . | jq -s .
+  '';
+in
 {
+
+
   programs.eww = {
     enable = true;
     enableBashIntegration = true;
     # configDir = ./config;
   };
-  home.file.".config/eww".source = config.lib.file.mkOutOfStoreSymlink "/home/ivan/eww";
+
+  home.file = {
+    ".config/eww/eww.yuck".source = config.lib.file.mkOutOfStoreSymlink "/home/ivan/eww/eww.yuck";
+    ".config/eww/scripts/eww-find-wallpaper.sh".source = findWallpaperScript;
+  };
 
 }
