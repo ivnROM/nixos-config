@@ -220,6 +220,7 @@
       size = 16 * 1024; # 16 GB
     }
   ];
+  stylix.targets.chromium.enable = false;
 
   system.stateVersion = "24.11"; # Did you read the comment?
 }

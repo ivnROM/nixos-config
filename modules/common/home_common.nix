@@ -16,6 +16,7 @@ in
     hyprsysteminfo
     libnotify
     nicotine-plus
+    kdePackages.okular
     pavucontrol
     pyprland
     qalculate-gtk
