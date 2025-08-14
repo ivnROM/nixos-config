@@ -65,6 +65,13 @@
           lsp.enable = true;
           treesitter.enable = true;
         };
+        html = {
+          enable = true;
+          treesitter = {
+            enable = true;
+            autotagHtml = true;
+          };
+        };
         nix = {
           enable = true;
           treesitter.enable = true;
