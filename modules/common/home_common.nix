@@ -71,6 +71,8 @@ in
 
     "nr" = "nh os switch";
     "cg" = "sudo nix-collect-garbage -d";
+
+    "gen-pythondev" = "cp /etc/nixos/templates/dev-python/flake.nix .";
   };
 
   stylix.targets = {
