@@ -1,11 +1,9 @@
-{ config, pkgs, ... }:
-
+{ config, pkgs, lib, ... }: 
 {
   specialisation = {
     cybersec = {
       configuration =
         {
-          users.users.ivan.extraGroups = [ "wireshark" ];
           networking = {
             hosts = {
               # "10.129.54.100" = [ "unika.htb" ];
@@ -15,54 +13,72 @@
             ];
           };
 
-          environment.systemPackages = with pkgs; [
-            burpsuite
-            exploitdb
-            tor-browser-bundle-bin
+          users.users.ivan.extraGroups = [ "wireshark" "docker "];
+          users.groups.wireshark.gid = 500;
+          security.wrappers.dumpcap = {
+            source = "${pkgs.wireshark}/bin/dumpcap";
+            owner = "root";
+            group = "wireshark";
+            permissions = "u+xs,g+x";
+          };
 
-            # Scanners
-            nmap
-            masscan
+          virtualisation.docker = {
+            enable = true;
+          } // lib.mkIf (config.home.sessionVariables.HOSTNAME == "vortex") {
+            daemon.settings = {
+              data-root = "/mnt/hdd/DockerData";
+            };
+          };
 
-            # Fuerza bruta / cracking
-            wordlists
-            hydra
-            john
+        environment.systemPackages = with pkgs; [
+        burpsuite
+        exploitdb
+        tor-browser-bundle-bin
 
-            # Web
-            whatweb
-            wpscan
-            gobuster
-            wfuzz
-            sqlmap
-            zap
+        # Scanners
+        nmap
+        masscan
 
-            # Exploiting / post-exploit
-            responder
-            metasploit
+        # Fuerza bruta / cracking
+        wordlists
+        hydra
+        john
 
-            # Redes y utilidades
-            arp-scan
-            inetutils
-            tcpdump
-            wireshark
-            netcat
-            socat
-            hping
-            remmina
+        # Web
+        whatweb
+        wpscan
+        gobuster
+        wfuzz
+        sqlmap
+        zap
 
-            # OSINT
-            theharvester
-            sherlock
-            socialscan
+        # Exploiting / post-exploit
+        responder
+        metasploit
 
-            # analisis de metadata
-            exiftool
+        # Redes y utilidades
+        arp-scan
+        inetutils
+        tcpdump
+        wireshark
+        netcat
+        socat
+        hping
+        remmina
 
-            #vpn
-            openvpn
-          ];
-        };
-    };
+        # OSINT
+        theharvester
+        sherlock
+        socialscan
+
+        # analisis de metadata
+        exiftool
+
+        #vpn
+        openvpn
+      ];
+
   };
-}
+};
+  };
+  }
