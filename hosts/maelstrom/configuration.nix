@@ -122,6 +122,17 @@
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     xwayland.enable = true;
   };
+
+  services.mysql = {
+    enable = true;
+    package = pkgs.mysql84;
+    settings = {
+      mysqld = {
+        port = 4321;
+        bind-address = "127.0.0.1";
+      };
+    };
+  };
  
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -140,7 +151,7 @@
   # services.openssh.enable = true;
 
   security.wrappers.ubridge = {
-    source = "{pkgs.ubridge}/bin/ubridge";
+    source = "${pkgs.ubridge}/bin/ubridge";
     capabilities = "cap_net_admin,cap_net_raw=ep";
     owner = "root";
     group = "ubridge";

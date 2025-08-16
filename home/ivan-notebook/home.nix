@@ -22,6 +22,8 @@
   home.packages = with pkgs; [
     bluez
     stremio
+    mysql-workbench
+    libsecret
   ];
 
   home.file = {};
@@ -37,6 +39,7 @@
     XCURSOR_THEME = "Bibata-Modern-Classic";
   };
 
+  services.gnome-keyring.enable = true;
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
