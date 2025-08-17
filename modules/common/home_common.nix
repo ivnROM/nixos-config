@@ -21,6 +21,7 @@ in
     pyprland
     qalculate-gtk
     ripgrep
+    tldr
 
     # lsp
     nixfmt-classic
@@ -93,10 +94,22 @@ in
   programs.zoxide.enable = true;
   programs.bash.enable = true;
   programs.neovim.enable = true;
+  programs.rmpc.enable = true;
   programs.ssh.enable = true; 
   programs.mpv.enable = true; 
   services.ssh-agent.enable = true;
   services.swww.enable = true;
+
+  services.mpd = {
+    enable = true;
+    musicDirectory = "/mnt/hdd/Music/";
+    extraConfig = ''
+      audio_output {
+        type "pulse"
+        name "Pulseaudio"
+      }
+    '';
+  };
 
   services.udiskie = {
     enable = true;

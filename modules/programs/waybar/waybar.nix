@@ -26,7 +26,7 @@
         spacing = 0;
 
         modules-left = [ "custom/logo" "hyprland/workspaces" "gamemode" ];
-        modules-center = [ "clock" ];
+        modules-center = [ "clock" "mpd" ];
         modules-right = [ "group/rightbox" ];
 
         gamemode = {
@@ -154,6 +154,39 @@
           on-click = "pavucontrol";
         };
 
+        mpd = {
+          format = "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ";
+          # format-disconnected = "Disconnected ";
+          # format-stopped = "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped  ";
+          interval = 10;
+
+          consume-icons = {
+            on = " "; # Icon shows only when "consume" is on
+          };
+
+          random-icons = {
+            off = "<span color=\"#f53c3c\"> </span> "; # Icon grayed out when "random" is off
+            on = " ";
+          };
+
+          repeat-icons = {
+            on = " ";
+          };
+
+          single-icons = {
+            on = " 1";
+          };
+
+          state-icons = {
+            paused = "";
+            playing = " ";
+          };
+
+          tooltip-format = "MPD (connected)";
+          tooltip-format-disconnected = "MPD (disconnected)";
+        };
+
+
         "custom/spotify" = {
           format = " {}";
           max-length = 40;
@@ -248,13 +281,26 @@
     #clock, #battery, #custom-logo, #custom-hardwaregrouplogo, #network, #pulseaudio, #custom-spotify, #tray, #mode {
         padding: 0 4px;
         margin: 3 2px;
-        /* background-color: @base00; */
         border-radius: 10px;
         background-color: @base01;
         border: 2px solid @base02;
-        /* border: 2px solid transparent; */
-        /* border-image: linear-gradient(90deg, @base02 0%, @base03 90%); */
         color: @base05;
+    }
+
+    #mpd {
+      opacity: 0;
+      margin-left: -100px;
+      transition: margin-left 0.4s ease, opacity 0.4s ease;
+    }
+
+    #mpd.playing, #mpd.paused {
+      opacity: 1;
+      margin-left: 10px;
+      padding: 0 4px;
+      margin: 3 6px;
+      border-radius: 5px;
+      background-color: @base01;
+      color: @base05;
     }
 
     #temperature, #cpu, #memory {

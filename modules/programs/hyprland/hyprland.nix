@@ -133,6 +133,7 @@ in {
         "$mainMod, D, exec, pkill $menu || $menu "
         "$mainMod, F, fullscreen"
         "$mainMod, E, exec, kitty -e yazi"
+        "$mainMod, P, exec, kitty -e rmpc"
         ", PRINT, exec, hyprshot -m region --clipboard-only"
         "$mainMod, PRINT, exec, hyprshot -m window"
         "$mainMod SHIFT, PRINT, exec, hyprshot -m output"

@@ -59,12 +59,6 @@
     #   "10.129.54.100" = [ "unika.htb" ];
     # };
 
-    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-    # Configure network proxy if necessary
-    # networking.proxy.default = "http://user:password@proxy:port/";
-    # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
     # Enable networking
     networkmanager = {
       enable = true;
@@ -124,7 +118,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-
   stylix = {
     enable = true;
     autoEnable = true;
@@ -174,40 +167,6 @@
     xwayland.enable = true;
   };
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-  # Enable the OpenSSH daemon.
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-
-  # gns3 config
-
-  # security.wrappers.ubridge = {
-  #   source = "/run/current-system/sw/bin/ubridge";
-  #   capabilities = "cap_net_admin,cap_net_raw=ep";
-  #   owner = "root";
-  #   group = "ubridge";
-  #   permissions = "u+rx,g+rx,o+rx";
-  # };
-  # networking.bridges.gns3bridge.interfaces = [ "enp34s0" ];
-  #
-  # networking.interfaces.gns3bridge = {
-  #   ipv4.addresses = [{
-  #     address = "192.168.0.100";
-  #     prefixLength = 24;
-  #   }];
-  # };
-
   fileSystems."/mnt/hdd" = {
     device = "UUID=55f7e3ef-3733-4772-99f3-aec2888b4c41";
     fsType = "ext4";
@@ -220,6 +179,7 @@
       size = 16 * 1024; # 16 GB
     }
   ];
+
   stylix.targets.chromium.enable = false;
 
   system.stateVersion = "24.11"; # Did you read the comment?
