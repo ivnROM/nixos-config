@@ -7,7 +7,6 @@
         {
           environment.systemPackages = with pkgs; [
             gamemode
-            gamescope
           ];
 
           programs.steam = {
@@ -15,6 +14,7 @@
             remotePlay.openFirewall = true;
             dedicatedServer.openFirewall = true;
             localNetworkGameTransfers.openFirewall = true;
+            gamescopeSession.enable = true;
           };
         };
     };

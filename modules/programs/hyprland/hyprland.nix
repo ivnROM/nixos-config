@@ -50,6 +50,12 @@ in {
         resize_on_border = true;
         allow_tearing = false;
         layout = "dwindle";
+
+        snap =  {
+          enabled = true;
+          respect_gaps = true;
+          border_overlap = true;
+        };
       };
 
       decoration = {
@@ -90,8 +96,8 @@ in {
         ];
 
         animation = [
-          "windowsIn, 1, 3, easeInOutCubic, gnomed "
-          "windowsOut, 1, 3, easeInOutCubic, gnomed "
+          "windowsIn, 1, 3, easeInOutCubic, slide "
+          "windowsOut, 1, 3, easeInOutCubic, slide "
           "zoomFactor, 1, 7, easeOutExpo"
           "workspaces, 1, 3, quick, slidefade 90%"
           "specialWorkspace, 1, 3, easeInOutSine, slidevert"
@@ -131,6 +137,9 @@ in {
       misc = {
         force_default_wallpaper = 1;
         disable_hyprland_logo = "true";
+        animate_manual_resizes = true;
+        animate_mouse_windowdragging = true;
+        enable_swallow = true;
       };
 
       bind = [
@@ -308,10 +317,10 @@ in {
         keyword general:gaps_out 0;\
         keyword general:border_size 1;\
         keyword decoration:rounding 0"
-        hyprctl notify 1 1500 "rgb(40a02b)" "Gamemode [ON]"
+        hyprctl notify 1 1500 "rgb(40a02b)" "Focus [ON]"
         exit
       else
-        hyprctl notify 1 1500 "rgb(d20f39)" "Gamemode [OFF]"
+        hyprctl notify 1 1500 "rgb(d20f39)" "Focus [OFF]"
         hyprctl reload
         exit 0
       fi
