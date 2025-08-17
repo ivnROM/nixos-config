@@ -77,7 +77,7 @@ in {
       };
 
       animations = {
-        enabled = "no";
+        enabled = "yes";
         bezier = [
           "easeInOutSine,0.445, 0.05, 0.55, 0.95"
           "easeOutQuint,0.23,1,0.32,1"
@@ -85,6 +85,17 @@ in {
           "linear,0,0,1,1"
           "almostLinear,0.5,0.5,0.75,1.0"
           "quick,0.15,0,0.1,1"
+          "easeOutExpo, 0.16, 1, 0.3, 1"
+          "easeOutQuart,  0.165, 0.84, 0.44, 1"
+        ];
+
+        animation = [
+          "windowsIn, 1, 3, easeInOutCubic, gnomed "
+          "windowsOut, 1, 3, easeInOutCubic, gnomed "
+          "zoomFactor, 1, 7, easeOutExpo"
+          "workspaces, 1, 3, quick, slidefade 90%"
+          "specialWorkspace, 1, 3, easeInOutSine, slidevert"
+          "fadePopups, 1, 1.5, easeOutQuart"
         ];
       };
 
@@ -146,6 +157,8 @@ in {
         "$mainMod, PERIOD, exec, pkill tofi-openconfig || tofi-openconfig"
         "$mainMod, COMMA, exec, pkill tofi-opennotes || tofi-opennotes"
         "$mainMod, M, exec, cliphist list | ${tofi-launcher} | cliphist decode | wl-copy"
+        "$mainMod SHIFT, mouse_down, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '.float * 1.8')"
+        "$mainMod SHIFT, mouse_up, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '(.float * 0.2) | if . < 1 then 1 else . end')"
 
         "$mainMod, F1, exec, pypr zoom"
 
@@ -254,33 +267,55 @@ in {
 
   home.packages = with pkgs; [
     jq
+    # (pkgs.writeShellScriptBin "hypr-togglefocus" ''
+    #   on=$(hyprctl -j getoption animations:enabled | jq --raw-output '.int')
+    #   gaps_in=$(hyprctl -j getoption general:gaps_in | jq -r '.int')
+    #   gaps_out=$(hyprctl -j getoption general:gaps_out | jq -r '.int')
+    #   border_size=$(hyprctl -j getoption general:border_size | jq -r '.int')
+    #   rounding=$(hyprctl -j getoption decoration:rounding | jq -r '.int')
+    #
+    #
+    #   if [[ $on -eq 1 ]]; then
+    #   hyprctl keyword animations:enabled 0
+    #   hyprctl notify -1 1000 "rgb(98c379)" "Focus on"
+    #   # hyprctl --batch keyword general:gaps_in 0
+    #   # hyprctl --batch keyword general:gaps_out 0
+    #   # hyprctl --batch keyword general:border_size 0
+    #   # hyprctl --batch keyword decoration:rounding 0
+    #   pkill waybar
+    #   # notify-send -u low -t 1 "Focus off"
+    #   else
+    #   hyprctl keyword animations:enabled 1
+    #   hyprctl notify -1 1000 "rgb(e06c75)" "Focus off"
+    #   # hyprctl --batch keyword general:gaps_in $gaps_in
+    #   # hyprctl --batch keyword general:gaps_out $gaps_out
+    #   # hyprctl --batch keyword general:border_size $border_size
+    #   # hyprctl --batch keyword decoration:rounding $rounding
+    #   pkill waybar || waybar
+    #   # notify-send -u low -t 100 "Focus on"
+    #   fi  
+    #   '')
     (pkgs.writeShellScriptBin "hypr-togglefocus" ''
-      on=$(hyprctl -j getoption animations:enabled | jq --raw-output '.int')
-      gaps_in=$(hyprctl -j getoption general:gaps_in | jq -r '.int')
-      gaps_out=$(hyprctl -j getoption general:gaps_out | jq -r '.int')
-      border_size=$(hyprctl -j getoption general:border_size | jq -r '.int')
-      rounding=$(hyprctl -j getoption decoration:rounding | jq -r '.int')
-
-
-      if [[ $on -eq 1 ]]; then
-      hyprctl keyword animations:enabled 0
-      hyprctl notify -1 1000 "rgb(98c379)" "Focus on"
-      # hyprctl --batch keyword general:gaps_in 0
-      # hyprctl --batch keyword general:gaps_out 0
-      # hyprctl --batch keyword general:border_size 0
-      # hyprctl --batch keyword decoration:rounding 0
-      pkill waybar
-      # notify-send -u low -t 1 "Focus off"
+      HYPRGAMEMODE=$(hyprctl getoption animations:enabled | awk 'NR==1{print $2}')
+      if [ "$HYPRGAMEMODE" = 1 ] ; then
+        hyprctl --batch "\
+        keyword animations:enabled 0;\
+        keyword animation borderangle,0; \
+        keyword decoration:shadow:enabled 0;\
+        keyword decoration:blur:enabled 0;\
+        keyword decoration:fullscreen_opacity 1;\
+        keyword general:gaps_in 0;\
+        keyword general:gaps_out 0;\
+        keyword general:border_size 1;\
+        keyword decoration:rounding 0"
+        hyprctl notify 1 1500 "rgb(40a02b)" "Gamemode [ON]"
+        exit
       else
-      hyprctl keyword animations:enabled 1
-      hyprctl notify -1 1000 "rgb(e06c75)" "Focus off"
-      # hyprctl --batch keyword general:gaps_in $gaps_in
-      # hyprctl --batch keyword general:gaps_out $gaps_out
-      # hyprctl --batch keyword general:border_size $border_size
-      # hyprctl --batch keyword decoration:rounding $rounding
-      pkill waybar || waybar
-      # notify-send -u low -t 100 "Focus on"
-      fi  
+        hyprctl notify 1 1500 "rgb(d20f39)" "Gamemode [OFF]"
+        hyprctl reload
+        exit 0
+      fi
+      exit 1
       '')
   ];
 }

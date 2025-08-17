@@ -155,10 +155,12 @@
         };
 
         mpd = {
-          format = "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ";
+          format = "{stateIcon}{singleIcon}{artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ";
           # format-disconnected = "Disconnected ";
           # format-stopped = "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped  ";
           interval = 10;
+          artist-len = 16;
+          title-len = 16;
 
           consume-icons = {
             on = " "; # Icon shows only when "consume" is on
@@ -178,7 +180,7 @@
           };
 
           state-icons = {
-            paused = "";
+            paused = " ";
             playing = " ";
           };
 
