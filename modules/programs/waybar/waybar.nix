@@ -25,7 +25,7 @@
         width = 1920;
         spacing = 0;
 
-        modules-left = [ "custom/logo" "hyprland/workspaces" "gamemode" ];
+        modules-left = [ "custom/logo" "hyprland/workspaces" "gamemode" "hyprland/submap"];
         modules-center = [ "clock" "mpd" ];
         modules-right = [ "group/rightbox" ];
 
@@ -82,6 +82,12 @@
         "hyprland/window" = {
           format = "{title}";
           separate-outputs = true;
+        };
+
+        "hyprland/submap"= {
+          format = "󰲏 ";
+          max-length = 8;
+          tooltip = false;
         };
 
         tray = {
@@ -287,6 +293,21 @@
         background-color: @base01;
         border: 2px solid @base02;
         color: @base05;
+    }
+
+    #submap, #submap.reset {
+        opacity: 0;
+        margin-left: -50px;
+        transition: margin-left 0.4s ease, opacity 0.4s ease;
+    }
+
+    #submap.resize {
+      opacity: 1;
+      margin-left: 10px;
+      padding: 0 4px;
+      margin: 3 6px;
+      color: @base05;
+      transition: margin-right 0.4s ease, opacity 0.4s ease;
     }
 
     #mpd {

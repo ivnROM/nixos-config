@@ -206,8 +206,6 @@ in {
         "$mainMod SHIFT, S, movetoworkspace, special:magic"
         "$mainMod, SPACE, exec, hypr-togglefocus"
 
-        #"$mainMod, R, submap, resize"
-        #", escape, submap, reset"
         "$mainMod, mouse_down, workspace, e-1"
         "$mainMod, mouse_up, workspace, e+1"
       ];
@@ -234,12 +232,6 @@ in {
       bindm = [
         "$mainMod, mouse:272, movewindow"
         "$mainMod, mouse:272, resizewindow"
-      ];
-
-
-      submap = [
-        "resize"
-        "reset"
       ];
 
       windowrulev2 = [
@@ -272,6 +264,27 @@ in {
         #"eww open bar"
       ];
     };
+    extraConfig = ''
+    # Switch to a submap called `resize`.
+      bind = $mainMod, R, submap, resize
+
+      # Start a submap called "resize".
+      submap = resize
+
+      # Set repeatable binds for resizing the active window.
+      binde = , L, resizeactive, 10 0
+      binde = , H, resizeactive, -10 0
+      binde = , K, resizeactive, 0 -10
+      binde = , J, resizeactive, 0 10
+
+      # Use `reset` to go back to the global submap
+      bind = $mainMod, R, submap, reset
+
+      # Reset the submap, which will return to the global submap
+      submap = reset
+
+      # Keybinds further down will be global again...
+    '';
   };
 
   home.packages = with pkgs; [
