@@ -329,10 +329,13 @@ in {
         keyword general:gaps_out 0;\
         keyword general:border_size 1;\
         keyword decoration:rounding 0"
+      swww 
         hyprctl notify 1 1500 "rgb(40a02b)" "Focus [ON]"
+        convert -size 1x1 xc:"#000000" png:- | swww img - --resize fill
         exit
       else
         hyprctl notify 1 1500 "rgb(d20f39)" "Focus [OFF]"
+        swww img $HOME/Pictures/Wallpapers/wallpaper.png
         hyprctl reload
         exit 0
       fi
