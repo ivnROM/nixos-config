@@ -149,7 +149,6 @@ in {
         "$mainMod SHIFT, SPACE, togglefloating"
         "$mainMod, C, exec, qalculate-gtk"
         "$mainMod, B, exec, zen"
-        # "$mainMod E, exec, dolphin"
         "$mainMod, D, exec, pkill $menu || $menu "
         "$mainMod, F, fullscreen"
         "$mainMod, E, exec, kitty -e yazi"
