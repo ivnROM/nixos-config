@@ -20,8 +20,6 @@
       cursor_trail_decay = "0.1 0.25";
       cursor_trail_start_threshold = 2;
       cursor_blink_interval = "0.5 linear ease-in-out";
-
     };
-
   };
 }

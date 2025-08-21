@@ -95,6 +95,11 @@
         python = {
           enable = true;
         };
+        sql = {
+          enable = true;
+          lsp.enable = true;
+          format.enable = true;
+        };
 
         clang = {
           enable = true;

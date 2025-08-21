@@ -66,7 +66,7 @@
   users.users.ivan = {
     isNormalUser = true;
     description = "ivan";
-    extraGroups = [ "networkmanager" "wheel" "docker"];
+    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd"];
     home = "/home/ivan";
     packages = with pkgs; [];
   };
@@ -84,10 +84,12 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     #gns3 
+    dnsmasq
     gns3-server
     gns3-gui
     ubridge
     qemu
+
     inetutils
     wl-clipboard
     xclip
@@ -157,17 +159,40 @@
     group = "ubridge";
     permissions = "u+rx,g+rx,o+rx";
   };
+
   users.groups.ubridge = {};
   users.groups.gns3 = {};
+
+  virtualisation.libvirtd = {
+  enable = true;
+  qemu = {
+    package = pkgs.qemu_kvm;
+    runAsRoot = true;
+    swtpm.enable = true;
+    ovmf = {
+      enable = true;
+      packages = [(pkgs.OVMF.override {
+        secureBoot = true;
+        tpmSupport = true;
+      }).fd];
+    };
+  };
+};
+
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+  networking.bridges = {
+    
+  };
   networking.firewall = {
-    enable = true;
+    enable = false;
     allowPing = true;
+    allowedTCPPorts = [ 3080 ];
+    trustedInterfaces = [ "virbr0"];
   };
 
   virtualisation.virtualbox.host.enable = true;
