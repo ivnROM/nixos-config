@@ -11,6 +11,7 @@
     ./hardware-configuration.nix
     ../specialisations/cybersecurity.nix
     ../specialisations/gaming.nix
+    ../specialisations/gns3.nix
     ../../modules/common/global_common.nix
   ];
 

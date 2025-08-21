@@ -28,6 +28,9 @@
   };
 
   programs.vesktop.enable = true;
+  programs.obs-studio = {
+    enable = true;
+  };
   stylix.targets.vesktop.enable = true;
 
   # Let Home Manager install and manage itself.
