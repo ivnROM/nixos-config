@@ -22,7 +22,6 @@
   home.packages = with pkgs; [
     bluez
     stremio
-    mysql-workbench
     libsecret
   ];
 

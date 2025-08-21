@@ -83,13 +83,14 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    #gns3 
-    # dnsmasq
-    # gns3-server
-    # gns3-gui
-    # ubridge
-    # qemu
+    # gns3 
+    dnsmasq
+    gns3-server
+    gns3-gui
+    ubridge
+    qemu
 
+    dbeaver-bin
     inetutils
     wl-clipboard
     xclip
@@ -152,32 +153,32 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
   #
-  # security.wrappers.ubridge = {
-  #   source = "${pkgs.ubridge}/bin/ubridge";
-  #   capabilities = "cap_net_admin,cap_net_raw=ep";
-  #   owner = "root";
-  #   group = "ubridge";
-  #   permissions = "u+rx,g+rx,o+rx";
-  # };
-  #
-  # users.groups.ubridge = {};
-  # users.groups.gns3 = {};
-  #
-  # virtualisation.libvirtd = {
-  # enable = true;
-  # qemu = {
-  #   package = pkgs.qemu_kvm;
-  #   runAsRoot = true;
-  #   swtpm.enable = true;
-  #   ovmf = {
-  #     enable = true;
-  #     packages = [(pkgs.OVMF.override {
-  #       secureBoot = true;
-  #       tpmSupport = true;
-  #     }).fd];
-  #   };
-  # };
-# };
+  security.wrappers.ubridge = {
+    source = "${pkgs.ubridge}/bin/ubridge";
+    capabilities = "cap_net_admin,cap_net_raw=ep";
+    owner = "root";
+    group = "ubridge";
+    permissions = "u+rx,g+rx,o+rx";
+  };
+
+  users.groups.ubridge = {};
+  users.groups.gns3 = {};
+
+  virtualisation.libvirtd = {
+  enable = true;
+  qemu = {
+    package = pkgs.qemu_kvm;
+    runAsRoot = true;
+    swtpm.enable = true;
+    ovmf = {
+      enable = true;
+      packages = [(pkgs.OVMF.override {
+        secureBoot = true;
+        tpmSupport = true;
+      }).fd];
+    };
+  };
+};
 
 
   # Open ports in the firewall.
@@ -188,12 +189,12 @@
   # networking.bridges = {
   #
   # };
-  # networking.firewall = {
-  #   enable = false;
-  #   allowPing = true;
-  #   allowedTCPPorts = [ 3080 ];
-  #   trustedInterfaces = [ "virbr0"];
-  # };
+  networking.firewall = {
+    enable = false;
+    allowPing = true;
+    allowedTCPPorts = [ 3080 ];
+    trustedInterfaces = [ "virbr0"];
+  };
 
   virtualisation.virtualbox.host.enable = true;
    users.extraGroups.vboxusers.members = [ "ivan" ];
