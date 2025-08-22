@@ -100,7 +100,11 @@
           lsp.enable = true;
           format.enable = true;
         };
-
+        ts = {
+          enable = true;
+          lsp.enable = true;
+          format.enable = true;
+        };
         clang = {
           enable = true;
         };
@@ -135,6 +139,11 @@
 
         };
       };
+      vim.snippets.luasnip = {
+        enable = true;
+        providers = ["blink-cmp"];
+      };
+
       vim.treesitter.enable = true;
       vim.autocomplete.blink-cmp.enable = true;
 
