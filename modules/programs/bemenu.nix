@@ -30,7 +30,7 @@ in {
       file=$(find ${config.home.homeDirectory}/Notes -iname "*md" | ${bemenuSettings})
       [ -z "$file" ] && exit 0
 
-      ${pkgs.kitty}/bin/kitty bash -c "vim '$file'"
+      ${pkgs.kitty}/bin/kitty bash -c "vim $file"
     '')
 
     # (pkgs.writeShellScriptBin "bemenu-runapps" ''
