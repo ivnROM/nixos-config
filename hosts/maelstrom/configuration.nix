@@ -109,7 +109,7 @@
       applications = 0.9;
       desktop = 0.9;
       popups = 0.9;
-      terminal = 0.9; 
+      terminal = 1.0; 
     };
   };
 

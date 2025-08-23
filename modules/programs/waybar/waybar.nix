@@ -21,7 +21,7 @@
       {
         layer = "top";
         position = "top";
-        height = 37;
+        height = 40;
         width = 1920;
         spacing = 0;
 
