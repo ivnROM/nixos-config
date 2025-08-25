@@ -70,6 +70,7 @@ in
     "l" = "eza -lah";
     "ls" = "eza";
     "tree" = "eza --tree --git-ignore";
+    "cat" = "bat";
 
     "nr" = "nh os switch";
     "cg" = "sudo nix-collect-garbage -d";

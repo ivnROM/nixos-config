@@ -60,7 +60,7 @@ in {
       };
 
       decoration = {
-        rounding = 10;
+        rounding = 5;
         rounding_power = 2;
         active_opacity = 0.9;
         inactive_opacity = 0.9;
