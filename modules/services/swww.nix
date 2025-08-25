@@ -7,8 +7,8 @@ let
       sha256 = "0453n4fdnq4fcr2jsvhmhd470ap0b5cpqgxxi3k38vdi88q7qibi";
     };
     "vortex" = builtins.fetchurl {
-      url = "https://w.wallhaven.cc/full/6l/wallhaven-6lkl5q.png";
-      sha256 = "1kzm3a51xc1psv7hk8zwpkrlyi4jqdvah1lra3sxmiifyd2gz8mb";
+      url = "https://w.wallhaven.cc/full/yq/wallhaven-yq88md.png";
+      sha256 = "0nad8a5h04bam7sdhk74aap3vjhr7581yq5q07f1yrr2060h4v9s";
     };
     "default" = builtins.fetchurl {
       url = "https://w.wallhaven.cc/full/2y/wallhaven-2y2wg6.png"; 

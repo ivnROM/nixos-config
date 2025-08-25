@@ -120,7 +120,7 @@ in
 
         memory = {
           format = "{used:0.1f}G  ";
-          on-click = "${editor} -e btop";
+          on-click = "{pkgs.alacritty}/bin/alacritty -e btop";
           tooltip-format = "RAM: {}%";
         };
 
@@ -140,7 +140,7 @@ in
           format-wifi = "{ipaddr}/{cidr}";
           format-disconnected = "󰚌";
           tooltip-format = " {gwaddr}";
-          on-click = "${editor} nmtui";
+          on-click = "{pkgs.alacritty}/bin/alacritty nmtui";
           interval = 1;
         };
 

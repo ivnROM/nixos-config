@@ -14,7 +14,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
@@ -23,13 +22,6 @@
       url = "github:VirtCode/hypr-dynamic-cursors";
       inputs.hyprland.follows = "hyprland";
     };
-
-    Hyprspace = {
-      url = "github:KZDKM/Hyprspace";
-      # Hyprspace uses latest Hyprland. We declare this to keep them in sync.
-      inputs.hyprland.follows = "hyprland";
-    };
-
     nvf = {
       url = "github:notashelf/nvf";
       # esto no anda y no se sabe por que, deberia si
@@ -41,8 +33,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-
-  outputs = inputs@{ self, nixpkgs, home-manager, hyprland, hypr-dynamic-cursors, nvf, zen-browser, ... }: {
+outputs = inputs@{ self, nixpkgs, home-manager, hyprland, hypr-dynamic-cursors, nvf, zen-browser, ... }: {
     nixosConfigurations.maelstrom = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [

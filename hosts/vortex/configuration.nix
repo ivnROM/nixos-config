@@ -122,8 +122,7 @@
   stylix = {
     enable = true;
     autoEnable = true;
-    # da-one-ocean
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/black-metal-immortal.yaml";
     polarity = "dark";
     opacity = {
       applications = 1.0;
@@ -145,7 +144,7 @@
 
       monospace = {
         package = pkgs.nerd-fonts.iosevka;
-        name = "Iosevka Nerd Font";
+        name = "Terminus";
       };
 
       emoji = {

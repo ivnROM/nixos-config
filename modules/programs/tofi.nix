@@ -39,7 +39,7 @@ in
     (pkgs.writeShellScriptBin "tofi-openconfig" ''
       file=$(find /etc/nixos -iname "*nix" | ${tofiSettings})
       [ -z "$file" ] && exit 0
-      ${editor} -e bash -c "sudo vim '$file'"
+      {pkgs.alacritty}/bin/alacritty -e bash -c "sudo vim '$file'"
     '')
 
     (pkgs.writeShellScriptBin "tofi-opennotes" ''
@@ -47,7 +47,7 @@ in
       file=$(find $directory -iname "*md" | ${tofiSettings})
       [ -z "$file" ] && exit 0
 
-      ${editor} bash -c "vim \"$directory/$file\""
+      {pkgs.alacritty}/bin/alacritty bash -c "vim \"$directory/$file\""
     '')
 
     (pkgs.writeShellScriptBin "tofi-openlauncher" ''
