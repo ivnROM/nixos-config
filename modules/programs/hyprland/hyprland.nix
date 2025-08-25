@@ -45,7 +45,7 @@ in {
         # gaps_out = 0;
         "col.active_border" = lib.mkDefault "rgba(33ccffee) rgba(00ff99ee) 45deg";
         "col.inactive_border" = lib.mkDefault "rgba(595959aa)";
-        border_size = 0;
+        border_size = 2;
 
         resize_on_border = true;
         allow_tearing = false;
@@ -330,7 +330,7 @@ in {
         keyword decoration:inactive_opacity 1;\
         keyword general:gaps_in 0;\
         keyword general:gaps_out 0;\
-        keyword general:border_size 1;\
+        keyword general:border_size 0;\
         keyword decoration:rounding 0"
       swww 
         hyprctl notify 1 1500 "rgb(40a02b)" "Focus [ON]"

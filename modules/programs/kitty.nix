@@ -3,9 +3,9 @@
 {
   stylix.targets.kitty.enable = true;
   programs.kitty = {
-    enable = true;
+    enable = false;
     font = {
-      # name = lib.mkForce "FiraCode Nerd Font";
+      name = lib.mkForce "Terminus";
       size = lib.mkForce 20;
     };
 

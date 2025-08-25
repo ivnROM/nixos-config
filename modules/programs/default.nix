@@ -9,6 +9,7 @@
     # ./quickshell/quickshell.nix
     ./eww/eww.nix
     # ./bemenu.nix
+    ./alacritty.nix
     ./kitty.nix
     ./tofi.nix
     ./tmux.nix
