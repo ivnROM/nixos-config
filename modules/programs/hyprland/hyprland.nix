@@ -152,8 +152,8 @@ in {
         "$mainMod, B, exec, zen"
         "$mainMod, D, exec, pkill $menu || $menu "
         "$mainMod, F, fullscreen"
-        "$mainMod, E, exec, ${editor} -e yazi"
-        "$mainMod, P, exec, ${editor} -e rmpc"
+        "$mainMod, E, exec, $terminal -e yazi"
+        "$mainMod, P, exec, $terminal -e rmpc"
         ", PRINT, exec, hyprshot -m region --clipboard-only"
         "$mainMod, PRINT, exec, hyprshot -m window"
         "$mainMod SHIFT, PRINT, exec, hyprshot -m output"
@@ -260,7 +260,7 @@ in {
         "wl-paste --type text --watch cliphist store"
 
         "[workspace 1 silent] zen"
-        "[workspace 2 silent] ${editor}"
+        "[workspace 2 silent] $terminal"
         #"eww open bar"
       ];
     };
