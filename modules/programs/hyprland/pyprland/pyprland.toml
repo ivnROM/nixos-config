@@ -1,18 +1,18 @@
 [pyprland]
 plugins = [
-  "scratchpads",
+  # "scratchpads",
   "magnify",
   # "expose"
 ]
 
-[scratchpads.terminals]
-animation = "fromTop"
-margin = 50
-size = "75% 60%"
-max_size = "1920px 100%"
-
-[scratchpads.fexplorer]
-command = "kitty yazi"
-class = "yazi-scratchpad"
-use = "terminals"
+# [scratchpads.terminals]
+# animation = "fromTop"
+# margin = 50
+# size = "75% 60%"
+# max_size = "1920px 100%"
+#
+# [scratchpads.fexplorer]
+# command = "kitty yazi"
+# class = "yazi-scratchpad"
+# use = "terminals"
 # size = "1152 648"
