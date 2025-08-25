@@ -11,7 +11,6 @@ in
     eza
     fastfetch
     ffmpeg
-    font-manager
     fzf
     hyprshot
     hyprsysteminfo
