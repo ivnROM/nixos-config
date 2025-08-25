@@ -289,34 +289,6 @@ in {
 
   home.packages = with pkgs; [
     jq
-    # (pkgs.writeShellScriptBin "hypr-togglefocus" ''
-    #   on=$(hyprctl -j getoption animations:enabled | jq --raw-output '.int')
-    #   gaps_in=$(hyprctl -j getoption general:gaps_in | jq -r '.int')
-    #   gaps_out=$(hyprctl -j getoption general:gaps_out | jq -r '.int')
-    #   border_size=$(hyprctl -j getoption general:border_size | jq -r '.int')
-    #   rounding=$(hyprctl -j getoption decoration:rounding | jq -r '.int')
-    #
-    #
-    #   if [[ $on -eq 1 ]]; then
-    #   hyprctl keyword animations:enabled 0
-    #   hyprctl notify -1 1000 "rgb(98c379)" "Focus on"
-    #   # hyprctl --batch keyword general:gaps_in 0
-    #   # hyprctl --batch keyword general:gaps_out 0
-    #   # hyprctl --batch keyword general:border_size 0
-    #   # hyprctl --batch keyword decoration:rounding 0
-    #   pkill waybar
-    #   # notify-send -u low -t 1 "Focus off"
-    #   else
-    #   hyprctl keyword animations:enabled 1
-    #   hyprctl notify -1 1000 "rgb(e06c75)" "Focus off"
-    #   # hyprctl --batch keyword general:gaps_in $gaps_in
-    #   # hyprctl --batch keyword general:gaps_out $gaps_out
-    #   # hyprctl --batch keyword general:border_size $border_size
-    #   # hyprctl --batch keyword decoration:rounding $rounding
-    #   pkill waybar || waybar
-    #   # notify-send -u low -t 100 "Focus on"
-    #   fi  
-    #   '')
     (pkgs.writeShellScriptBin "hypr-togglefocus" ''
       HYPRGAMEMODE=$(hyprctl getoption animations:enabled | awk 'NR==1{print $2}')
       if [ "$HYPRGAMEMODE" = 1 ] ; then

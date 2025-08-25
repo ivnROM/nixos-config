@@ -162,6 +162,12 @@
           action = ":wq<CR>";
           desc = "Save and quit";
         }
+        {
+          mode = "n";
+          key = ",";
+          action = ":noh<CR>";
+          desc = "Stop highlighting findings";
+        }
       ];
     };
   };
