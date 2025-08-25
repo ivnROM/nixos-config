@@ -1,7 +1,7 @@
 { pkgs, config, lib, ... }: 
-# let 
-#   # waybarConfigPath = "${config.home.homeDirectory}/TempDotfiles/waybar/config.jsonc";
-# in
+let
+  editor = config.home.sessionVariables.EDITOR;
+in
 {
   stylix.targets.waybar = {
     enable = true;
@@ -120,7 +120,7 @@
 
         memory = {
           format = "{used:0.1f}G  ";
-          on-click = "kitty -e btop";
+          on-click = "${editor} -e btop";
           tooltip-format = "RAM: {}%";
         };
 
@@ -140,7 +140,7 @@
           format-wifi = "{ipaddr}/{cidr}";
           format-disconnected = "󰚌";
           tooltip-format = " {gwaddr}";
-          on-click = "kitty nmtui";
+          on-click = "${editor} nmtui";
           interval = 1;
         };
 

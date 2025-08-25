@@ -5,7 +5,7 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      font = {
+      font = lib.mkForce {
         normal = {
           family = "Terminus";
           style = "Regular";

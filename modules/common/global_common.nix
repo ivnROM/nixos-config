@@ -35,6 +35,8 @@
   fonts.packages = with pkgs; [
     fira-code
     fira-code-symbols
+    terminus_font
+
     font-awesome
     noto-fonts
     noto-fonts-emoji
@@ -42,6 +44,7 @@
     nerd-fonts.iosevka
     nerd-fonts.ubuntu
     nerd-fonts.ubuntu-sans
+    nerd-fonts.terminess-ttf
   ];
 
   services.displayManager = {

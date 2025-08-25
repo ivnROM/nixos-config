@@ -1,6 +1,7 @@
 { pkgs, config, lib, inputs, ...}:
 let 
   host = config.home.sessionVariables.HOSTNAME or "default";
+  editor = config.home.sessionVariables.EDITOR;
   monitorConfig = {
     "maelstrom" = [ "eDP-1, 1920x1080@60.01, 0x0, 1" ",preferred, auto, 1, mirror, eDP-1"
     ];
@@ -33,7 +34,7 @@ in {
       monitor = selectedMonitor;
 
       "$mainMod" = "SUPER";
-      "$terminal" = "kitty";
+      "$terminal" = "alacritty";
       # "$fileManager" = "dolphin";
       # "$menu" = "bemenu-run -b -l 5 down -c -W 0.3";
       "$menu" = "bash -c 'exec $(tofi-run)'";
@@ -151,8 +152,8 @@ in {
         "$mainMod, B, exec, zen"
         "$mainMod, D, exec, pkill $menu || $menu "
         "$mainMod, F, fullscreen"
-        "$mainMod, E, exec, kitty -e yazi"
-        "$mainMod, P, exec, kitty -e rmpc"
+        "$mainMod, E, exec, ${editor} -e yazi"
+        "$mainMod, P, exec, ${editor} -e rmpc"
         ", PRINT, exec, hyprshot -m region --clipboard-only"
         "$mainMod, PRINT, exec, hyprshot -m window"
         "$mainMod SHIFT, PRINT, exec, hyprshot -m output"
@@ -259,7 +260,7 @@ in {
         "wl-paste --type text --watch cliphist store"
 
         "[workspace 1 silent] zen"
-        "[workspace 2 silent] kitty"
+        "[workspace 2 silent] ${editor}"
         #"eww open bar"
       ];
     };
@@ -330,7 +331,7 @@ in {
         keyword decoration:inactive_opacity 1;\
         keyword general:gaps_in 0;\
         keyword general:gaps_out 0;\
-        keyword general:border_size 0;\
+        keyword general:border_size 1;\
         keyword decoration:rounding 0"
       swww 
         hyprctl notify 1 1500 "rgb(40a02b)" "Focus [ON]"

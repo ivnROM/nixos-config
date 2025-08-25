@@ -11,10 +11,12 @@ in
     eza
     fastfetch
     ffmpeg
+    font-manager
     fzf
     hyprshot
     hyprsysteminfo
     libnotify
+    nerd-font-patcher
     nicotine-plus
     kdePackages.okular
     pavucontrol
