@@ -209,18 +209,9 @@ in {
         "$mainMod, mouse_down, workspace, e-1"
         "$mainMod, mouse_up, workspace, e+1"
       ];
-
-      #binde = [
-      #", l, resizeactive, 50 0"
-      #", h, resizeactive, -50 0"
-      #", k, resizeactive, 0 -40"
-      #", j, resizeactive, 0 40"
-      #];
+     
       bindel = [
-        # ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
-        # ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-        # ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        # ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+     
         ",XF86MonBrightnessUp, exec, brightnessctl s 5%+"
         ",XF86MonBrightnessDown, exec, brightnessctl s 5%-"
         ",XF86AudioRaiseVolume, exec, volumectl -u up"
@@ -241,9 +232,6 @@ in {
         "opacity 0.9 0.7, title:^Hyprland System Info$"
         "float, class:^(qalculate-gtk)"
         "float, class:^(Tk)"
-        "float, class:^(nemo)"
-        "float, class:^(org.kde.ark)"
-        "float, class:^(org.kde.dolphin)"
       ];
 
       workspace = [

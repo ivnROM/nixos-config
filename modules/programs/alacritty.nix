@@ -6,7 +6,7 @@
     enable = true;
     settings = {
       font = lib.mkForce {
-        size = 22;
+        size = 16;
         normal = {
           family = "Terminus";
           style = "Regular";

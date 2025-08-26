@@ -10,6 +10,7 @@
     ./eww/eww.nix
     # ./bemenu.nix
     ./alacritty.nix
+    ./foot.nix
     ./kitty.nix
     ./tofi.nix
     ./tmux.nix
