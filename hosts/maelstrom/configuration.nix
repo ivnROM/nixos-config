@@ -111,6 +111,28 @@
       popups = 0.9;
       terminal = 1.0; 
     };
+
+    fonts = {
+      serif = {
+        package = pkgs.nerd-fonts.ubuntu;
+        name = "Ubuntu Nerd Font";
+      };
+
+      sansSerif = {
+        package = pkgs.nerd-fonts.ubuntu-sans;
+        name = "UbuntuSans Nerd Font";
+      };
+
+      monospace = {
+        package = pkgs.nerd-fonts.iosevka;
+        name = "Terminus";
+      };
+
+      emoji = {
+        package = pkgs.noto-fonts-emoji;
+        name = "Noto Color Emoji";
+      };
+    };
   };
 
   programs.nh = {
@@ -149,7 +171,6 @@
 
   # List services that you want to enable:
   services.tlp.enable = true;
-  services.blueman.enable = true;
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
   #
