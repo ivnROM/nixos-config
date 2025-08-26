@@ -8,12 +8,12 @@
     # server.enable = true;
     settings = {
       main = {
-        font = lib.mkForce "Terminus:16";
-        dpi-aware = "yes";
+        font = lib.mkForce "Terminus:size=22";
+        dpi-aware = lib.mkForce "yes";
       };
       mouse = {
         hide-when-typing = "yes";
-      }
+      };
     };
   };
 }

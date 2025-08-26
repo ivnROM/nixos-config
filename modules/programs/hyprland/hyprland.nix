@@ -34,7 +34,7 @@ in {
       monitor = selectedMonitor;
 
       "$mainMod" = "SUPER";
-      "$terminal" = "alacritty";
+      "$terminal" = "foot";
       # "$fileManager" = "dolphin";
       # "$menu" = "bemenu-run -b -l 5 down -c -W 0.3";
       "$menu" = "bash -c 'exec $(tofi-run)'";
@@ -152,8 +152,8 @@ in {
         "$mainMod, B, exec, zen"
         "$mainMod, D, exec, pkill $menu || $menu "
         "$mainMod, F, fullscreen"
-        "$mainMod, E, exec, $terminal -e yazi"
-        "$mainMod, P, exec, $terminal -e rmpc"
+        "$mainMod, E, exec, $terminal yazi"
+        "$mainMod, P, exec, $terminal rmpc"
         ", PRINT, exec, hyprshot -m region --clipboard-only"
         "$mainMod, PRINT, exec, hyprshot -m window"
         "$mainMod SHIFT, PRINT, exec, hyprshot -m output"

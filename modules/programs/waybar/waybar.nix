@@ -120,7 +120,7 @@ in
 
         memory = {
           format = "{used:0.1f}G  ";
-          on-click = "{pkgs.alacritty}/bin/alacritty -e btop";
+          on-click = "${pkgs.foot}/bin/foot btop";
           tooltip-format = "RAM: {}%";
         };
 
@@ -140,7 +140,7 @@ in
           format-wifi = "{ipaddr}/{cidr}";
           format-disconnected = "󰚌";
           tooltip-format = " {gwaddr}";
-          on-click = "{pkgs.alacritty}/bin/alacritty nmtui";
+          on-click = "${pkgs.foot}/bin/foot nmtui";
           interval = 1;
         };
 

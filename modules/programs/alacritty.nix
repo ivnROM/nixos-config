@@ -3,7 +3,7 @@
 {
   stylix.targets.alacritty.enable = true;
   programs.alacritty = {
-    enable = true;
+    enable = false;
     settings = {
       font = lib.mkForce {
         size = 16;
