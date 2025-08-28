@@ -35,8 +35,8 @@
   fonts.packages = with pkgs; [
     fira-code
     fira-code-symbols
-    terminus_font
     cozette
+    ibm-plex
 
     font-awesome
     noto-fonts

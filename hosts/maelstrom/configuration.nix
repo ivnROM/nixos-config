@@ -108,19 +108,21 @@
     opacity = {
       applications = 0.9;
       desktop = 0.9;
-      popups = 0.9;
+      popups = 1.0;
       terminal = 1.0; 
     };
 
     fonts = {
       serif = {
-        package = pkgs.nerd-fonts.ubuntu;
-        name = "Ubuntu Nerd Font";
+        # package = pkgs.nerd-fonts.ubuntu;
+        package = pkgs.ibm-plex;
+        name = "IBM Plex Serif";
       };
 
       sansSerif = {
-        package = pkgs.nerd-fonts.ubuntu-sans;
-        name = "UbuntuSans Nerd Font";
+        # package = pkgs.nerd-fonts.ubuntu-sans;
+        package = pkgs.ibm-plex;
+        name = "IBM Plex Sans";
       };
 
       monospace = {

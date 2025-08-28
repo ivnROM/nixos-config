@@ -28,7 +28,8 @@ in
       outline-width=0;
       border-width=0;
       corner-radius=1;
-      prompt-text="";
+      # prompt-text="";
+      prompt-text="🯀";
       prompt-padding=25;
       hide-cursor=true;
     };
