@@ -12,6 +12,15 @@
 
       listener = [
         {
+          timeout = 800;
+          on-timeout = "notify-send '󱑍 ' 'Aviso de inactividad'";
+        }
+        {
+          timeout = 850;
+          on-timeout = "brightnessctl set 50%-";
+          on-resume = "brightnessctl set +50%";
+        }
+        {
           timeout = 900;
           on-timeout = "hyprlock";
         }
