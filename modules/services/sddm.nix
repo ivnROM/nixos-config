@@ -2,23 +2,27 @@
 config,
 pkgs,
 inputs,
+lib,
 ...
 }: let
-  # animated_lock = {
-  #   # "maelstrom" = builtins.fetchurl {
-  #   #
-  #   # };
-  #   "vortex" = builtins.fetchurl {
-  #     url = "";
-  #     sha256 = "";
-  #   };
-  # };
-  # selected_lock = animated_lock.${config.home.sessionVariables.HOSTNAME};
-  #
-  # # an exhaustive example can be found in flake.nix
+  animated_lock = builtins.fetchurl {
+      url = "https://www.desktophut.com/files/9p6ujhVCuVWB0nI_Vvv%202%20Prob4%20Hyp1.mp4";
+      sha256 = "0mc0xicsydgvsaj5jgxil9ix3kadsx6zn1nqp2yzin6iykzqwdjh";
+      name = "lockscreen-video.mp4";
+  };
+
+  # an exhaustive example can be found in flake.nix
   sddm-theme = inputs.silentSDDM.packages.${pkgs.system}.default.override {
     theme = "rei"; # select the config of your choice
-    # extraBackground = [ selected_lock ];
+    extraBackgrounds = [ animated_lock ];
+    theme-overrides = {
+      # "LoginScreen" = {
+      #   background = "${animated_lock.name}";
+      # };
+      # "LockScreen" = {
+      #   background = "${animated_lock.name}";
+      # };
+    };
   };
 in  {
   # include the test package which can be run using test-sddm-silent
@@ -26,7 +30,7 @@ in  {
   qt.enable = true;
   services.displayManager.sddm = {
     package = pkgs.kdePackages.sddm; # use qt6 version of sddm
-    enable = true;
+    enable = false;
     theme = sddm-theme.pname;
     wayland.enable = true;
     # the following changes will require sddm to be restarted to take
