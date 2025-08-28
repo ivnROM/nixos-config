@@ -8,8 +8,8 @@
     # server.enable = true;
     settings = {
       main = {
-        font = lib.mkForce "Cozette:size=11";
-        dpi-aware = lib.mkForce "yes";
+        font = lib.mkForce "Cozette:size=22";
+        dpi-aware = lib.mkForce "true";
       };
       mouse = {
         hide-when-typing = "yes";
