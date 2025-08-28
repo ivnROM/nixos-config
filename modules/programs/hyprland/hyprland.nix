@@ -20,6 +20,38 @@ in {
   xdg.configFile."hypr/pyprland.toml".source = pyprlandToml;
   services.hyprpolkitagent.enable = true;
 
+  home.packages = with pkgs; [
+    jq
+    (pkgs.writeShellScriptBin "hypr-togglefocus" ''
+      HYPRGAMEMODE=$(hyprctl getoption animations:enabled | awk 'NR==1{print $2}')
+      if [ "$HYPRGAMEMODE" = 1 ] ; then
+        hyprctl --batch "\
+        keyword animations:enabled 0;\
+        keyword animation borderangle,0; \
+        keyword decoration:shadow:enabled 0;\
+        keyword decoration:blur:enabled 0;\
+        keyword decoration:blur:enabled 0;\
+        keyword decoration:fullscreen_opacity 1;\
+        keyword decoration:active_opacity 1;\
+        keyword decoration:inactive_opacity 1;\
+        keyword general:gaps_in 0;\
+        keyword general:gaps_out 0;\
+        keyword general:border_size 1;\
+        keyword decoration:rounding 0"
+      swww 
+        hyprctl notify 1 1500 "rgb(40a02b)" "Focus [ON]"
+        convert -size 1x1 xc:"#000000" png:- | swww img - --resize fill
+        exit
+      else
+        hyprctl notify 1 1500 "rgb(d20f39)" "Focus [OFF]"
+        swww img $HOME/Pictures/Wallpapers/wallpaper.png
+        hyprctl reload
+        exit 0
+      fi
+      exit 1
+      '')
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     package = null;
@@ -274,36 +306,4 @@ in {
       # Keybinds further down will be global again...
     '';
   };
-
-  home.packages = with pkgs; [
-    jq
-    (pkgs.writeShellScriptBin "hypr-togglefocus" ''
-      HYPRGAMEMODE=$(hyprctl getoption animations:enabled | awk 'NR==1{print $2}')
-      if [ "$HYPRGAMEMODE" = 1 ] ; then
-        hyprctl --batch "\
-        keyword animations:enabled 0;\
-        keyword animation borderangle,0; \
-        keyword decoration:shadow:enabled 0;\
-        keyword decoration:blur:enabled 0;\
-        keyword decoration:blur:enabled 0;\
-        keyword decoration:fullscreen_opacity 1;\
-        keyword decoration:active_opacity 1;\
-        keyword decoration:inactive_opacity 1;\
-        keyword general:gaps_in 0;\
-        keyword general:gaps_out 0;\
-        keyword general:border_size 1;\
-        keyword decoration:rounding 0"
-      swww 
-        hyprctl notify 1 1500 "rgb(40a02b)" "Focus [ON]"
-        convert -size 1x1 xc:"#000000" png:- | swww img - --resize fill
-        exit
-      else
-        hyprctl notify 1 1500 "rgb(d20f39)" "Focus [OFF]"
-        swww img $HOME/Pictures/Wallpapers/wallpaper.png
-        hyprctl reload
-        exit 0
-      fi
-      exit 1
-      '')
-  ];
 }

@@ -106,9 +106,11 @@ in
   programs.zoxide.enable = true;
   programs.bash.enable = true;
   programs.neovim.enable = true;
+  programs.hyprlock.enable = true;
   programs.rmpc.enable = true;
   programs.ssh.enable = true; 
   programs.mpv.enable = true; 
+
   services.ssh-agent.enable = true;
   services.swww.enable = true;
 

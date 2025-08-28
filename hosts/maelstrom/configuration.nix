@@ -102,7 +102,7 @@
     enable = true;
     autoEnable = true;
     # tokyo night
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/black-metal-bathory.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/horizon-dark.yaml";
 
     polarity = "dark";
     opacity = {
