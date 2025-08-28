@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+  { config, pkgs, lib, ... }:
 let
   host = config.home.sessionVariables.HOSTNAME or "default";
   wallpaper = {

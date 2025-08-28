@@ -1,11 +1,24 @@
 {
+config,
 pkgs,
 inputs,
 ...
 }: let
-  # an exhaustive example can be found in flake.nix
+  # animated_lock = {
+  #   # "maelstrom" = builtins.fetchurl {
+  #   #
+  #   # };
+  #   "vortex" = builtins.fetchurl {
+  #     url = "";
+  #     sha256 = "";
+  #   };
+  # };
+  # selected_lock = animated_lock.${config.home.sessionVariables.HOSTNAME};
+  #
+  # # an exhaustive example can be found in flake.nix
   sddm-theme = inputs.silentSDDM.packages.${pkgs.system}.default.override {
     theme = "rei"; # select the config of your choice
+    # extraBackground = [ selected_lock ];
   };
 in  {
   # include the test package which can be run using test-sddm-silent
