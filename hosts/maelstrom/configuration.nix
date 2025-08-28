@@ -124,8 +124,8 @@
       };
 
       monospace = {
-        package = pkgs.nerd-fonts.iosevka;
-        name = "Terminus";
+        package = pkgs.cozette;
+        name = "Cozette";
       };
 
       emoji = {

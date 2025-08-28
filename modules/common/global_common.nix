@@ -36,6 +36,7 @@
     fira-code
     fira-code-symbols
     terminus_font
+    cozette
 
     font-awesome
     noto-fonts

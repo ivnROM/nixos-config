@@ -8,7 +8,7 @@
     # server.enable = true;
     settings = {
       main = {
-        font = lib.mkForce "Terminus:size=22";
+        font = lib.mkForce "Cozette:size=11";
         dpi-aware = lib.mkForce "yes";
       };
       mouse = {
