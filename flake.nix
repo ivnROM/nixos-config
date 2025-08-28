@@ -27,6 +27,10 @@
       # esto no anda y no se sabe por que, deberia si
       #inputs.nipkgs.follows = "nixpkgs"; 
     };
+    silentSDDM = {
+      url = "github:uiriansan/SilentSDDM";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";

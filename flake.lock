@@ -753,8 +753,29 @@
         "hyprland-plugins": "hyprland-plugins",
         "nixpkgs": "nixpkgs_3",
         "nvf": "nvf",
+        "silentSDDM": "silentSDDM",
         "stylix": "stylix",
         "zen-browser": "zen-browser"
+      }
+    },
+    "silentSDDM": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1755106409,
+        "narHash": "sha256-3UWu7uMezJwyFGxfjYdy6I8e0OXg/BW3Oc6NBSUg2NY=",
+        "owner": "uiriansan",
+        "repo": "SilentSDDM",
+        "rev": "8ea5b24b4633383cd51ed42ec0a4d970f6be5baa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "uiriansan",
+        "repo": "SilentSDDM",
+        "type": "github"
       }
     },
     "stylix": {

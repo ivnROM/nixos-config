@@ -3,6 +3,7 @@
 
   imports = [
     ../programs/nvf.nix
+    ../services/sddm.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -48,10 +49,10 @@
     nerd-fonts.terminess-ttf
   ];
 
-  services.displayManager = {
-    # lemurs.enable = true;
-    ly.enable = true;
-  };
+  # services.displayManager = {
+  #   # lemurs.enable = true;
+  #   ly.enable = true;
+  # };
 
   stylix.targets = {
     font-packages.enable = true;
