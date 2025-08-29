@@ -7,8 +7,8 @@ let
       sha256 = "1lky7ycrdpfk6lz5yavb00izpspmqksa9hk99x7dppydznyvk5fi";
     };
     "vortex" = builtins.fetchurl {
-      url = "https://w.wallhaven.cc/full/yq/wallhaven-yq88md.png";
-      sha256 = "0nad8a5h04bam7sdhk74aap3vjhr7581yq5q07f1yrr2060h4v9s";
+      url = "https://www.desktophut.com/files/1687971045-1687971045-makoto-yuki-persona-3-live-wallpaper.mp4";
+      sha256 = "1q2ggsr4iq2vvll1zlzfcavdj865kbpqj3h5dxplzrh8gj038gg5";
     };
     "default" = builtins.fetchurl {
       url = "https://w.wallhaven.cc/full/2y/wallhaven-2y2wg6.png"; 
@@ -19,7 +19,11 @@ let
   selected_wallpaper = wallpaper.${host} or wallpaper."default";
 in
   {
-  home.file."Pictures/Wallpapers/wallpaper.png".source = selected_wallpaper;
+    home.file = if host == "vortex" then { 
+      "Pictures/Wallpapers/wallpaper.mp4".source = selected_wallpaper;
+    } else {
+      "Pictures/Wallpapers/wallpaper.png".source = selected_wallpaper;
+    };
   services.swww = {
     enable = true;
   };
