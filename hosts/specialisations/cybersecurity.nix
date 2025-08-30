@@ -31,6 +31,7 @@
             };
 
           environment.systemPackages = with pkgs; [
+            aircrack-ng
             burpsuite
             exploitdb
             tor-browser-bundle-bin
