@@ -12,6 +12,7 @@
     ./alacritty.nix
     ./foot.nix
     ./kitty.nix
+    ./mpvpaper.nix
     ./tofi.nix
     ./tmux.nix
     ./zellij.nix
