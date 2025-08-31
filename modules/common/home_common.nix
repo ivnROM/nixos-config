@@ -112,7 +112,6 @@ in
   programs.mpv.enable = true; 
 
   services.ssh-agent.enable = true;
-  services.swww.enable = true;
 
   services.mpd = {
     enable = true;

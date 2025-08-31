@@ -23,6 +23,7 @@
     bluez
     bluetui
     stremio
+    sqls
     libsecret
   ];
 
