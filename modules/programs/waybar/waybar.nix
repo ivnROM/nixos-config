@@ -24,6 +24,7 @@ in
         height = 40;
         width = 1920;
         spacing = 0;
+        exclusive = true;
 
         modules-left = [ "custom/logo" "hyprland/workspaces" "gamemode" "hyprland/submap"];
         modules-center = [ "clock" "mpd" ];

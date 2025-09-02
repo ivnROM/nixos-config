@@ -261,6 +261,7 @@ in {
         #"opacity 0.9 0.7, class:^(zen)$"
         "opacity 0.9 0.7, class:^(nemo)$"
         "opacity 0.9 0.7, class:^(libreoffice-writer)$"
+        "opacity 0.9 0.7, class:^(waybar)$"
         "opacity 0.9 0.7, title:^Hyprland System Info$"
         "float, class:^(qalculate-gtk)"
         "float, class:^(Tk)"
@@ -285,25 +286,28 @@ in {
       ];
     };
     extraConfig = ''
-    # Switch to a submap called `resize`.
       bind = $mainMod, R, submap, resize
 
-      # Start a submap called "resize".
       submap = resize
 
-      # Set repeatable binds for resizing the active window.
       binde = , L, resizeactive, 10 0
       binde = , H, resizeactive, -10 0
       binde = , K, resizeactive, 0 -10
       binde = , J, resizeactive, 0 10
 
-      # Use `reset` to go back to the global submap
       bind = $mainMod, R, submap, reset
 
-      # Reset the submap, which will return to the global submap
       submap = reset
 
-      # Keybinds further down will be global again...
+      bind = $mainMod, TAB, submap, special
+
+      submap = special
+
+      bind = , W, exec, waypaper --folder ${config.home.homeDirectory}/Pictures/Wallpapers
+
+      bind = $mainMod, TAB, submap, reset
+
+      submap = reset
     '';
   };
 }

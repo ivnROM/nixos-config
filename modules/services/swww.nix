@@ -18,15 +18,38 @@ let
   selected_wallpaper = wallpaper.${host} or wallpaper."default";
 in
   {
-    # home.file = if host == "vortex" then { 
-    #   "Pictures/Wallpapers/wallpaper.mp4".source = selected_wallpaper;
-    # } else {
-    #   "Pictures/Wallpapers/wallpaper.png".source = selected_wallpaper;
-    # };
     home.file."Pictures/Wallpapers/wallpaper.mp4".source = selected_wallpaper;
+    home.file.".config/waypaper/config.ini".text = ''
+        [Settings]
+        language = en
+        backend = swww
+        monitors = All
+        fill = Fill
+        sort = name
+        subfolders = False
+        all_subfolders = False
+        show_hidden = False
+        show_gifs_only = False
+        show_path_in_tooltip = True
+        number_of_columns = 3
+        zen_mode = False
+        swww_transition_type = any
+        swww_transition_step = 90
+        swww_transition_angle = 0
+        swww_transition_duration = 2
+        swww_transition_fps = 60
+    '';
+
+    home.packages = with pkgs; [
+      waypaper
+    ];
 
     services.swww = {
       enable = true;
     };
+
+    wayland.windowManager.hyprland.extraConfig = ''
+      exec-once=waypaper --restore
+    '';
 }
 

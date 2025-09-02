@@ -126,8 +126,8 @@
       };
 
       monospace = {
-        package = pkgs.cozette;
-        name = "Cozette";
+        package = pkgs.nerd-fonts.ubuntu;
+        name = "UbuntuSansMono Nerd Font";
       };
 
       emoji = {
