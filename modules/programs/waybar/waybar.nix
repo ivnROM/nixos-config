@@ -86,7 +86,7 @@ in
         };
 
         "hyprland/submap"= {
-          format = "󰲏 ";
+          format = "󰌌 {}";
           max-length = 8;
           tooltip = false;
         };
@@ -302,7 +302,7 @@ in
         transition: margin-left 0.4s ease, opacity 0.4s ease;
     }
 
-    #submap.resize {
+    #submap.resize, submap.special {
       opacity: 1;
       margin-left: 10px;
       padding: 0 4px;

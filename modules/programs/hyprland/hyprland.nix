@@ -98,10 +98,14 @@ in {
         inactive_opacity = 0.9;
 
         shadow = {
-          enabled = "false";
-          range = 4;
-          render_power = 3;
-          color = lib.mkDefault "rgba(1a1a1aee)";
+          enabled = "true";
+          range = 300 ;
+          render_power = 4;
+          offset = "0 40";
+          scale = 0.9;
+            # range = 4;
+          # render_power = 3;
+          # color = lib.mkDefault "rgba(1a1a1aee)";
         };
 
         blur = {
