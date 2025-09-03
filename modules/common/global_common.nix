@@ -62,6 +62,7 @@ in
   boot.plymouth = {
     enable = true;
     logo = logo;
+    theme = "glow";
   };
 
   stylix.targets = {
