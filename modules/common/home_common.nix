@@ -3,6 +3,11 @@ let
   editor = config.home.sessionVariables.EDITOR;
 in
 {
+
+  home.sessionVariables = {
+    STYLIX_COLORS = builtins.toJSON config.lib.stylix.colors;
+  };
+
   home.packages = with pkgs; [
     bat
     brightnessctl
