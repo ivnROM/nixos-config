@@ -2,6 +2,7 @@
   config,
   pkgs,
   inputs,
+  lib,
   ...
 }:
 
@@ -42,9 +43,22 @@
   };
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # boot.loader.systemd-boot.enable = true;
+  # boot.loader.efi.canTouchEfiVariables = true;
 
+  # stylix.targets.grub.enable = true;
+  # Bootloader.
+  boot.loader = {
+    systemd-boot.enable = true;
+    # grub = {
+    #   enable = true;
+    #   efiSupport = true;
+    #   device = "nodev";  
+    # };
+    efi.canTouchEfiVariables = true;
+    # timeout = lib.mkForce 10;
+  };
+  
   networking = {
     hostName = "vortex"; # Define your hostname.
 

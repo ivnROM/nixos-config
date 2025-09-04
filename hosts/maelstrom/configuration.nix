@@ -14,8 +14,8 @@
 
     ];
 
-  stylix.targets.grub.enable = true;
   # Bootloader.
+  stylix.targets.grub.enable = true;
   boot.loader = {
     # systemd-boot.enable = true;
     grub = {

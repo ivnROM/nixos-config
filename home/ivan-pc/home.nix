@@ -26,6 +26,13 @@
     XCURSOR_THEME = "Bibata-Modern-Classic";
   };
 
+  programs.halloy = {
+    enable = true;
+    settings = {
+      username = "ivnROM";
+    };
+  };
+
   programs.vesktop.enable = true;
   programs.obs-studio = {
     enable = true;
