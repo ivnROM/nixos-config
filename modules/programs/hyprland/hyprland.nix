@@ -3,7 +3,7 @@ let
   host = config.home.sessionVariables.HOSTNAME or "default";
   editor = config.home.sessionVariables.EDITOR;
   monitorConfig = {
-    "maelstrom" = [ "eDP-1, 1920x1080@60.01, 0x0, 1" ",preferred, auto, 1, mirror, eDP-1"
+    "maelstrom" = [ "eDP-1, 1920x1080@60.01, 0x0, 1.2" ",preferred, auto, 1, mirror, eDP-1"
     ];
     "vortex" = [
       "HDMI-A-1, 1920x1080@75.01, 0x0, 1" ",preferred, auto, 1, mirror, HDMI-A-1"

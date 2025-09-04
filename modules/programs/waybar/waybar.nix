@@ -22,7 +22,7 @@ in
         layer = "top";
         position = "top";
         height = 40;
-        width = 1920;
+        # width = 1920;
         spacing = 0;
         exclusive = true;
 

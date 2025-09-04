@@ -11,7 +11,7 @@
     ./hardware-configuration.nix
     ../specialisations/cybersecurity.nix
     ../specialisations/gaming.nix
-    ../specialisations/gns3.nix
+    # ../specialisations/gns3.nix
     ../../modules/common/global_common.nix
   ];
 
@@ -42,21 +42,13 @@
     download-buffer-size = 524288000;
   };
 
-  # Bootloader.
-  # boot.loader.systemd-boot.enable = true;
-  # boot.loader.efi.canTouchEfiVariables = true;
+  environment.systemPackages = with pkgs; [
+    dbeaver-bin
+  ];
 
-  # stylix.targets.grub.enable = true;
-  # Bootloader.
   boot.loader = {
     systemd-boot.enable = true;
-    # grub = {
-    #   enable = true;
-    #   efiSupport = true;
-    #   device = "nodev";  
-    # };
     efi.canTouchEfiVariables = true;
-    # timeout = lib.mkForce 10;
   };
   
   networking = {
@@ -124,7 +116,6 @@
       "networkmanager"
       "wheel"
     ];
-    # packages = with pkgs; [];
   };
 
   services.displayManager.defaultSession = "hyprland";
@@ -178,6 +169,17 @@
     enable = true;
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     xwayland.enable = true;
+  };
+
+  services.mysql = {
+    enable = true;
+    package = pkgs.mysql84;
+    settings = {
+      mysqld = {
+        port = 4321;
+        bind-address = "127.0.0.1";
+      };
+    };
   };
 
   fileSystems."/mnt/hdd" = {
