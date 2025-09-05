@@ -13,8 +13,7 @@
             ];
           };
 
-          users.users.ivan.extraGroups = [ "wireshark" "docker "];
-          users.groups.wireshark.gid = 500;
+          users.users.ivan.extraGroups = [ "wireshark" "docker "]; users.groups.wireshark.gid = 500;
           security.wrappers.dumpcap = {
             source = "${pkgs.wireshark}/bin/dumpcap";
             owner = "root";

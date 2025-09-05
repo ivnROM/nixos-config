@@ -11,7 +11,7 @@
     ./hardware-configuration.nix
     ../specialisations/cybersecurity.nix
     ../specialisations/gaming.nix
-    # ../specialisations/gns3.nix
+    ../specialisations/gns3.nix
     ../../modules/common/global_common.nix
   ];
 
@@ -49,6 +49,7 @@
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
+    timeout = lib.mkForce 10;
   };
   
   networking = {

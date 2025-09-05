@@ -5,7 +5,14 @@
       configuration =
         {
           users.users.ivan = {
-            extraGroups = [ "libvirtd" "kvm"];
+            extraGroups = [ "libvirtd" "kvm" "wireshark"];
+          };
+          users.groups.wireshark.gid = 500;
+          security.wrappers.dumpcap = {
+            source = "${pkgs.wireshark}/bin/dumpcap";
+            owner = "root";
+            group = "wireshark";
+            permissions = "u+xs,g+x";
           };
           environment.systemPackages = with pkgs; [
             dnsmasq

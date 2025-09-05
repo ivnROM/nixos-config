@@ -261,6 +261,10 @@ in {
         "$mainMod, mouse:272, resizewindow"
       ];
 
+      layerrule = [
+        # "dimaround, waybar"
+      ];
+
       windowrulev2 = [
         #"opacity 0.9 0.7, class:^(zen)$"
         "opacity 0.9 0.7, class:^(nemo)$"
