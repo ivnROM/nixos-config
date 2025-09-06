@@ -40,10 +40,6 @@ in
     gnumake
     wget
 
-    mtpfs
-    android-tools
-    android-udev-rules
-
     lshw
     git
     wl-clipboard

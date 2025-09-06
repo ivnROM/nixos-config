@@ -93,7 +93,7 @@ in
 
   programs.ags = {
     enable = true;
-    configDir = ../programs/ags;
+    configDir = ./../programs/ags;
     extraPackages = with pkgs; [
       inputs.astal.packages.${pkgs.system}.battery
       inputs.astal.packages.${pkgs.system}.io
