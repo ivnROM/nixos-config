@@ -9,9 +9,16 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    ags = {
+      url = "github:aylur/ags";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    astal = {
+      url = "github:aylur/astal";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland-plugins = {
@@ -31,13 +38,12 @@
       url = "github:uiriansan/SilentSDDM";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-outputs = inputs@{ self, nixpkgs, home-manager, hyprland, hypr-dynamic-cursors, nvf, zen-browser, ... }: {
+outputs = inputs@{ self, nixpkgs, home-manager, hyprland, hypr-dynamic-cursors, nvf, zen-browser, ags, astal, ... }: {
     nixosConfigurations.maelstrom = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [

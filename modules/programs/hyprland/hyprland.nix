@@ -248,8 +248,8 @@ in {
      
       bindel = [
      
-        ",XF86MonBrightnessUp, exec, brightnessctl s 5%+"
-        ",XF86MonBrightnessDown, exec, brightnessctl s 5%-"
+        ",XF86MonBrightnessUp, exec, brightnessctl s 1%+"
+        ",XF86MonBrightnessDown, exec, brightnessctl s 1%-"
         ",XF86AudioRaiseVolume, exec, volumectl -u up"
         ",XF86AudioLowerVolume, exec, volumectl -u down"
         ",XF86AudioMute, exec, volumectl toggle-mute"

@@ -4,6 +4,8 @@ let
 in
 {
 
+  imports = [ inputs.ags.homeManagerModules.default ];
+
   home.sessionVariables = {
     STYLIX_COLORS = builtins.toJSON config.lib.stylix.colors;
   };
@@ -86,6 +88,18 @@ in
   stylix.targets = {
     gtk.enable = true;
     qt.enable = true;
+    # ags.enable = true;
+  };
+
+  programs.ags = {
+    enable = true;
+    configDir = ../programs/ags;
+    extraPackages = with pkgs; [
+      inputs.astal.packages.${pkgs.system}.battery
+      inputs.astal.packages.${pkgs.system}.io
+      inputs.astal.packages.${pkgs.system}.notifd
+      fzf
+    ];
   };
 
   programs.git = {

@@ -27,7 +27,7 @@ in
         exclusive = true;
 
         modules-left = [ "custom/logo" "hyprland/workspaces" "gamemode" "hyprland/submap"];
-        modules-center = [ "clock" "mpd" ];
+        modules-center = [ "privacy" "clock" "mpd" ];
         modules-right = [ "group/rightbox" ];
 
         gamemode = {
@@ -93,6 +93,29 @@ in
 
         tray = {
           spacing = 10;
+        };
+
+        privacy = {
+          icon-spacing = 4;
+          icon-size = 18;
+          transition-duration = 250;
+          modules= [
+            {
+              type = "screenshare";
+              tooltip = true;
+              tooltip-icon-size = 24;
+            }
+            {
+              type = "audio-out";
+              tooltip = true;
+              tooltip-icon-size = 24;
+            }
+            {
+              type = "audio-in";
+              tooltip = true;
+              tooltip-icon-size = 24;
+            }
+          ];
         };
 
         clock = {
