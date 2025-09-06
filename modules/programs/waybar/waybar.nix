@@ -222,6 +222,7 @@ in
     style = ''
     * {
         border: none;
+        font-family: 'Ubuntu Nerd Font';
         /* padding: 0.1rem; */
     }
 
