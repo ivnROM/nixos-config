@@ -4,11 +4,12 @@ let
 in
 {
 
-  imports = [ inputs.ags.homeManagerModules.default ];
+  imports = [ 
+    inputs.ags.homeManagerModules.default
+  ];
 
   home.sessionVariables = {
-    STYLIX_COLORS = builtins.toJSON config.lib.stylix.colors;
-  };
+    STYLIX_COLORS = builtins.toJSON config.lib.stylix.colors; };
 
   home.packages = with pkgs; [
     bat
@@ -30,6 +31,8 @@ in
     qalculate-gtk
     ripgrep
     tldr
+    inputs.astal.packages.${pkgs.system}.default
+    inputs.astal.packages.${pkgs.system}.hyprland
 
     # lsp
     nixfmt-classic
@@ -96,8 +99,9 @@ in
     configDir = ./../programs/ags;
     extraPackages = with pkgs; [
       inputs.astal.packages.${pkgs.system}.battery
-      inputs.astal.packages.${pkgs.system}.io
-      inputs.astal.packages.${pkgs.system}.notifd
+      # inputs.astal.packages.${pkgs.system}.io
+      # inputs.astal.packages.${pkgs.system}.notifd
+      inputs.astal.packages.${pkgs.system}.hyprland
       fzf
     ];
   };
